@@ -15,17 +15,18 @@ type ButtonProps = {
 
 const variants: Record<ButtonVariant, string> = {
   primary:
-    "bg-navy text-white hover:bg-charcoal shadow-[var(--shadow-sm)] focus-visible:ring-navy",
+    "bg-cta text-cta-foreground hover:brightness-110 shadow-[var(--shadow-cta)] focus-visible:ring-cta rounded-full",
   secondary:
-    "bg-surface text-navy border border-border hover:border-charcoal/30 hover:bg-surface-warm focus-visible:ring-charcoal",
+    "bg-transparent text-foreground border border-border-strong hover:bg-surface ring-1 ring-border-subtle focus-visible:ring-primary rounded-full",
   ghost:
-    "text-charcoal hover:text-navy hover:bg-surface-warm focus-visible:ring-charcoal",
-  dark: "bg-accent text-white hover:bg-accent-hover shadow-[var(--shadow-sm)] focus-visible:ring-accent",
+    "text-muted-foreground hover:text-foreground hover:bg-surface rounded-lg",
+  dark:
+    "bg-emerald-soft text-emerald border border-emerald-border hover:brightness-110 rounded-full",
 };
 
 const sizes: Record<ButtonSize, string> = {
-  md: "px-4 py-2.5 text-sm",
-  lg: "px-5 py-3 text-[15px]",
+  md: "px-5 py-2.5 text-sm",
+  lg: "px-7 py-3 text-[15px] font-semibold",
 };
 
 function isExternalHref(href: string) {
@@ -41,7 +42,7 @@ export function Button({
   external,
 }: ButtonProps) {
   const classes = cn(
-    "inline-flex items-center justify-center gap-1.5 rounded-lg font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+    "inline-flex items-center justify-center gap-1.5 font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-background",
     variants[variant],
     sizes[size],
     className,

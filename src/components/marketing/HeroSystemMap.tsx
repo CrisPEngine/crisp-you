@@ -22,10 +22,10 @@ function Chip({
 
 function ChannelDot({ name }: { name: "LinkedIn" | "X" | "Meta" | "Blog" }) {
   const styles: Record<string, string> = {
-    LinkedIn: "bg-[#0a66c2]/10 text-[#0a66c2] border-[#0a66c2]/20",
-    X: "bg-navy/10 text-navy border-navy/20",
-    Meta: "bg-[#1877f2]/10 text-[#1877f2] border-[#1877f2]/20",
-    Blog: "bg-accent-light text-accent border-accent/20",
+    LinkedIn: "bg-primary-soft text-primary border-primary-border",
+    X: "bg-surface-muted text-muted-foreground border-border-subtle",
+    Meta: "bg-primary-soft text-primary border-primary-border",
+    Blog: "bg-accent-light text-accent border-accent-border",
   };
   return (
     <span
@@ -47,16 +47,20 @@ export function HeroSystemMap() {
       role="img"
     >
       <div
-        className="pointer-events-none absolute -inset-8 rounded-[2rem] bg-gradient-to-br from-accent-mint via-transparent to-transparent opacity-70 blur-2xl"
+        className="pointer-events-none absolute -inset-6 rounded-[2rem] opacity-80 blur-2xl"
         aria-hidden="true"
+        style={{
+          backgroundImage:
+            "radial-gradient(60% 40% at 80% 10%, color-mix(in oklab, #4895ef 15%, transparent) 0%, transparent 100%), radial-gradient(40% 30% at 10% 90%, color-mix(in oklab, #4ff0b8 12%, transparent) 0%, transparent 100%)",
+        }}
       />
 
       <div className="relative grid grid-cols-12 gap-3 sm:gap-4">
         <div className="col-span-12 sm:col-span-5">
-          <div className="rounded-2xl border border-border bg-surface p-4 shadow-[var(--shadow-md)]">
+          <div className="cce-card-glass p-4 shadow-[var(--shadow-md)]">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-navy text-[11px] font-bold text-white">
+                <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-primary text-[11px] font-bold text-cta-foreground">
                   C
                 </span>
                 <p className="text-[11px] font-semibold uppercase tracking-wider text-muted">
@@ -74,14 +78,14 @@ export function HeroSystemMap() {
               ].map((row) => (
                 <div
                   key={row.k}
-                  className="flex items-center justify-between rounded-lg bg-background-deep px-2.5 py-1.5"
+                  className="flex items-center justify-between rounded-lg border border-border-subtle bg-surface px-2.5 py-1.5"
                 >
                   <span className="text-[11px] text-muted">{row.k}</span>
                   <span className="text-[11px] font-medium text-navy">{row.v}</span>
                 </div>
               ))}
             </div>
-            <div className="mt-4 flex items-center gap-2 rounded-lg bg-accent-mint px-2.5 py-2">
+            <div className="mt-4 flex items-center gap-2 rounded-lg border border-accent-border bg-accent-soft px-2.5 py-2">
               <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true" />
               <p className="text-[11px] font-medium text-accent">Free plan active</p>
             </div>
@@ -89,7 +93,7 @@ export function HeroSystemMap() {
         </div>
 
         <div className="col-span-12 sm:col-span-7">
-          <div className="rounded-2xl border border-border bg-surface p-4 shadow-[var(--shadow-md)]">
+          <div className="cce-card p-4 shadow-[var(--shadow-md)]">
             <div className="flex items-center justify-between">
               <p className="text-[11px] font-semibold uppercase tracking-wider text-muted">
                 Content strategy
@@ -103,8 +107,8 @@ export function HeroSystemMap() {
                   className={cn(
                     "rounded-lg border px-2 py-1.5 text-center",
                     i === 0
-                      ? "border-accent/30 bg-accent-mint"
-                      : "border-border-subtle bg-background-deep",
+                      ? "border-primary-border bg-primary-soft"
+                      : "border-border-subtle bg-surface-muted",
                   )}
                 >
                   <p className="text-[10px] font-medium text-navy">{theme}</p>
@@ -124,7 +128,7 @@ export function HeroSystemMap() {
         </div>
 
         <div className="col-span-12">
-          <div className="rounded-2xl border border-border bg-surface shadow-[var(--shadow-md)]">
+          <div className="cce-card overflow-hidden shadow-[var(--shadow-md)]">
             <div className="flex items-center justify-between border-b border-border-subtle px-4 py-2.5">
               <div className="flex items-center gap-2">
                 <p className="text-[11px] font-semibold uppercase tracking-wider text-muted">
@@ -187,14 +191,14 @@ export function HeroSystemMap() {
         </div>
 
         <div className="col-span-12 sm:col-span-7">
-          <div className="rounded-2xl border border-border bg-surface p-4 shadow-[var(--shadow-md)]">
+          <div className="cce-card p-4 shadow-[var(--shadow-md)]">
             <div className="flex items-center justify-between">
               <p className="text-[11px] font-semibold uppercase tracking-wider text-muted">
                 Review
               </p>
               <span className="chip chip-review">1 awaiting</span>
             </div>
-            <div className="mt-3 rounded-lg border border-border-subtle bg-background-deep p-3">
+            <div className="mt-3 rounded-lg border border-border-subtle bg-surface-muted p-3">
               <p className="text-[11px] font-medium text-navy">
                 5 content mistakes founders make
               </p>
@@ -203,10 +207,10 @@ export function HeroSystemMap() {
                 connected to the brand.
               </p>
               <div className="mt-2.5 flex items-center gap-1.5">
-                <span className="rounded-md bg-accent px-2 py-0.5 text-[10px] font-medium text-white">
+                <span className="rounded-md bg-emerald-soft px-2 py-0.5 text-[10px] font-medium text-emerald border border-emerald-border">
                   Approve
                 </span>
-                <span className="rounded-md border border-border bg-surface px-2 py-0.5 text-[10px] font-medium text-charcoal">
+                <span className="rounded-md border border-border-subtle bg-surface px-2 py-0.5 text-[10px] font-medium text-muted-foreground">
                   Edit
                 </span>
               </div>
@@ -215,7 +219,7 @@ export function HeroSystemMap() {
         </div>
 
         <div className="col-span-12 sm:col-span-5">
-          <div className="rounded-2xl border border-border bg-surface p-4 shadow-[var(--shadow-md)]">
+          <div className="cce-card p-4 shadow-[var(--shadow-md)]">
             <div className="flex items-center justify-between">
               <p className="text-[11px] font-semibold uppercase tracking-wider text-muted">
                 Publishing rhythm
@@ -230,7 +234,7 @@ export function HeroSystemMap() {
                     <div
                       className={cn(
                         "w-full rounded-sm",
-                        i === 5 || i === 6 ? "bg-accent/30" : "bg-accent/70",
+                        i === 5 || i === 6 ? "bg-accent/40" : "bg-primary/70",
                       )}
                       style={{ height: `${h * 0.5}px` }}
                     />

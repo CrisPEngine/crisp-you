@@ -30,7 +30,7 @@ export function AIPositioningPanel() {
             {aiHelps.map((tag) => (
               <span
                 key={tag}
-                className="rounded-lg border border-border-subtle bg-background-deep px-3 py-1.5 text-sm text-charcoal"
+                className="rounded-lg border border-border-subtle bg-surface-muted px-3 py-1.5 text-sm text-charcoal"
               >
                 {tag}
               </span>
@@ -38,7 +38,7 @@ export function AIPositioningPanel() {
           </div>
         </div>
 
-        <div className="relative overflow-hidden rounded-2xl border border-accent/30 bg-gradient-to-br from-accent-mint via-surface to-surface p-6 shadow-[var(--shadow-md)]">
+        <div className="cce-panel-highlight relative overflow-hidden rounded-2xl p-6 shadow-[var(--shadow-md)]">
           <div className="grid-bg-fine pointer-events-none absolute inset-0 opacity-40" aria-hidden="true" />
           <div className="relative">
             <div className="flex items-center justify-between">
@@ -49,7 +49,7 @@ export function AIPositioningPanel() {
               {systemProtects.map((tag) => (
                 <span
                   key={tag}
-                  className="rounded-lg border border-accent/20 bg-surface px-3 py-1.5 text-sm font-medium text-accent shadow-[var(--shadow-xs)]"
+                  className="rounded-lg border border-accent-border bg-surface px-3 py-1.5 text-sm font-medium text-accent shadow-[var(--shadow-xs)]"
                 >
                   {tag}
                 </span>

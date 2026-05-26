@@ -1,4 +1,5 @@
 import { ImageResponse } from "next/og";
+import { cceTheme } from "@/config/theme";
 
 export const runtime = "edge";
 export const alt = "CRISP Content Engine";
@@ -16,10 +17,10 @@ export default function OpenGraphImage() {
           flexDirection: "column",
           justifyContent: "space-between",
           padding: "72px",
-          background: "#f8f5ef",
+          background: cceTheme.bg,
           backgroundImage:
-            "linear-gradient(to right, rgba(11,18,32,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(11,18,32,0.05) 1px, transparent 1px)",
-          backgroundSize: "56px 56px",
+            "radial-gradient(60% 40% at 80% 10%, rgba(72,149,239,0.15) 0%, transparent 100%), radial-gradient(40% 30% at 10% 90%, rgba(79,240,184,0.12) 0%, transparent 100%), linear-gradient(to right, rgba(230,234,242,0.04) 1px, transparent 1px), linear-gradient(to bottom, rgba(230,234,242,0.04) 1px, transparent 1px)",
+          backgroundSize: "auto, auto, 56px 56px, 56px 56px",
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
@@ -28,8 +29,8 @@ export default function OpenGraphImage() {
               width: 48,
               height: 48,
               borderRadius: 12,
-              background: "#0b1220",
-              color: "#fff",
+              background: cceTheme.primary,
+              color: cceTheme.ctaForeground,
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -39,7 +40,7 @@ export default function OpenGraphImage() {
           >
             C
           </div>
-          <span style={{ fontSize: 26, fontWeight: 600, color: "#0b1220" }}>
+          <span style={{ fontSize: 26, fontWeight: 600, color: cceTheme.text }}>
             CRISP Content Engine
           </span>
         </div>
@@ -49,7 +50,7 @@ export default function OpenGraphImage() {
             style={{
               fontSize: 16,
               fontWeight: 600,
-              color: "#0a7a64",
+              color: cceTheme.accent,
               letterSpacing: 2,
               textTransform: "uppercase",
             }}
@@ -60,7 +61,7 @@ export default function OpenGraphImage() {
             style={{
               fontSize: 64,
               fontWeight: 600,
-              color: "#0b1220",
+              color: cceTheme.text,
               lineHeight: 1.05,
               margin: "20px 0 0 0",
             }}
@@ -70,7 +71,7 @@ export default function OpenGraphImage() {
           <p
             style={{
               fontSize: 24,
-              color: "#4b5563",
+              color: cceTheme.textSoft,
               marginTop: 22,
               lineHeight: 1.5,
             }}
@@ -89,9 +90,9 @@ export default function OpenGraphImage() {
           <div
             style={{
               padding: "12px 22px",
-              background: "#0b1220",
-              color: "#fff",
-              borderRadius: 10,
+              background: cceTheme.cta,
+              color: cceTheme.ctaForeground,
+              borderRadius: 999,
               fontSize: 18,
               fontWeight: 500,
             }}
@@ -104,18 +105,19 @@ export default function OpenGraphImage() {
               gap: 6,
               alignItems: "center",
               padding: "8px 14px",
-              background: "#d4f0e6",
-              color: "#0a7a64",
+              background: "rgba(79,240,184,0.12)",
+              color: cceTheme.accent,
               borderRadius: 999,
               fontSize: 13,
               fontWeight: 600,
+              border: "1px solid rgba(79,240,184,0.3)",
             }}
           >
             <span
               style={{
                 width: 6,
                 height: 6,
-                background: "#0a7a64",
+                background: cceTheme.accent,
                 borderRadius: 999,
                 display: "block",
               }}

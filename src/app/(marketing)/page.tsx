@@ -42,7 +42,7 @@ export default function HomePage() {
       <ProblemDiagnostic />
       <IdeaBranchSection />
       <CapabilitySystem />
-      <div className="bg-background-deep pb-16 sm:pb-20">
+      <div className="bg-background-elevated pb-16 sm:pb-20">
         <MidPageCTA />
       </div>
       <WorkflowMap />

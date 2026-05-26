@@ -1,36 +1,7 @@
 import { ideaBranch } from "@/content/marketing";
+import { channelThemeClasses } from "@/config/theme";
 import { Section, SectionHeader } from "./Section";
 import { cn } from "@/lib/utils";
-
-const channelTheme: Record<
-  string,
-  { ring: string; dot: string; chipClass: string; label: string }
-> = {
-  LinkedIn: {
-    ring: "border-[#0a66c2]/30",
-    dot: "bg-[#0a66c2]",
-    chipClass: "bg-[#0a66c2]/10 text-[#0a66c2]",
-    label: "LinkedIn",
-  },
-  X: {
-    ring: "border-navy/30",
-    dot: "bg-navy",
-    chipClass: "bg-navy/10 text-navy",
-    label: "X",
-  },
-  Meta: {
-    ring: "border-[#1877f2]/30",
-    dot: "bg-[#1877f2]",
-    chipClass: "bg-[#1877f2]/10 text-[#1877f2]",
-    label: "Meta",
-  },
-  Blog: {
-    ring: "border-accent/40",
-    dot: "bg-accent",
-    chipClass: "bg-accent-light text-accent",
-    label: "Blog",
-  },
-};
 
 function StatusChip({ label }: { label: string }) {
   const map: Record<string, string> = {
@@ -66,7 +37,7 @@ export function IdeaBranchSection() {
 
       <div className="relative">
         <div className="mx-auto max-w-2xl">
-          <div className="relative overflow-hidden rounded-2xl border border-accent/30 bg-gradient-to-br from-accent-mint via-surface to-surface p-6 shadow-[var(--shadow-md)] sm:p-8">
+          <div className="cce-panel-highlight relative overflow-hidden rounded-2xl p-6 shadow-[var(--shadow-md)] sm:p-8">
             <div
               className="grid-bg-fine pointer-events-none absolute inset-0 opacity-50"
               aria-hidden="true"
@@ -99,7 +70,7 @@ export function IdeaBranchSection() {
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {ideaBranch.outputs.map((output) => {
-            const theme = channelTheme[output.channel];
+            const theme = channelThemeClasses[output.channel as keyof typeof channelThemeClasses];
             return (
               <article
                 key={output.channel}
@@ -112,11 +83,11 @@ export function IdeaBranchSection() {
                   <span
                     className={cn(
                       "inline-flex items-center gap-1.5 rounded-md px-2 py-0.5 text-[11px] font-semibold",
-                      theme.chipClass,
+                      theme.chip,
                     )}
                   >
                     <span className={cn("h-1.5 w-1.5 rounded-full", theme.dot)} aria-hidden="true" />
-                    {theme.label}
+                    {output.channel}
                   </span>
                   <StatusChip label={output.status} />
                 </div>

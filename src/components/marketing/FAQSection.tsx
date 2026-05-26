@@ -43,8 +43,8 @@ export function FAQSection() {
                     className={cn(
                       "flex h-7 w-7 shrink-0 items-center justify-center rounded-full border transition-all",
                       isOpen
-                        ? "border-accent bg-accent-mint text-accent"
-                        : "border-border bg-background-deep text-charcoal",
+                        ? "border-accent-border bg-accent-soft text-accent"
+                        : "border-border bg-surface-muted text-charcoal",
                     )}
                     aria-hidden="true"
                   >

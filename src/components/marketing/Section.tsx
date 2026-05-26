@@ -13,8 +13,8 @@ type SectionProps = {
 
 const toneClasses: Record<SectionTone, string> = {
   default: "bg-background",
-  warm: "bg-surface-warm",
-  deep: "bg-background-deep",
+  warm: "bg-surface",
+  deep: "bg-background-elevated",
 };
 
 export function Section({

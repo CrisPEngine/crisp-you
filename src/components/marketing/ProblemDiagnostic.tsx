@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 function DisconnectedBlock({ label }: { label: string }) {
   return (
     <div className="relative">
-      <div className="rounded-lg border border-dashed border-border-strong bg-background-deep/60 px-3 py-2.5">
+      <div className="rounded-lg border border-dashed border-border-strong bg-surface-muted/60 px-3 py-2.5">
         <p className="text-[11px] font-medium text-charcoal">{label}</p>
       </div>
     </div>
@@ -49,9 +49,7 @@ export function ProblemDiagnostic() {
             <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-muted">
               {problem.scattered.label}
             </p>
-            <span className="rounded-md bg-status-export/60 px-2 py-0.5 text-[10px] font-medium text-muted">
-              Scattered
-            </span>
+            <span className="chip chip-export">Scattered</span>
           </div>
           <h3 className="mt-3 text-xl font-semibold text-navy">
             {problem.scattered.title}
@@ -80,7 +78,7 @@ export function ProblemDiagnostic() {
           </div>
         </div>
 
-        <article className="relative overflow-hidden rounded-2xl border border-accent/30 bg-gradient-to-br from-accent-mint via-surface to-surface p-6 shadow-[var(--shadow-md)] sm:p-8">
+        <article className="cce-panel-highlight relative overflow-hidden rounded-2xl p-6 shadow-[var(--shadow-md)] sm:p-8">
           <div
             className="grid-bg-fine pointer-events-none absolute inset-0 opacity-40"
             aria-hidden="true"
@@ -88,7 +86,7 @@ export function ProblemDiagnostic() {
           <div className="relative">
             <div className="flex items-center justify-between">
               <p className="inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-accent">
-                <span className="flex h-5 w-5 items-center justify-center rounded-md bg-navy text-[10px] font-bold text-white">
+                <span className="flex h-5 w-5 items-center justify-center rounded-md bg-primary text-[10px] font-bold text-cta-foreground">
                   C
                 </span>
                 {problem.crisp.label}

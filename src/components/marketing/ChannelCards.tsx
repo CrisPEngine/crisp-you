@@ -1,32 +1,7 @@
 import { channels } from "@/content/marketing";
+import { channelThemeClasses } from "@/config/theme";
 import { Section, SectionHeader } from "./Section";
 import { cn } from "@/lib/utils";
-
-const channelTheme: Record<
-  string,
-  { ring: string; chip: string; mark: string }
-> = {
-  LinkedIn: {
-    ring: "hover:border-[#0a66c2]/30",
-    chip: "bg-[#0a66c2]/10 text-[#0a66c2]",
-    mark: "bg-[#0a66c2]",
-  },
-  X: {
-    ring: "hover:border-navy/30",
-    chip: "bg-navy/10 text-navy",
-    mark: "bg-navy",
-  },
-  Meta: {
-    ring: "hover:border-[#1877f2]/30",
-    chip: "bg-[#1877f2]/10 text-[#1877f2]",
-    mark: "bg-[#1877f2]",
-  },
-  Blog: {
-    ring: "hover:border-accent/40",
-    chip: "bg-accent-light text-accent",
-    mark: "bg-accent",
-  },
-};
 
 export function ChannelCards() {
   return (
@@ -38,7 +13,7 @@ export function ChannelCards() {
       />
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {channels.items.map((channel) => {
-          const theme = channelTheme[channel.name];
+          const theme = channelThemeClasses[channel.name as keyof typeof channelThemeClasses];
           return (
             <article
               key={channel.name}
@@ -54,7 +29,7 @@ export function ChannelCards() {
                     theme.chip,
                   )}
                 >
-                  <span className={cn("h-1.5 w-1.5 rounded-full", theme.mark)} />
+                  <span className={cn("h-1.5 w-1.5 rounded-full", theme.dot)} />
                   {channel.name}
                 </span>
               </div>

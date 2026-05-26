@@ -7,20 +7,16 @@ export function HeroSection() {
   return (
     <section className="relative overflow-hidden bg-background pt-10 pb-16 sm:pt-14 sm:pb-20 lg:pt-20 lg:pb-28">
       <div
-        className="grid-bg pointer-events-none absolute inset-0 fade-mask-radial opacity-70"
-        aria-hidden="true"
-      />
-      <div
-        className="pointer-events-none absolute -top-32 right-[-12rem] h-[28rem] w-[28rem] rounded-full bg-accent-mint opacity-60 blur-3xl"
+        className="grid-bg pointer-events-none absolute inset-0 fade-mask-radial opacity-40"
         aria-hidden="true"
       />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid items-center gap-12 lg:grid-cols-[1fr_1.05fr] lg:gap-12 xl:gap-16">
           <div className="max-w-xl lg:max-w-none">
-            <div className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3 py-1 shadow-[var(--shadow-xs)]">
+            <div className="inline-flex items-center gap-2 rounded-full border border-border-glass bg-surface-glass px-3 py-1 backdrop-blur-sm">
               <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true" />
-              <p className="text-xs font-medium uppercase tracking-wider text-charcoal">
+              <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
                 {hero.eyebrow}
               </p>
             </div>

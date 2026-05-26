@@ -1,16 +1,7 @@
 import { product } from "@/content/marketing";
+import { layerAccentClasses } from "@/config/theme";
 import { Section, SectionHeader } from "./Section";
 import { cn } from "@/lib/utils";
-
-const layerAccent: Record<string, string> = {
-  "01 Foundation": "from-accent/15 via-accent-mint to-surface border-accent/30",
-  "02 Strategy": "from-[#0a66c2]/8 via-surface to-surface border-[#0a66c2]/20",
-  "03 Production": "from-[#7c3aed]/8 via-surface to-surface border-[#7c3aed]/20",
-  "04 Governance": "from-[#0a7a64]/8 via-surface to-surface border-[#0a7a64]/20",
-  "05 Distribution": "from-[#1877f2]/8 via-surface to-surface border-[#1877f2]/20",
-  "06 Creative": "from-[#d97706]/8 via-surface to-surface border-[#d97706]/20",
-  "07 Improvement": "from-muted/10 via-surface to-surface border-border",
-};
 
 export function CapabilitySystem() {
   const [primary, ...rest] = product.layers;
@@ -25,7 +16,7 @@ export function CapabilitySystem() {
 
       <div className="grid gap-6 lg:grid-cols-12">
         <aside className="lg:col-span-5">
-          <div className="sticky top-24 overflow-hidden rounded-2xl border border-accent/30 bg-gradient-to-br from-accent-mint via-surface to-surface p-6 shadow-[var(--shadow-md)] lg:p-8">
+          <div className="cce-panel-highlight sticky top-24 overflow-hidden rounded-2xl p-6 shadow-[var(--shadow-md)] lg:p-8">
             <div
               className="grid-bg-fine pointer-events-none absolute inset-0 opacity-40"
               aria-hidden="true"
@@ -56,7 +47,7 @@ export function CapabilitySystem() {
                 ))}
               </div>
 
-              <div className="mt-6 flex items-center gap-2 rounded-lg border border-accent/20 bg-accent-mint px-3 py-2">
+              <div className="mt-6 flex items-center gap-2 rounded-lg border border-accent-border bg-accent-soft px-3 py-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true" />
                 <p className="text-[11px] font-medium text-accent">
                   Brand profile ready
@@ -72,7 +63,7 @@ export function CapabilitySystem() {
               key={layer.id}
               className={cn(
                 "relative flex items-start gap-4 overflow-hidden rounded-2xl border bg-gradient-to-br p-5 shadow-[var(--shadow-sm)] transition-all hover:shadow-[var(--shadow-md)] sm:p-6",
-                layerAccent[layer.layer],
+                layerAccentClasses[layer.layer],
               )}
               style={{ marginLeft: `${i * 6}px` }}
             >

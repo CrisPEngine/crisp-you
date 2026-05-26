@@ -11,10 +11,10 @@ export function MarketingHeader() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border/70 bg-background/85 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-border-subtle bg-background/60 backdrop-blur-md">
       <div className="mx-auto flex h-[4.25rem] max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex min-w-0 items-center gap-2.5">
-          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-navy text-sm font-bold text-white">
+          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary text-sm font-bold text-cta-foreground">
             C
           </span>
           <span className="hidden truncate text-sm font-semibold leading-tight text-navy sm:inline sm:text-[0.9375rem]">
@@ -27,7 +27,7 @@ export function MarketingHeader() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm text-charcoal transition-colors hover:text-navy"
+              className="text-sm text-muted hover:text-navy transition-colors"
             >
               {link.label}
             </Link>
@@ -37,7 +37,7 @@ export function MarketingHeader() {
         <div className="hidden items-center gap-3 md:flex">
           <a
             href={site.loginUrl}
-            className="text-sm font-medium text-charcoal transition-colors hover:text-navy"
+            className="rounded-full px-4 py-2 text-sm font-medium text-muted hover:text-navy transition-colors"
           >
             Login
           </a>
@@ -46,7 +46,7 @@ export function MarketingHeader() {
 
         <button
           type="button"
-          className="inline-flex items-center justify-center rounded-lg p-2 text-charcoal hover:bg-surface-warm md:hidden"
+          className="inline-flex items-center justify-center rounded-lg p-2 text-muted hover:bg-surface md:hidden"
           aria-expanded={mobileOpen}
           aria-controls="mobile-nav"
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
@@ -72,7 +72,7 @@ export function MarketingHeader() {
       <div
         id="mobile-nav"
         className={cn(
-          "border-t border-border bg-background md:hidden",
+          "border-t border-border-subtle bg-background/95 md:hidden",
           mobileOpen ? "block" : "hidden",
         )}
       >
@@ -81,7 +81,7 @@ export function MarketingHeader() {
             <Link
               key={link.href}
               href={link.href}
-              className="rounded-lg px-3 py-2.5 text-sm text-charcoal hover:bg-surface-warm"
+              className="rounded-lg px-3 py-2.5 text-sm text-muted hover:bg-surface hover:text-navy"
               onClick={() => setMobileOpen(false)}
             >
               {link.label}
@@ -89,7 +89,7 @@ export function MarketingHeader() {
           ))}
           <a
             href={site.loginUrl}
-            className="rounded-lg px-3 py-2.5 text-sm text-charcoal hover:bg-surface-warm"
+            className="rounded-lg px-3 py-2.5 text-sm text-muted hover:bg-surface"
           >
             Login
           </a>

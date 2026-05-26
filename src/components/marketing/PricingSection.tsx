@@ -52,8 +52,8 @@ export function PricingSection({ showHeading = true, id }: PricingSectionProps) 
               className={cn(
                 "rounded-lg px-4 py-2 text-sm font-medium transition-colors",
                 interval === value
-                  ? "bg-navy text-white shadow-[var(--shadow-sm)]"
-                  : "text-charcoal hover:bg-background-deep",
+                  ? "bg-primary text-cta-foreground shadow-[var(--shadow-sm)]"
+                  : "text-charcoal hover:bg-surface-muted",
               )}
               aria-pressed={interval === value}
             >
@@ -82,13 +82,13 @@ export function PricingSection({ showHeading = true, id }: PricingSectionProps) 
               )}
             >
               {tier.highlighted && (
-                <span className="absolute -top-3 left-6 inline-flex items-center gap-1 rounded-full bg-accent px-2.5 py-0.5 text-[11px] font-semibold text-white shadow-[var(--shadow-sm)]">
-                  <span className="h-1 w-1 rounded-full bg-white/80" aria-hidden="true" />
+                <span className="absolute -top-3 left-6 inline-flex items-center gap-1 rounded-full bg-accent px-2.5 py-0.5 text-[11px] font-semibold text-cta-foreground shadow-[var(--shadow-sm)]">
+                  <span className="h-1 w-1 rounded-full bg-cta-foreground/80" aria-hidden="true" />
                   Most popular
                 </span>
               )}
               {tier.badge && !tier.highlighted && (
-                <span className="mb-3 inline-flex w-fit rounded-full bg-background-deep px-2.5 py-0.5 text-[11px] font-medium text-charcoal">
+                <span className="mb-3 inline-flex w-fit rounded-full bg-surface-muted px-2.5 py-0.5 text-[11px] font-medium text-charcoal">
                   {tier.badge}
                 </span>
               )}

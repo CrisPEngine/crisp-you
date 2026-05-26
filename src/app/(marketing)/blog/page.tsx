@@ -42,7 +42,7 @@ export default function BlogPage() {
               key={post.slug}
               className="group flex flex-col rounded-2xl border border-border bg-surface p-6 shadow-[var(--shadow-sm)] transition-shadow hover:shadow-[var(--shadow-md)]"
             >
-              <span className="inline-flex w-fit items-center gap-1.5 rounded-full bg-background-deep px-2.5 py-0.5 text-[11px] font-medium text-charcoal">
+              <span className="inline-flex w-fit items-center gap-1.5 rounded-full bg-surface-muted px-2.5 py-0.5 text-[11px] font-medium text-charcoal">
                 <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true" />
                 Coming soon
               </span>

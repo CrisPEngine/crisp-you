@@ -16,7 +16,7 @@ export function UseCasePanels() {
             className="group relative overflow-hidden rounded-2xl border border-border bg-surface p-7 shadow-[var(--shadow-sm)] transition-all hover:border-accent/30 hover:shadow-[var(--shadow-md)]"
           >
             <div
-              className="pointer-events-none absolute -right-12 -top-12 h-32 w-32 rounded-full bg-accent-mint opacity-0 blur-2xl transition-opacity group-hover:opacity-100"
+              className="pointer-events-none absolute -right-12 -top-12 h-32 w-32 rounded-full bg-accent-soft opacity-0 blur-2xl transition-opacity group-hover:opacity-100"
               aria-hidden="true"
             />
             <div className="relative">
@@ -31,7 +31,7 @@ export function UseCasePanels() {
                 {card.signals.map((signal) => (
                   <span
                     key={signal}
-                    className="inline-flex items-center gap-1 rounded-md bg-background-deep px-2 py-0.5 text-[11px] text-charcoal"
+                    className="inline-flex items-center gap-1 rounded-md bg-surface-muted px-2 py-0.5 text-[11px] text-charcoal"
                   >
                     <span className="h-1 w-1 rounded-full bg-accent" aria-hidden="true" />
                     {signal}
