@@ -1,5 +1,6 @@
 import { createMetadata } from "@/lib/metadata";
-import { legalPages, siteConfig } from "@/content/marketing";
+import { legalPages } from "@/content/marketing";
+import { site } from "@/config/site";
 import { Section, SectionHeader } from "@/components/marketing/Section";
 import { Button } from "@/components/marketing/Button";
 
@@ -13,7 +14,9 @@ export default function AboutPage() {
   return (
     <Section className="pt-12 sm:pt-16">
       <SectionHeader heading={legalPages.about.title} body={legalPages.about.body} />
-      <Button href={siteConfig.urls.signup}>Start building your content system</Button>
+      <div className="mt-8">
+        <Button href={site.startUrl}>Start free, no card required</Button>
+      </div>
     </Section>
   );
 }

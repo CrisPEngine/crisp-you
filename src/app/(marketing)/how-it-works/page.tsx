@@ -1,8 +1,10 @@
 import { createMetadata } from "@/lib/metadata";
 import { howItWorksPage } from "@/content/marketing";
+import { breadcrumbSchema } from "@/lib/schema";
+import { StructuredData } from "@/components/marketing/StructuredData";
 import { Section, SectionHeader } from "@/components/marketing/Section";
-import { WorkflowSection } from "@/components/marketing/WorkflowSection";
-import { CTASection } from "@/components/marketing/CTASection";
+import { WorkflowMap } from "@/components/marketing/WorkflowMap";
+import { FinalCTA } from "@/components/marketing/FinalCTA";
 
 export const metadata = createMetadata({
   title: "How It Works | CRISP Content Engine",
@@ -14,6 +16,12 @@ export const metadata = createMetadata({
 export default function HowItWorksPage() {
   return (
     <>
+      <StructuredData
+        data={breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "How it works", path: "/how-it-works" },
+        ])}
+      />
       <Section className="pt-12 sm:pt-16">
         <SectionHeader
           heading={howItWorksPage.headline}
@@ -22,30 +30,8 @@ export default function HowItWorksPage() {
           className="mx-auto"
         />
       </Section>
-
-      <Section warm>
-        <div className="space-y-8">
-          {howItWorksPage.sections.map((section, i) => (
-            <div
-              key={section.title}
-              className="grid gap-6 rounded-2xl border border-border bg-surface p-6 shadow-sm lg:grid-cols-[auto_1fr] lg:items-start lg:gap-8 lg:p-8"
-            >
-              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-accent text-lg font-bold text-white">
-                {i + 1}
-              </span>
-              <div>
-                <h2 className="text-xl font-semibold text-navy">{section.title}</h2>
-                <p className="mt-3 text-base leading-relaxed text-muted-foreground">
-                  {section.copy}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </Section>
-
-      <WorkflowSection />
-      <CTASection />
+      <WorkflowMap />
+      <FinalCTA />
     </>
   );
 }

@@ -5,22 +5,29 @@ import { faq } from "@/content/marketing";
 import { Section, SectionHeader } from "./Section";
 import { cn } from "@/lib/utils";
 
-export function FAQAccordion() {
+export function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <Section>
+    <Section warm>
       <SectionHeader heading={faq.heading} align="center" className="mx-auto" />
-      <div className="mx-auto max-w-3xl divide-y divide-border rounded-2xl border border-border bg-surface shadow-sm">
+      <div className="mx-auto max-w-3xl space-y-3">
         {faq.items.map((item, i) => {
           const isOpen = openIndex === i;
+          const panelId = `faq-panel-${i}`;
+          const buttonId = `faq-button-${i}`;
           return (
-            <div key={item.question}>
+            <div
+              key={item.question}
+              className="overflow-hidden rounded-xl border border-border bg-surface shadow-sm"
+            >
               <h3>
                 <button
+                  id={buttonId}
                   type="button"
-                  className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
+                  className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left"
                   aria-expanded={isOpen}
+                  aria-controls={panelId}
                   onClick={() => setOpenIndex(isOpen ? null : i)}
                 >
                   <span className="text-base font-medium text-navy">{item.question}</span>
@@ -40,14 +47,19 @@ export function FAQAccordion() {
                 </button>
               </h3>
               <div
+                id={panelId}
+                role="region"
+                aria-labelledby={buttonId}
                 className={cn(
-                  "overflow-hidden transition-all",
-                  isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0",
+                  "grid transition-all",
+                  isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0",
                 )}
               >
-                <p className="px-6 pb-5 text-sm leading-relaxed text-muted-foreground">
-                  {item.answer}
-                </p>
+                <div className="overflow-hidden">
+                  <p className="px-5 pb-4 text-sm leading-relaxed text-muted-foreground">
+                    {item.answer}
+                  </p>
+                </div>
               </div>
             </div>
           );

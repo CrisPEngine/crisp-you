@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { navLinks, siteConfig, cta } from "@/content/marketing";
+import { navLinks, cta } from "@/content/marketing";
+import { site } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { Button } from "./Button";
 
@@ -10,18 +11,18 @@ export function MarketingHeader() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border/60 bg-background/90 backdrop-blur-md">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link href="/" className="flex items-center gap-2">
-          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-navy text-xs font-bold text-white">
+    <header className="sticky top-0 z-50 border-b border-border/70 bg-background/95 backdrop-blur-md">
+      <div className="mx-auto flex h-[4.25rem] max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
+        <Link href="/" className="flex min-w-0 items-center gap-2.5">
+          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-navy text-sm font-bold text-white">
             C
           </span>
-          <span className="text-sm font-semibold text-navy sm:text-base">
-            CRISP
+          <span className="truncate text-sm font-semibold leading-tight text-navy sm:text-[0.9375rem]">
+            CRISP Content Engine
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-8 lg:flex" aria-label="Main">
+        <nav className="hidden items-center gap-7 xl:flex" aria-label="Main">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -33,19 +34,19 @@ export function MarketingHeader() {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-3 lg:flex">
-          <Link
-            href={siteConfig.urls.login}
+        <div className="hidden items-center gap-3 md:flex">
+          <a
+            href={site.loginUrl}
             className="text-sm font-medium text-charcoal transition-colors hover:text-navy"
           >
             Login
-          </Link>
-          <Button href={siteConfig.urls.signup}>{cta.primary}</Button>
+          </a>
+          <Button href={site.startUrl}>{cta.primary}</Button>
         </div>
 
         <button
           type="button"
-          className="inline-flex items-center justify-center rounded-lg p-2 text-charcoal hover:bg-surface-warm lg:hidden"
+          className="inline-flex items-center justify-center rounded-lg p-2 text-charcoal hover:bg-surface-warm md:hidden"
           aria-expanded={mobileOpen}
           aria-controls="mobile-nav"
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
@@ -71,7 +72,7 @@ export function MarketingHeader() {
       <div
         id="mobile-nav"
         className={cn(
-          "border-t border-border bg-background lg:hidden",
+          "border-t border-border bg-background md:hidden",
           mobileOpen ? "block" : "hidden",
         )}
       >
@@ -86,15 +87,14 @@ export function MarketingHeader() {
               {link.label}
             </Link>
           ))}
-          <Link
-            href={siteConfig.urls.login}
+          <a
+            href={site.loginUrl}
             className="rounded-lg px-3 py-2.5 text-sm text-charcoal hover:bg-surface-warm"
-            onClick={() => setMobileOpen(false)}
           >
             Login
-          </Link>
+          </a>
           <div className="mt-2 px-3">
-            <Button href={siteConfig.urls.signup} className="w-full">
+            <Button href={site.startUrl} className="w-full">
               {cta.primary}
             </Button>
           </div>

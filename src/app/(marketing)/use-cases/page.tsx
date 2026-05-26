@@ -1,18 +1,26 @@
 import { createMetadata } from "@/lib/metadata";
 import { useCasesPage } from "@/content/marketing";
+import { breadcrumbSchema } from "@/lib/schema";
+import { StructuredData } from "@/components/marketing/StructuredData";
 import { Section, SectionHeader } from "@/components/marketing/Section";
-import { CTASection } from "@/components/marketing/CTASection";
+import { FinalCTA } from "@/components/marketing/FinalCTA";
 
 export const metadata = createMetadata({
   title: "Use Cases | CRISP Content Engine",
   description:
-    "Explore how founders, consultants, agencies and lean teams use CRISP Content Engine to stay consistently visible.",
+    "Explore content workflows for founders, consultants, agencies and lean teams who need to stay consistently visible.",
   path: "/use-cases",
 });
 
 export default function UseCasesPage() {
   return (
     <>
+      <StructuredData
+        data={breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Use cases", path: "/use-cases" },
+        ])}
+      />
       <Section className="pt-12 sm:pt-16">
         <SectionHeader
           heading={useCasesPage.headline}
@@ -25,7 +33,7 @@ export default function UseCasesPage() {
       <Section warm>
         <div className="grid gap-6 lg:grid-cols-2">
           {useCasesPage.cases.map((useCase, i) => (
-            <div
+            <article
               key={useCase.title}
               className={`rounded-2xl border border-border bg-surface p-8 shadow-sm ${
                 i === useCasesPage.cases.length - 1 && useCasesPage.cases.length % 2 !== 0
@@ -37,12 +45,12 @@ export default function UseCasesPage() {
               <p className="mt-4 text-base leading-relaxed text-muted-foreground">
                 {useCase.copy}
               </p>
-            </div>
+            </article>
           ))}
         </div>
       </Section>
 
-      <CTASection />
+      <FinalCTA />
     </>
   );
 }

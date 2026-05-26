@@ -20,6 +20,10 @@ const variants: Record<ButtonVariant, string> = {
     "text-charcoal hover:text-navy hover:bg-surface-warm focus-visible:ring-charcoal",
 };
 
+function isExternalHref(href: string) {
+  return href.startsWith("http") || href.startsWith("mailto:");
+}
+
 export function Button({
   href,
   children,
@@ -33,9 +37,15 @@ export function Button({
     className,
   );
 
-  if (external) {
+  const isExternal = external ?? isExternalHref(href);
+
+  if (isExternal) {
     return (
-      <a href={href} className={classes} target="_blank" rel="noopener noreferrer">
+      <a
+        href={href}
+        className={classes}
+        {...(href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+      >
         {children}
       </a>
     );

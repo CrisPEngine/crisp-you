@@ -1,412 +1,298 @@
+import { site } from "@/config/site";
+
 export const siteConfig = {
-  name: "CRISP Content Engine",
-  domain: "https://crisp.you",
-  tagline: "A practical content operating system for founders, consultants, agencies and lean teams.",
+  name: site.name,
+  domain: site.domain,
+  tagline:
+    "A practical content operating system for founders, consultants, agencies and lean teams.",
   urls: {
-    login: "/login",
-    signup: "/login",
-    contact: "/contact",
+    login: site.loginUrl,
+    signup: site.startUrl,
+    billing: site.billingUrl,
+    contact: site.contactUrl,
   },
 } as const;
 
-export const navLinks = [
-  { label: "Product", href: "/#product" },
-  { label: "How it works", href: "/how-it-works" },
-  { label: "Use cases", href: "/use-cases" },
-  { label: "Pricing", href: "/pricing" },
-  { label: "Blog", href: "/blog" },
-] as const;
-
-export const cta = {
-  primary: "Start building your content system",
-  secondary: "See how it works",
-  pricing: "See pricing",
-} as const;
+export { navLinks, cta } from "@/config/site";
 
 export const hero = {
-  headline: "Your content system, built around your brand",
+  eyebrow: "CRISP Content Engine",
+  headline: "A content system for people who cannot keep starting from scratch",
   subheadline:
-    "CRISP Content Engine helps founders, consultants and lean teams turn strategy into consistent content across LinkedIn, X, Meta and blog, without starting from a blank page every week.",
+    "CRISP Content Engine helps founders, consultants and lean teams turn brand strategy into consistent content across LinkedIn, X, Meta and blog, without relying on spare time, scattered notes or another blank writing box.",
   supporting:
-    "Plan the message, generate the drafts, review the work and keep publishing with a system that remembers the brand, the audience and the reason each post exists.",
+    "Build the brand profile once, create from strategy, review every draft and keep a publishing rhythm that still works when the business gets busy.",
   trustStrip:
-    "Built for founders, consultants, agencies and lean marketing teams who need useful content out the door, consistently.",
+    "Built for founders, consultants, agencies and lean teams who need practical content out the door, consistently.",
 } as const;
 
 export const problem = {
-  heading: "Content breaks when it depends on spare time",
+  heading: "Content usually breaks long before the idea runs out",
   body: [
-    "Most businesses do not struggle with content because they have nothing to say. They struggle because the process is scattered. Ideas sit in notes, strategy lives in someone's head, posts are written in bursts and publishing stops as soon as client work, operations or delivery takes over.",
-    "CRISP Content Engine gives that process a home. It connects the brand, the audience, the offer and the publishing rhythm, so content becomes something you can review and improve rather than something you restart every week.",
+    "Most businesses do not stop publishing because they have nothing useful to say. The process breaks because the work is scattered. Strategy lives in someone's head, ideas sit in notes, posts are written in bursts and publishing stops as soon as delivery, clients or operations take over.",
+    "CRISP Content Engine gives that process a home. The brand, audience, offer, content queue and publishing rhythm stay connected, so content becomes something you can review and improve rather than something you restart every week.",
   ],
   cards: [
     {
-      title: "Strategy gets lost",
-      copy: "The brand voice, offer, audience and positioning are often separated from the content being written.",
+      title: "Strategy is separated from execution",
+      copy: "The brand voice, offer, audience and positioning are often stored somewhere else from the content being created.",
     },
     {
-      title: "Publishing becomes reactive",
-      copy: "Content happens when someone has time, not when the business needs visibility.",
+      title: "Publishing depends on spare time",
+      copy: "The business only shows up when someone has the energy to start again.",
     },
     {
       title: "Every draft starts cold",
-      copy: "Without memory and structure, each post starts from zero, even when the message already exists.",
+      copy: "Without memory and structure, each post begins from zero, even when the message already exists.",
     },
   ],
 } as const;
 
 export const product = {
-  heading: "A practical content engine, not another blank writing box",
+  heading: "Not a writing box. A content operating system.",
   body: [
-    "CRISP Content Engine is designed around the way useful marketing content is actually created. Start with a brand profile, define the audience and strategy, generate channel-ready content, review the drafts and move approved work into a publishing rhythm.",
-    "The aim is not to replace judgement. The aim is to remove the empty-page problem, keep the message connected and make content easier to produce without flattening the brand into generic output.",
+    "CRISP Content Engine is built around the way useful marketing content actually gets made. The system starts with the brand, turns strategy into channel-ready drafts, keeps work in a visible queue and gives every piece of content a review path before it goes live.",
+    "The point is not to replace judgement. The point is to remove the empty-page problem, protect the message and make consistent publishing easier to sustain.",
   ],
-  features: [
+  capabilities: [
     {
-      title: "Brand profiles",
-      copy: "Store the tone, audience, value proposition, offers, keywords, exclusions and content rules that should shape every piece of content.",
-      icon: "profile" as const,
+      id: "brand-memory",
+      title: "Brand Memory",
+      copy: "Store the tone, audience, value proposition, offers, keywords, exclusions and rules that should shape the work.",
+      layer: "Foundation",
     },
     {
-      title: "Strategy-led generation",
-      copy: "Generate content from a defined strategy, not from isolated prompts. The system can work from campaigns, themes, offers and content objectives.",
-      icon: "strategy" as const,
+      id: "strategy-engine",
+      title: "Strategy Engine",
+      copy: "Generate content from campaigns, themes, offers and objectives instead of disconnected prompts.",
+      layer: "Strategy",
     },
     {
-      title: "Multi-channel drafts",
-      copy: "Create content for LinkedIn, X, Meta and blog, with each channel treated as its own format rather than a copied version of the same post.",
-      icon: "channels" as const,
+      id: "content-queue",
+      title: "Content Queue",
+      copy: "Keep drafts, channels, objectives, image prompts, statuses and scheduled dates visible in one workflow.",
+      layer: "Production",
     },
     {
-      title: "Approval workflow",
-      copy: "Move content through review, approval, scheduling and publishing states so the process is visible and manageable.",
-      icon: "approval" as const,
+      id: "channel-adaptation",
+      title: "Channel Adaptation",
+      copy: "Create LinkedIn, X, Meta and blog content as platform-aware drafts, not copied versions of the same post.",
+      layer: "Distribution",
     },
     {
-      title: "Image direction",
-      copy: "Create stronger image prompts and visual direction that match the post, platform and brand instead of relying on generic creative.",
-      icon: "image" as const,
+      id: "review-control",
+      title: "Review Control",
+      copy: "Move content through review, approval, scheduling and publishing states with human judgement in the loop.",
+      layer: "Governance",
     },
     {
-      title: "Learning loop",
-      copy: "Use performance data over time to understand what is working and improve future content with more context.",
-      icon: "learning" as const,
+      id: "visual-direction",
+      title: "Visual Direction",
+      copy: "Produce image prompts and creative direction that match the post, platform and brand.",
+      layer: "Creative",
+    },
+    {
+      id: "learning-loop",
+      title: "Learning Loop",
+      copy: "Use performance signals and editorial feedback over time to sharpen future content.",
+      layer: "Improvement",
     },
   ],
 } as const;
 
 export const workflow = {
-  heading: "From strategy to scheduled content in one connected flow",
+  heading: "One connected flow from strategy to published content",
+  subheading:
+    "The system is simple on purpose. Define the brand, build the queue, review the work and keep improving the rhythm.",
   steps: [
     {
       title: "Define the brand",
-      copy: "Capture the tone, audience, offer, positioning, keywords, exclusions and rules that should guide the content.",
+      copy: "Capture tone, audience, offers, positioning, keywords, exclusions and content rules.",
     },
     {
-      title: "Build the content queue",
-      copy: "Create campaign ideas, post topics, hooks, captions, blog drafts, image prompts and channel-specific versions.",
+      title: "Choose the objective",
+      copy: "Anchor content around awareness, engagement, traffic, conversion or a specific campaign.",
+    },
+    {
+      title: "Generate the queue",
+      copy: "Create post ideas, hooks, captions, blog drafts, image prompts and channel-specific versions.",
     },
     {
       title: "Review with context",
-      copy: "Edit the work before it goes live, with each draft connected to its objective, target audience and platform.",
+      copy: "Check each draft against the brand, audience, objective and platform before it moves forward.",
     },
     {
-      title: "Approve and publish",
-      copy: "Move approved content into a publishing workflow for LinkedIn, Meta, X or blog depending on the connected channels.",
-    },
-    {
-      title: "Learn and improve",
-      copy: "Bring performance signals back into the system so future content becomes sharper and more aligned with what the audience responds to.",
+      title: "Publish and learn",
+      copy: "Schedule or export approved content, then use results and editorial feedback to improve future work.",
     },
   ],
 } as const;
 
 export const audience = {
-  heading: "Built for people who cannot afford a messy content process",
+  heading: "Built for people who need content to work while they do",
+  cta: "Find your workflow",
   cards: [
     {
       title: "Founders",
-      copy: "Stay visible without turning content into a second full-time job. Build a repeatable rhythm around your ideas, offers and market point of view.",
+      copy: "Stay visible while running the business. Turn your ideas, offers and market point of view into a repeatable content rhythm.",
     },
     {
       title: "Consultants",
-      copy: "Turn expertise into steady thought leadership that supports trust, authority and demand without sounding like everyone else.",
+      copy: "Build authority with useful, regular thought leadership that sounds like your expertise, not like generic marketing copy.",
     },
     {
       title: "Lean marketing teams",
-      copy: "Give the team a shared content workflow, so strategy, drafting, approval and publishing do not live across disconnected documents.",
+      copy: "Give the team one shared workflow for strategy, drafting, approval and publishing instead of managing content across disconnected documents.",
     },
     {
       title: "Agencies and operators",
-      copy: "Manage multiple brands with clearer structure, better queues and a repeatable process for content production.",
+      copy: "Run multi-brand content production with clearer profiles, queues, approvals and repeatable delivery.",
     },
   ],
 } as const;
 
 export const differentiation = {
-  heading: "Why CRISP is different",
-  body: "CRISP Content Engine is built around continuity. It is not trying to win by producing the highest number of posts in the shortest time. It is designed to help a brand show up with a consistent message, useful ideas and a workflow that can survive real business pressure.",
-  comparison: {
-    columns: ["Typical AI writer", "CRISP Content Engine"] as const,
-    rows: [
-      { label: "Starting point", values: ["Prompt first", "Brand and strategy first"] },
-      { label: "Output", values: ["Isolated drafts", "Connected content queue"] },
-      { label: "Channels", values: ["Same idea reformatted", "Channel-aware drafts"] },
-      { label: "Brand memory", values: ["Depends on the prompt", "Stored brand profile and rules"] },
-      { label: "Workflow", values: ["Copy, paste and manage elsewhere", "Review, approval, scheduling and publishing flow"] },
-      { label: "Goal", values: ["Faster writing", "More consistent visibility"] },
-    ],
-  },
+  heading: "The difference is continuity",
+  body: "CRISP Content Engine is not trying to win by producing the most posts in the shortest time. It is built to help a brand keep showing up with a consistent message, useful ideas and a workflow that can survive real business pressure.",
+  typical: [
+    "Starts with a prompt",
+    "Produces isolated drafts",
+    "Depends on what you remember to include",
+    "Treats channels as rewrites",
+    "Leaves review and scheduling elsewhere",
+    "Optimises for faster writing",
+  ],
+  crisp: [
+    "Starts with the brand",
+    "Builds a connected content queue",
+    "Uses stored tone, rules, audience and offers",
+    "Treats each channel as its own format",
+    "Includes review, approval and publishing workflow",
+    "Optimises for consistent visibility",
+  ],
 } as const;
 
 export const aiPositioning = {
-  heading: "AI is useful, but the system matters more",
+  heading: "AI helps with the work. The system protects the brand.",
   body: [
-    "AI can help with drafting, structure, variation and speed. It cannot decide what your business should be known for, what your audience needs to hear or which ideas deserve to become repeatable marketing assets.",
-    "CRISP Content Engine uses AI as part of a wider content workflow. The system gives the work context, the user gives it judgement and the process keeps everything moving.",
+    "AI can help with drafting, structure, variation, repurposing and image direction. It cannot decide what your business should be known for, what your audience needs to hear or which ideas deserve to become repeatable marketing assets.",
+    "CRISP Content Engine uses AI inside a wider workflow. The system gives the work context, the user gives it judgement and the process keeps everything moving.",
   ],
-  aiHelps: ["Drafting", "Variations", "Image prompts", "Repurposing", "Ideation"],
-  systemProtects: ["Brand voice", "Strategy", "Audience relevance", "Approval control", "Publishing rhythm"],
+  aiHelps: ["Drafts", "Variations", "Hooks", "Image prompts", "Repurposed formats", "Campaign ideas"],
+  systemProtects: [
+    "Brand voice",
+    "Audience relevance",
+    "Offer clarity",
+    "Human approval",
+    "Publishing rhythm",
+    "Long-term consistency",
+  ],
 } as const;
 
 export const channels = {
-  heading: "One strategy, multiple channels",
+  heading: "One strategy, shaped for every channel",
   body: "Your audience does not experience your brand in one place. CRISP Content Engine helps turn a core idea into platform-aware content across the channels that matter, while keeping the message connected.",
+  note: "Some publishing paths may depend on account connection, platform permissions or current rollout stage.",
   items: [
     {
       name: "LinkedIn",
-      copy: "For founder posts, consultant thought leadership, business updates and authority-building content.",
+      copy: "Founder posts, consultant thought leadership, business updates and authority-building content.",
     },
     {
       name: "X",
-      copy: "For sharper observations, short-form ideas, threads and fast market commentary.",
+      copy: "Sharper observations, short-form ideas, threads and fast market commentary.",
     },
     {
       name: "Meta",
-      copy: "For visual-first awareness, community engagement and campaign support.",
+      copy: "Visual-first awareness, community engagement and campaign support.",
     },
     {
       name: "Blog",
-      copy: "For long-form SEO articles, educational content, comparison pieces and deeper strategic content.",
+      copy: "Long-form SEO articles, educational content, comparison pages and deeper strategic content.",
     },
   ],
 } as const;
 
-export const roadmap = {
-  heading: "Built for today, designed to improve with you",
-  body: "The first version of CRISP Content Engine focuses on creating a reliable strategy-to-content workflow. From there, the system can become more powerful as publishing, analytics, learning and operator workflows are connected.",
-  stages: [
-    {
-      title: "Create",
-      copy: "Define the brand, generate content, prepare image direction and build a usable content queue.",
-    },
-    {
-      title: "Publish",
-      copy: "Move approved content into scheduled publishing across supported channels, with manual review where it matters.",
-    },
-    {
-      title: "Improve",
-      copy: "Use metrics and editorial feedback to sharpen future content, strengthen campaigns and reduce repeated manual work.",
-    },
+export const ideaBranch = {
+  heading: "One idea should not become one post",
+  body: "A useful idea can become a LinkedIn post, a short X thread, a Meta caption, a blog angle and a future campaign theme. CRISP Content Engine helps you reuse the thinking without flattening every channel into the same message.",
+  coreIdea: "Marketing works best when it is built as a system",
+  outputs: [
+    { channel: "LinkedIn", format: "Authority post" },
+    { channel: "X", format: "Short thread" },
+    { channel: "Meta", format: "Visual caption" },
+    { channel: "Blog", format: "SEO article" },
   ],
 } as const;
 
-export type PricingTier = {
-  id: string;
-  name: string;
-  price: string;
-  bestFor: string;
-  includes: readonly string[];
-  cta: string;
-  highlighted?: boolean;
-};
-
-export const pricing = {
-  heading: "Start small, build the system as you grow",
-  note: "Pricing can change as the product develops. Early users keep access to the best available launch terms for their plan where possible.",
-  tiers: [
-    {
-      id: "starter",
-      name: "Starter",
-      price: "$5/month",
-      bestFor: "Testing the system with one brand.",
-      includes: [
-        "LinkedIn content",
-        "X content",
-        "One brand profile",
-        "Copy and paste workflow",
-        "Basic content queue",
-      ],
-      cta: "Start with Starter",
-    },
-    {
-      id: "creator",
-      name: "Creator",
-      price: "$9/month",
-      bestFor: "Solo founders and consultants who need a practical weekly rhythm.",
-      includes: [
-        "LinkedIn content",
-        "Blog drafts",
-        "X content",
-        "One brand profile",
-        "Direct LinkedIn publishing where available",
-        "Content queue and review workflow",
-      ],
-      cta: "Start with Creator",
-      highlighted: true,
-    },
-    {
-      id: "growth",
-      name: "Growth",
-      price: "$29/month",
-      bestFor: "Small businesses and lean teams publishing across more than one channel.",
-      includes: [
-        "LinkedIn and Meta publishing where available",
-        "Blog and X copy workflow",
-        "Up to 150 posts per month",
-        "Two brand profiles",
-        "Image prompt support",
-        "Approval workflow",
-      ],
-      cta: "Choose Growth",
-    },
-    {
-      id: "pro",
-      name: "Pro",
-      price: "$49/month",
-      bestFor: "Operators managing a serious content workflow.",
-      includes: [
-        "Up to 500 posts per month",
-        "Up to five brands",
-        "Advanced briefings",
-        "Image-first Instagram briefing",
-        "Priority content workflows",
-        "Publishing support where available",
-      ],
-      cta: "Choose Pro",
-    },
-    {
-      id: "scale",
-      name: "Scale",
-      price: "$199/month",
-      bestFor: "Agencies and multi-brand operators.",
-      includes: [
-        "Up to 20 brands",
-        "Up to 500 posts per month",
-        "Advanced briefings",
-        "Multi-brand workflow",
-        "Approval support",
-        "Publishing support where available",
-      ],
-      cta: "Talk to us",
-    },
-  ] satisfies readonly PricingTier[],
-  addOns: [
-    { name: "CRISP Comments", price: "$9/month" },
-    { name: "CRISP Images", price: "$29/month" },
+export const systemHealth = {
+  items: [
+    { label: "Brand profile complete", status: "complete" as const },
+    { label: "Audience defined", status: "complete" as const },
+    { label: "Offers connected", status: "complete" as const },
+    { label: "Queue active", status: "active" as const },
+    { label: "Review flow ready", status: "ready" as const },
+    { label: "Publishing rhythm set", status: "ready" as const },
   ],
-  comparisonFields: [
-    { key: "brandProfiles", label: "Brand profiles" },
-    { key: "monthlyPosts", label: "Monthly post allowance" },
-    { key: "linkedin", label: "LinkedIn content" },
-    { key: "x", label: "X content" },
-    { key: "meta", label: "Meta content" },
-    { key: "blog", label: "Blog drafts" },
-    { key: "directPublishing", label: "Direct publishing" },
-    { key: "approvalWorkflow", label: "Approval workflow" },
-    { key: "imagePrompts", label: "Image prompt support" },
-    { key: "advancedBriefings", label: "Advanced briefings" },
-    { key: "multiBrand", label: "Multi-brand support" },
-    { key: "bestFor", label: "Best for" },
-  ],
-  comparisonData: {
-    starter: {
-      brandProfiles: "1",
-      monthlyPosts: "Basic queue",
-      linkedin: "Yes",
-      x: "Yes",
-      meta: "No",
-      blog: "No",
-      directPublishing: "Copy and paste",
-      approvalWorkflow: "Basic",
-      imagePrompts: "No",
-      advancedBriefings: "No",
-      multiBrand: "No",
-      bestFor: "Testing the system",
-    },
-    creator: {
-      brandProfiles: "1",
-      monthlyPosts: "Standard",
-      linkedin: "Yes",
-      x: "Yes",
-      meta: "No",
-      blog: "Yes",
-      directPublishing: "LinkedIn where available",
-      approvalWorkflow: "Review workflow",
-      imagePrompts: "No",
-      advancedBriefings: "No",
-      multiBrand: "No",
-      bestFor: "Solo founders and consultants",
-    },
-    growth: {
-      brandProfiles: "2",
-      monthlyPosts: "150",
-      linkedin: "Yes",
-      x: "Yes",
-      meta: "Yes",
-      blog: "Yes",
-      directPublishing: "LinkedIn and Meta where available",
-      approvalWorkflow: "Yes",
-      imagePrompts: "Yes",
-      advancedBriefings: "No",
-      multiBrand: "Limited",
-      bestFor: "Small businesses and lean teams",
-    },
-    pro: {
-      brandProfiles: "5",
-      monthlyPosts: "500",
-      linkedin: "Yes",
-      x: "Yes",
-      meta: "Yes",
-      blog: "Yes",
-      directPublishing: "Where available",
-      approvalWorkflow: "Priority workflows",
-      imagePrompts: "Yes",
-      advancedBriefings: "Yes",
-      multiBrand: "Yes",
-      bestFor: "Serious content operators",
-    },
-    scale: {
-      brandProfiles: "20",
-      monthlyPosts: "500",
-      linkedin: "Yes",
-      x: "Yes",
-      meta: "Yes",
-      blog: "Yes",
-      directPublishing: "Where available",
-      approvalWorkflow: "Approval support",
-      imagePrompts: "Yes",
-      advancedBriefings: "Yes",
-      multiBrand: "Yes",
-      bestFor: "Agencies and multi-brand operators",
-    },
-  },
-  publishingNote:
-    "Some publishing integrations may depend on account connection, platform permissions or current rollout stage.",
 } as const;
 
 export const faq = {
   heading: "Questions before you start",
   items: [
     {
-      question: "Is CRISP Content Engine just another AI content generator?",
+      question: "Is Starter really free forever?",
       answer:
-        "No. AI helps with parts of the workflow, but the product is built around brand strategy, content structure, review, approval and publishing rhythm. The value is the connected system, not isolated drafts.",
+        "Yes. Starter is designed as a free forever plan for users who want to build consistency with structure before upgrading. It includes limited monthly export capacity and does not require a credit card.",
     },
     {
-      question: "Do I need a full marketing team to use it?",
+      question: "Is CRISP Content Engine just another AI content generator?",
       answer:
-        "No. It is built for founders, consultants and small teams who need a practical way to stay visible without creating a complicated internal process.",
+        "No. AI helps with drafting and variation, but the product is built around brand strategy, content structure, review, approval and publishing rhythm. The value is the connected system, not isolated drafts.",
+    },
+    {
+      question: "Who is CRISP Content Engine for?",
+      answer:
+        "It is built for founders, consultants, small teams, agencies and operators who need to stay visible without rebuilding their content process every week.",
+    },
+    {
+      question: "What counts as a post?",
+      answer:
+        "A post is a generated social content item for a supported channel, such as LinkedIn, X or Meta. Blog outlines and blog articles are counted separately according to the plan limits.",
+    },
+    {
+      question: "Does Meta mean Facebook and Instagram?",
+      answer:
+        "Yes. Meta refers to shared Facebook and Instagram workflows where supported by the current product setup, account connection and platform permissions.",
+    },
+    {
+      question: "Can I publish to X automatically?",
+      answer:
+        "X is currently positioned as an export workflow unless the app confirms otherwise. The marketing site describes X as export until automatic publishing is available.",
+    },
+    {
+      question: "Do unused posts roll over?",
+      answer:
+        "No. Monthly allowances are designed for a consistent publishing rhythm and unused posts do not roll over unless the product later introduces that feature.",
+    },
+    {
+      question: "Can I manage multiple brands?",
+      answer:
+        "Yes, Pro supports up to 3 brands and Scale is designed for custom brand limits. Lower plans are built around one brand unless the billing configuration changes.",
+    },
+    {
+      question: "What are the seats on Pro?",
+      answer:
+        "Pro includes an additional seat coming soon, designed for operators who need another person involved in the workflow. Keep this marked as coming soon until it is live.",
+    },
+    {
+      question: "Are Single idea, Comment engine and Reporting available?",
+      answer:
+        "These are marked as soon on the billing page. Keep them clearly labelled as soon or coming soon until they are released.",
+    },
+    {
+      question: "How does a blog outline differ from a blog article?",
+      answer:
+        "A blog outline gives structure, direction and key points for a future article. A blog article is a fuller long-form draft that can be edited and prepared for publishing.",
     },
     {
       question: "Can I review content before it is published?",
@@ -414,34 +300,23 @@ export const faq = {
         "Yes. Human review is central to the workflow. Content should be checked, edited and approved before it goes live.",
     },
     {
-      question: "Which platforms does it support?",
-      answer:
-        "CRISP Content Engine is designed around LinkedIn, X, Meta and blog workflows. Some channels may support direct publishing, while others may begin as copy and paste depending on the current product setup.",
-    },
-    {
-      question: "Can agencies use it for multiple brands?",
-      answer:
-        "Yes. Higher plans are designed for multi-brand workflows, with separate brand profiles and content queues.",
-    },
-    {
       question: "Will the content sound like my brand?",
       answer:
-        "The system is designed to use brand profiles, tone rules, audience details, keywords, exclusions and content rules. The better the brand setup, the more useful the drafts become.",
-    },
-    {
-      question: "Can I use it without publishing automatically?",
-      answer:
-        "Yes. The system should support review-first workflows. Automatic publishing should be useful, not forced.",
+        "The system uses brand profiles, tone rules, audience details, offers, keywords, exclusions and content rules. The better the setup, the more useful and aligned the drafts become.",
     },
   ],
 } as const;
 
 export const finalCta = {
   heading: "Stop restarting your content process every week",
-  body: "Build the brand profile once, create from strategy and give your content a workflow that can keep moving even when the business gets busy.",
+  body: "Start free, build the brand profile and give your content a workflow that can keep moving even when the business gets busy.",
 } as const;
 
 export const footer = {
+  tagline:
+    "CRISP Content Engine is a practical content operating system for founders, consultants, agencies and lean teams.",
+  legalLine:
+    "CRISP Content Engine is created and developed by CrisP Digital trading as ABL International FZE.",
   columns: [
     {
       title: "Product",
@@ -471,35 +346,13 @@ export const footer = {
       ],
     },
   ],
-  note: "CRISP Content Engine is part of the CrisP Digital ecosystem.",
 } as const;
 
 export const howItWorksPage = {
   headline: "A clearer way to move from idea to published content",
   subheadline:
     "CRISP Content Engine gives your content process a structure, so the strategy, drafts, approvals and publishing rhythm stay connected.",
-  sections: [
-    {
-      title: "Set the brand foundation",
-      copy: "Start by capturing what should guide every piece of content. Tone, audience, offer, positioning, keywords, exclusions and content rules live in one brand profile instead of scattered documents.",
-    },
-    {
-      title: "Create from strategy",
-      copy: "Generate content from defined campaigns, themes and objectives rather than one-off prompts. Each draft connects to a reason it exists and the audience it is meant to reach.",
-    },
-    {
-      title: "Build the queue",
-      copy: "Turn ideas into a structured content queue with channel-specific drafts, hooks, captions, blog posts and image direction ready for review.",
-    },
-    {
-      title: "Review and approve",
-      copy: "Edit drafts with full context before anything goes live. Move content through review and approval states so the process stays visible and manageable.",
-    },
-    {
-      title: "Publish and learn",
-      copy: "Schedule approved content across LinkedIn, X, Meta and blog. Bring performance signals back into the system to sharpen future content over time.",
-    },
-  ],
+  sections: workflow.steps,
 } as const;
 
 export const useCasesPage = {
@@ -537,27 +390,32 @@ export const blogPage = {
   posts: [
     {
       title: "Why content needs a system, not just more ideas",
-      excerpt: "Most businesses have enough ideas. What they lack is a process that turns those ideas into consistent, on-brand content.",
+      excerpt:
+        "Most businesses have enough ideas. What they lack is a process that turns those ideas into consistent, on-brand content.",
       slug: "why-content-needs-a-system",
     },
     {
       title: "How founders can stay visible without burning out",
-      excerpt: "Visibility matters, but so does sustainability. A practical approach to founder-led content that fits around real business pressure.",
+      excerpt:
+        "Visibility matters, but so does sustainability. A practical approach to founder-led content that fits around real business pressure.",
       slug: "founders-stay-visible-without-burnout",
     },
     {
       title: "The difference between AI content and a content operating system",
-      excerpt: "AI can draft faster. A content system decides what gets drafted, why it exists and how it connects to your brand.",
+      excerpt:
+        "AI can draft faster. A content system decides what gets drafted, why it exists and how it connects to your brand.",
       slug: "ai-content-vs-content-operating-system",
     },
     {
       title: "How to turn one strategic idea into a month of content",
-      excerpt: "One strong idea can fuel LinkedIn posts, threads, Meta content and a blog article when you have the right structure.",
+      excerpt:
+        "One strong idea can fuel LinkedIn posts, threads, Meta content and a blog article when you have the right structure.",
       slug: "one-idea-month-of-content",
     },
     {
       title: "Why brand memory matters in AI-assisted marketing",
-      excerpt: "Without stored brand context, every AI draft starts cold. Brand profiles turn isolated prompts into connected content.",
+      excerpt:
+        "Without stored brand context, every AI draft starts cold. Brand profiles turn isolated prompts into connected content.",
       slug: "brand-memory-ai-marketing",
     },
   ],
@@ -566,7 +424,7 @@ export const blogPage = {
 export const pricingPage = {
   headline: "Simple pricing for a more consistent content system",
   subheadline:
-    "Start with one brand and a practical publishing rhythm, then grow into multi-channel and multi-brand workflows as your content operation becomes more serious.",
+    "Start free with structure, then upgrade for LinkedIn auto-publishing, X export, blog workflows, Meta publishing and multi-brand content operations.",
 } as const;
 
 export const legalPages = {
@@ -581,7 +439,7 @@ export const legalPages = {
   contact: {
     title: "Contact",
     description: "Get in touch with the CRISP Content Engine team.",
-    body: "Questions about CRISP Content Engine, pricing or getting started? Reach out and we will get back to you.",
+    body: "Questions about CRISP Content Engine, pricing or getting started? Email enquiries@crispdigital.io and we will get back to you.",
   },
   about: {
     title: "About",

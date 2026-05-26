@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { footer, siteConfig } from "@/content/marketing";
+import { site } from "@/config/site";
 
 export function MarketingFooter() {
   return (
@@ -7,14 +8,14 @@ export function MarketingFooter() {
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div className="sm:col-span-2 lg:col-span-1">
-            <Link href="/" className="flex items-center gap-2">
-              <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-white text-xs font-bold text-navy">
+            <Link href="/" className="flex items-center gap-2.5">
+              <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-white text-sm font-bold text-navy">
                 C
               </span>
               <span className="text-sm font-semibold">CRISP Content Engine</span>
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-slate-300">
-              {siteConfig.tagline}
+              {footer.tagline}
             </p>
           </div>
 
@@ -37,10 +38,16 @@ export function MarketingFooter() {
           ))}
         </div>
 
-        <div className="mt-12 border-t border-slate-700 pt-8">
-          <p className="text-sm text-slate-400">{footer.note}</p>
-          <p className="mt-2 text-xs text-slate-500">
-            &copy; {new Date().getFullYear()} CRISP Content Engine. All rights reserved.
+        <div className="mt-12 space-y-2 border-t border-slate-700 pt-8">
+          <p className="text-sm text-slate-400">{footer.legalLine}</p>
+          <p className="text-xs text-slate-500">
+            &copy; {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
+          </p>
+          <p className="text-xs text-slate-500">
+            Contact:{" "}
+            <a href={site.contactUrl} className="text-slate-300 hover:text-white">
+              {site.contactEmail}
+            </a>
           </p>
         </div>
       </div>

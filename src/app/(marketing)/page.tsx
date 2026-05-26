@@ -1,39 +1,58 @@
 import { createMetadata } from "@/lib/metadata";
+import {
+  organizationSchema,
+  websiteSchema,
+  softwareApplicationSchema,
+  faqPageSchema,
+} from "@/lib/schema";
+import { StructuredData } from "@/components/marketing/StructuredData";
 import { HeroSection } from "@/components/marketing/HeroSection";
-import { ProblemSection } from "@/components/marketing/ProblemSection";
-import { FeatureGrid } from "@/components/marketing/FeatureGrid";
-import { WorkflowSection } from "@/components/marketing/WorkflowSection";
-import { AudienceCards } from "@/components/marketing/AudienceCards";
-import { ComparisonTable } from "@/components/marketing/ComparisonTable";
+import { ProblemDiagnostic } from "@/components/marketing/ProblemDiagnostic";
+import { CapabilitySystem } from "@/components/marketing/CapabilitySystem";
+import { WorkflowMap } from "@/components/marketing/WorkflowMap";
+import { UseCasePanels } from "@/components/marketing/UseCasePanels";
+import { DifferentiationTable } from "@/components/marketing/DifferentiationTable";
 import { AIPositioningPanel } from "@/components/marketing/AIPositioningPanel";
 import { ChannelCards } from "@/components/marketing/ChannelCards";
-import { RoadmapSection } from "@/components/marketing/RoadmapSection";
-import { PricingCards } from "@/components/marketing/PricingCards";
-import { FAQAccordion } from "@/components/marketing/FAQAccordion";
-import { CTASection } from "@/components/marketing/CTASection";
+import { IdeaBranchSection } from "@/components/marketing/IdeaBranchSection";
+import { PricingSection } from "@/components/marketing/PricingSection";
+import { FAQSection } from "@/components/marketing/FAQSection";
+import { FinalCTA } from "@/components/marketing/FinalCTA";
+import { MidPageCTA } from "@/components/marketing/MidPageCTA";
 
 export const metadata = createMetadata({
-  title: "CRISP Content Engine | Your Content System, Built Around Your Brand",
+  title: "CRISP Content Engine | A Content System Built Around Your Brand",
   description:
-    "CRISP Content Engine helps founders, consultants and lean teams turn strategy into consistent content across LinkedIn, X, Meta and blog without starting from a blank page every week.",
+    "CRISP Content Engine helps founders, consultants and lean teams turn brand strategy into consistent content across LinkedIn, X, Meta and blog without starting from a blank page every week.",
   path: "/",
 });
 
 export default function HomePage() {
   return (
     <>
+      <StructuredData
+        data={[
+          organizationSchema(),
+          websiteSchema(),
+          softwareApplicationSchema(),
+          faqPageSchema(),
+        ]}
+      />
       <HeroSection />
-      <ProblemSection />
-      <FeatureGrid />
-      <WorkflowSection />
-      <AudienceCards />
-      <ComparisonTable />
+      <ProblemDiagnostic />
+      <CapabilitySystem />
+      <div className="pb-16 sm:pb-20">
+        <MidPageCTA />
+      </div>
+      <WorkflowMap />
+      <UseCasePanels />
+      <DifferentiationTable />
       <AIPositioningPanel />
       <ChannelCards />
-      <RoadmapSection />
-      <PricingCards id="pricing" />
-      <FAQAccordion />
-      <CTASection />
+      <IdeaBranchSection />
+      <PricingSection id="pricing" />
+      <FAQSection />
+      <FinalCTA />
     </>
   );
 }

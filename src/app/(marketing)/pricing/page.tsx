@@ -1,21 +1,37 @@
 import { createMetadata } from "@/lib/metadata";
 import { pricingPage } from "@/content/marketing";
+import {
+  pricingProductSchema,
+  faqPageSchema,
+  breadcrumbSchema,
+} from "@/lib/schema";
+import { StructuredData } from "@/components/marketing/StructuredData";
 import { Section, SectionHeader } from "@/components/marketing/Section";
-import { PricingCards } from "@/components/marketing/PricingCards";
+import { PricingSection } from "@/components/marketing/PricingSection";
 import { PricingComparisonTable } from "@/components/marketing/PricingComparisonTable";
-import { FAQAccordion } from "@/components/marketing/FAQAccordion";
-import { CTASection } from "@/components/marketing/CTASection";
+import { FAQSection } from "@/components/marketing/FAQSection";
+import { FinalCTA } from "@/components/marketing/FinalCTA";
 
 export const metadata = createMetadata({
   title: "Pricing | CRISP Content Engine",
   description:
-    "Simple pricing for founders, consultants, agencies and lean teams building a more consistent content workflow.",
+    "Start free with CRISP Content Engine, then upgrade for LinkedIn auto-publishing, X export, blog workflows, Meta publishing and multi-brand content operations.",
   path: "/pricing",
 });
 
 export default function PricingPage() {
   return (
     <>
+      <StructuredData
+        data={[
+          pricingProductSchema(),
+          faqPageSchema(),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Pricing", path: "/pricing" },
+          ]),
+        ]}
+      />
       <Section className="pt-12 sm:pt-16">
         <SectionHeader
           heading={pricingPage.headline}
@@ -24,10 +40,10 @@ export default function PricingPage() {
           className="mx-auto"
         />
       </Section>
-      <PricingCards showHeading={false} />
+      <PricingSection showHeading={false} />
       <PricingComparisonTable />
-      <FAQAccordion />
-      <CTASection />
+      <FAQSection />
+      <FinalCTA />
     </>
   );
 }

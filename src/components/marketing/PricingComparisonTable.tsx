@@ -1,17 +1,21 @@
-import { pricing } from "@/content/marketing";
+import { pricingContent } from "@/content/pricing";
 import { Section } from "./Section";
 
+const tierIds = ["starter", "creator", "growth", "pro", "scale"] as const;
+
 export function PricingComparisonTable() {
-  const tierIds = ["starter", "creator", "growth", "pro", "scale"] as const;
-  const tierNames = pricing.tiers.map((t) => t.name);
+  const tierNames = pricingContent.tiers.map((t) => t.name);
 
   return (
-    <Section>
+    <Section warm>
       <div className="overflow-x-auto rounded-2xl border border-border bg-surface shadow-sm">
-        <table className="w-full min-w-[800px] text-left text-sm">
+        <table className="w-full min-w-[960px] text-left text-sm">
           <thead>
             <tr className="border-b border-border bg-surface-warm">
-              <th scope="col" className="sticky left-0 bg-surface-warm px-4 py-4 font-medium text-muted">
+              <th
+                scope="col"
+                className="sticky left-0 bg-surface-warm px-4 py-4 font-medium text-muted"
+              >
                 Feature
               </th>
               {tierNames.map((name) => (
@@ -22,20 +26,24 @@ export function PricingComparisonTable() {
             </tr>
           </thead>
           <tbody>
-            {pricing.comparisonFields.map((field, i) => (
+            {pricingContent.comparisonRows.map((row, i) => (
               <tr
-                key={field.key}
+                key={row.key}
                 className={i % 2 === 0 ? "bg-surface" : "bg-background"}
               >
                 <th
                   scope="row"
                   className="sticky left-0 bg-inherit px-4 py-3 font-medium text-navy"
                 >
-                  {field.label}
+                  {row.label}
                 </th>
                 {tierIds.map((tierId) => (
                   <td key={tierId} className="px-4 py-3 text-muted-foreground">
-                    {pricing.comparisonData[tierId][field.key as keyof typeof pricing.comparisonData.starter]}
+                    {
+                      pricingContent.comparisonData[tierId][
+                        row.key as keyof (typeof pricingContent.comparisonData)["starter"]
+                      ]
+                    }
                   </td>
                 ))}
               </tr>
@@ -43,9 +51,6 @@ export function PricingComparisonTable() {
           </tbody>
         </table>
       </div>
-      <p className="mt-4 text-xs leading-relaxed text-muted">
-        {pricing.publishingNote}
-      </p>
     </Section>
   );
 }

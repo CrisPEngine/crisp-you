@@ -1,0 +1,34 @@
+/**
+ * Site URLs and domain configuration.
+ * Update these once final signup routes and Stripe checkout URLs are confirmed.
+ */
+export const site = {
+  name: "CRISP Content Engine",
+  legalName: "ABL International FZE",
+  creator: "CrisP Digital",
+  contactEmail: "enquiries@crispdigital.io",
+  domain:
+    process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
+    "https://crisp-you.vercel.app",
+  // App and billing URLs — confirm against production routing
+  startUrl: "https://app.crispdigital.io",
+  loginUrl: "https://app.crispdigital.io",
+  billingUrl: "https://app.crispdigital.io/billing",
+  contactUrl: "mailto:enquiries@crispdigital.io",
+} as const;
+
+export const navLinks = [
+  { label: "Product", href: "/#product" },
+  { label: "How it works", href: "/how-it-works" },
+  { label: "Use cases", href: "/use-cases" },
+  { label: "Pricing", href: "/pricing" },
+  { label: "Blog", href: "/blog" },
+] as const;
+
+export const cta = {
+  primary: "Start free, no card required",
+  secondary: "See how it works",
+  pricing: "View pricing",
+  upgrade: "Upgrade on billing",
+  contactSales: "Contact sales",
+} as const;

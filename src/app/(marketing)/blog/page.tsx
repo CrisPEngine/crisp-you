@@ -1,8 +1,10 @@
 import Link from "next/link";
 import { createMetadata } from "@/lib/metadata";
 import { blogPage } from "@/content/marketing";
+import { blogSchema, breadcrumbSchema } from "@/lib/schema";
+import { StructuredData } from "@/components/marketing/StructuredData";
 import { Section, SectionHeader } from "@/components/marketing/Section";
-import { CTASection } from "@/components/marketing/CTASection";
+import { FinalCTA } from "@/components/marketing/FinalCTA";
 
 export const metadata = createMetadata({
   title: "Content Systems Blog | CRISP Content Engine",
@@ -14,6 +16,15 @@ export const metadata = createMetadata({
 export default function BlogPage() {
   return (
     <>
+      <StructuredData
+        data={[
+          blogSchema(),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Blog", path: "/blog" },
+          ]),
+        ]}
+      />
       <Section className="pt-12 sm:pt-16">
         <SectionHeader
           heading={blogPage.headline}
@@ -55,7 +66,7 @@ export default function BlogPage() {
         </div>
       </Section>
 
-      <CTASection />
+      <FinalCTA />
     </>
   );
 }
