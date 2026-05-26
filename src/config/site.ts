@@ -17,6 +17,14 @@ export const site = {
   contactUrl: "mailto:enquiries@crispdigital.io",
 } as const;
 
+/** Brand assets in /public. Logo and wordmark are for dark backgrounds only. */
+export const brand = {
+  logo: "/CrispContentEngineLogo_white_1200x627.png",
+  wordmark: "/CCE_wordmark_1080x200.png",
+  favicon: "/favicon_crispContentEngine_128x128.png",
+  ogImage: "/og/CCE-og.jpg",
+} as const;
+
 export const navLinks = [
   { label: "Product", href: "/#product" },
   { label: "How it works", href: "/how-it-works" },

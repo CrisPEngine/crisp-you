@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { footer, siteConfig } from "@/content/marketing";
 import { site } from "@/config/site";
+import { BrandLogo } from "./BrandLogo";
 
 export function MarketingFooter() {
   return (
@@ -8,11 +9,11 @@ export function MarketingFooter() {
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
-            <Link href="/" className="flex items-center gap-2.5">
-              <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-sm font-bold text-cta-foreground">
-                C
-              </span>
-              <span className="text-sm font-semibold text-navy">CRISP Content Engine</span>
+            <Link
+              href="/"
+              className="inline-flex focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
+            >
+              <BrandLogo variant="wordmark" className="h-10 w-auto sm:h-12" />
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted">
               {footer.tagline}
@@ -59,7 +60,7 @@ export function MarketingFooter() {
           </div>
           <a
             href={site.contactUrl}
-            className="text-sm font-medium text-primary hover:text-accent transition-colors"
+            className="text-sm font-medium text-primary transition-colors hover:text-accent"
           >
             {site.contactEmail}
           </a>

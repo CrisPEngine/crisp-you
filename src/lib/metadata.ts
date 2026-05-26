@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { brand } from "@/config/site";
 import { siteConfig } from "@/content/marketing";
 
 type PageMeta = {
@@ -12,7 +13,7 @@ export function createMetadata({
   title,
   description,
   path = "",
-  ogImage = "/opengraph-image",
+  ogImage = brand.ogImage,
 }: PageMeta): Metadata {
   const url = `${siteConfig.domain}${path}`;
   const imageUrl = ogImage.startsWith("http")

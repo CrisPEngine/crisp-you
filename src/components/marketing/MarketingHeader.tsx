@@ -6,20 +6,23 @@ import { navLinks } from "@/content/marketing";
 import { site } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { Button } from "./Button";
+import { BrandLogo } from "./BrandLogo";
 
 export function MarketingHeader() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border-subtle bg-background/60 backdrop-blur-md">
-      <div className="mx-auto flex h-[4.25rem] max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
-        <Link href="/" className="flex min-w-0 items-center gap-2.5">
-          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary text-sm font-bold text-cta-foreground">
-            C
-          </span>
-          <span className="hidden truncate text-sm font-semibold leading-tight text-navy sm:inline sm:text-[0.9375rem]">
-            CRISP Content Engine
-          </span>
+    <header className="sticky top-0 z-50 border-b border-border-subtle bg-background/80 backdrop-blur-md">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 sm:py-4 lg:px-8">
+        <Link
+          href="/"
+          className="flex shrink-0 items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+        >
+          <BrandLogo
+            variant="logo"
+            priority
+            className="h-14 w-auto sm:h-20 lg:h-[120px]"
+          />
         </Link>
 
         <nav className="hidden items-center gap-7 lg:flex" aria-label="Main">
@@ -27,7 +30,7 @@ export function MarketingHeader() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm text-muted hover:text-navy transition-colors"
+              className="text-sm text-muted transition-colors hover:text-navy"
             >
               {link.label}
             </Link>
@@ -37,7 +40,7 @@ export function MarketingHeader() {
         <div className="hidden items-center gap-3 md:flex">
           <a
             href={site.loginUrl}
-            className="rounded-full px-4 py-2 text-sm font-medium text-muted hover:text-navy transition-colors"
+            className="rounded-full px-4 py-2 text-sm font-medium text-muted transition-colors hover:text-navy"
           >
             Login
           </a>

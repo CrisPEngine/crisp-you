@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { site } from "@/config/site";
+import { brand, site } from "@/config/site";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -21,6 +21,20 @@ export const metadata: Metadata = {
   },
   description:
     "A practical content operating system for founders, consultants, agencies and lean teams.",
+  icons: {
+    icon: brand.favicon,
+    apple: brand.favicon,
+  },
+  openGraph: {
+    images: [
+      {
+        url: brand.ogImage,
+        width: 1200,
+        height: 630,
+        alt: "CRISP Content Engine",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
