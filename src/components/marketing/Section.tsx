@@ -42,6 +42,7 @@ export function Section({
 type SectionHeaderProps = {
   eyebrow?: string;
   heading: string;
+  headingId?: string;
   body?: string | readonly string[];
   align?: "left" | "center";
   className?: string;
@@ -50,6 +51,7 @@ type SectionHeaderProps = {
 export function SectionHeader({
   eyebrow,
   heading,
+  headingId,
   body,
   align = "left",
   className,
@@ -74,7 +76,10 @@ export function SectionHeader({
           {eyebrow}
         </p>
       )}
-      <h2 className="text-3xl font-semibold tracking-tight text-navy sm:text-4xl lg:text-[2.5rem] lg:leading-[1.1]">
+      <h2
+        id={headingId}
+        className="text-3xl font-semibold tracking-tight text-navy sm:text-4xl lg:text-[2.5rem] lg:leading-[1.1]"
+      >
         {heading}
       </h2>
       {bodyParagraphs.map((paragraph, i) => (

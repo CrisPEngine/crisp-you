@@ -37,6 +37,20 @@ export const marketingTheme = {
   accentSoftBackground: "color-mix(in oklab, #4ff0b8 12%, transparent)",
   primaryButton: cceTheme.cta,
   secondaryButton: "transparent",
+  glassBackground: "color-mix(in oklab, #0f141a 72%, #e6eaf2 6%)",
+  glassBorderHighlight: "color-mix(in oklab, #e6eaf2 20%, transparent)",
+  sectionRadialGlow: "radial-gradient(ellipse 70% 50% at 50% 40%, color-mix(in oklab, #4895ef 10%, transparent) 0%, transparent 70%)",
+} as const;
+
+/** CSS class names for the dimensional card system */
+export const glassCardClasses = {
+  panel: "glass-panel",
+  interactive: "glass-panel glass-panel-interactive",
+  darkSection: "dark-orbit-section",
+  channelLinkedIn: "channel-card channel-card-linkedin",
+  channelX: "channel-card channel-card-x",
+  channelMeta: "channel-card channel-card-meta",
+  channelBlog: "channel-card channel-card-blog",
 } as const;
 
 /** Channel tints using app palette only (no platform brand hex) */

@@ -13,7 +13,7 @@ export function UseCasePanels() {
         {audience.cards.map((card) => (
           <article
             key={card.title}
-            className="group relative overflow-hidden rounded-2xl border border-border bg-surface p-7 shadow-[var(--shadow-sm)] transition-all hover:border-accent/30 hover:shadow-[var(--shadow-md)]"
+            className="glass-panel glass-panel-interactive group relative overflow-hidden p-7"
           >
             <div
               className="pointer-events-none absolute -right-12 -top-12 h-32 w-32 rounded-full bg-accent-soft opacity-0 blur-2xl transition-opacity group-hover:opacity-100"

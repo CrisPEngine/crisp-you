@@ -4,7 +4,7 @@ import { Button } from "./Button";
 export function MidPageCTA() {
   return (
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div className="relative overflow-hidden rounded-2xl border border-border bg-surface shadow-[var(--shadow-md)]">
+      <div className="relative overflow-hidden rounded-2xl border border-border glass-panel shadow-[var(--shadow-md)]">
         <div
           className="pointer-events-none absolute -right-12 top-0 h-full w-1/2 opacity-80"
           aria-hidden="true"

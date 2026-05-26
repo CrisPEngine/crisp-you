@@ -17,7 +17,7 @@ export function WorkflowMap() {
           {workflow.steps.map((step, i) => (
             <li
               key={step.title}
-              className="relative flex flex-col rounded-2xl border border-border bg-surface p-5 shadow-[var(--shadow-sm)] transition-shadow hover:shadow-[var(--shadow-md)]"
+              className="glass-panel glass-panel-interactive relative flex flex-col p-5"
             >
               <div className="flex items-center justify-between">
                 <span className="text-[11px] font-semibold uppercase tracking-[0.12em] text-muted">

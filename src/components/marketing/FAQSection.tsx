@@ -25,8 +25,8 @@ export function FAQSection() {
             <div
               key={item.question}
               className={cn(
-                "overflow-hidden rounded-xl border bg-surface shadow-[var(--shadow-xs)] transition-all",
-                isOpen ? "border-accent/30" : "border-border",
+                "glass-panel overflow-hidden transition-all",
+                isOpen ? "border-accent/30" : "",
               )}
             >
               <h3>

@@ -75,10 +75,10 @@ export function PricingSection({ showHeading = true, id }: PricingSectionProps) 
             <div
               key={tier.id}
               className={cn(
-                "relative flex flex-col rounded-2xl border bg-surface p-6 shadow-[var(--shadow-sm)] transition-all",
+                "glass-panel relative flex flex-col p-6",
                 tier.highlighted
-                  ? "border-accent/40 ring-1 ring-accent/30 shadow-[var(--shadow-md)] xl:-translate-y-1"
-                  : "border-border hover:border-border-strong",
+                  ? "glass-panel-interactive border-accent/40 ring-1 ring-accent/30 xl:-translate-y-1"
+                  : "glass-panel-interactive",
               )}
             >
               {tier.highlighted && (
@@ -132,7 +132,7 @@ export function PricingSection({ showHeading = true, id }: PricingSectionProps) 
         })}
       </div>
 
-      <div className="mt-10 rounded-2xl border border-border-subtle bg-surface p-5">
+      <div className="glass-panel mt-10 p-5">
         <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-muted">
           The fine print
         </p>

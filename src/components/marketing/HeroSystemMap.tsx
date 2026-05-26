@@ -57,7 +57,7 @@ export function HeroSystemMap() {
 
       <div className="relative grid grid-cols-12 gap-3 sm:gap-4">
         <div className="col-span-12 sm:col-span-5">
-          <div className="cce-card-glass p-4 shadow-[var(--shadow-md)]">
+          <div className="glass-panel p-4 shadow-[var(--shadow-md)]">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-primary text-[11px] font-bold text-cta-foreground">
@@ -93,7 +93,7 @@ export function HeroSystemMap() {
         </div>
 
         <div className="col-span-12 sm:col-span-7">
-          <div className="cce-card p-4 shadow-[var(--shadow-md)]">
+          <div className="glass-panel p-4 shadow-[var(--shadow-md)]">
             <div className="flex items-center justify-between">
               <p className="text-[11px] font-semibold uppercase tracking-wider text-muted">
                 Content strategy
@@ -128,7 +128,7 @@ export function HeroSystemMap() {
         </div>
 
         <div className="col-span-12">
-          <div className="cce-card overflow-hidden shadow-[var(--shadow-md)]">
+          <div className="glass-panel overflow-hidden shadow-[var(--shadow-md)]">
             <div className="flex items-center justify-between border-b border-border-subtle px-4 py-2.5">
               <div className="flex items-center gap-2">
                 <p className="text-[11px] font-semibold uppercase tracking-wider text-muted">
@@ -191,7 +191,7 @@ export function HeroSystemMap() {
         </div>
 
         <div className="col-span-12 sm:col-span-7">
-          <div className="cce-card p-4 shadow-[var(--shadow-md)]">
+          <div className="glass-panel p-4 shadow-[var(--shadow-md)]">
             <div className="flex items-center justify-between">
               <p className="text-[11px] font-semibold uppercase tracking-wider text-muted">
                 Review
@@ -219,7 +219,7 @@ export function HeroSystemMap() {
         </div>
 
         <div className="col-span-12 sm:col-span-5">
-          <div className="cce-card p-4 shadow-[var(--shadow-md)]">
+          <div className="glass-panel p-4 shadow-[var(--shadow-md)]">
             <div className="flex items-center justify-between">
               <p className="text-[11px] font-semibold uppercase tracking-wider text-muted">
                 Publishing rhythm

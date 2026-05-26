@@ -8,7 +8,7 @@ export function PricingComparisonTable() {
 
   return (
     <Section warm>
-      <div className="overflow-x-auto rounded-2xl border border-border bg-surface shadow-sm">
+      <div className="overflow-x-auto glass-panel shadow-sm">
         <table className="w-full min-w-[960px] text-left text-sm">
           <thead>
             <tr className="border-b border-border bg-surface-warm">

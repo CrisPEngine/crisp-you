@@ -57,16 +57,17 @@ export const problem = {
 } as const;
 
 export const ideaBranch = {
-  heading: "From one idea to a full content rhythm",
-  body: "A useful idea should not become one post and disappear. CRISP helps turn it into channel-aware content, so the same strategic thought can become a LinkedIn post, an X thread, a Meta caption and a blog angle without flattening every channel into the same message.",
+  heading: "One idea should not become one post",
+  body: "A useful idea can become a LinkedIn post, an X thread, a Meta caption and a blog angle. CRISP helps reuse the thinking without flattening every channel into the same message.",
+  bridgeLabel: "One strategic idea becomes channel-ready content.",
   coreIdeaLabel: "Core idea",
-  coreIdea: "Marketing works best when it is built as a system",
+  coreIdea: "Marketing works best when it is built as a system.",
   outputs: [
     {
       channel: "LinkedIn",
       format: "Founder-style authority post",
       preview:
-        "Most content tools help you write faster. The harder problem is keeping every post connected to the same brand and message.",
+        "Most content tools help you write faster. The harder problem is keeping every post connected to the same brand and commercial direction.",
       status: "Approved",
       publish: "Auto-publish",
     },
@@ -74,7 +75,7 @@ export const ideaBranch = {
       channel: "X",
       format: "Sharp short-form thread",
       preview:
-        "1/ Faster writing is not a content strategy. 2/ The harder problem is staying connected to the brand. 3/ Systems beat sprints.",
+        "Faster writing is not a content strategy. The harder problem is staying connected to the brand when every channel moves at a different speed.",
       status: "Review",
       publish: "Export",
     },

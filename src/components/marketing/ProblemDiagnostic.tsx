@@ -44,7 +44,7 @@ export function ProblemDiagnostic() {
       />
 
       <div className="grid gap-5 lg:grid-cols-[1fr_auto_1fr] lg:items-stretch">
-        <article className="rounded-2xl border border-border bg-surface p-6 shadow-[var(--shadow-sm)] sm:p-8">
+        <article className="glass-panel p-6 sm:p-8">
           <div className="flex items-center justify-between">
             <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-muted">
               {problem.scattered.label}
