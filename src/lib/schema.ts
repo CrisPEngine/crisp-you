@@ -1,4 +1,4 @@
-import { site } from "@/config/site";
+import { site, socialLinks } from "@/config/site";
 import { faq } from "@/content/marketing";
 import { pricingContent } from "@/content/pricing";
 
@@ -14,6 +14,7 @@ export function organizationSchema() {
       "@type": "Organization",
       name: site.creator,
     },
+    sameAs: socialLinks.map((link) => link.href),
   };
 }
 

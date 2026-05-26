@@ -25,6 +25,26 @@ export const brand = {
   ogImage: "/og/CCE-og.jpg",
 } as const;
 
+/** CrisP Digital social and content channels */
+export const socialLinks = [
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/company/crispdigital/",
+  },
+  {
+    label: "X",
+    href: "https://x.com/crisp_digi",
+  },
+  {
+    label: "Meta",
+    href: "https://www.instagram.com/crisp_digital/",
+  },
+  {
+    label: "Blog",
+    href: "https://www.crispdigital.io/insights",
+  },
+] as const;
+
 export const navLinks = [
   { label: "Product", href: "/#product" },
   { label: "How it works", href: "/how-it-works" },

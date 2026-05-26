@@ -2,6 +2,7 @@ import Link from "next/link";
 import { footer, siteConfig } from "@/content/marketing";
 import { site } from "@/config/site";
 import { BrandLogo } from "./BrandLogo";
+import { SocialLinks } from "./SocialLinks";
 
 export function MarketingFooter() {
   return (
@@ -18,16 +19,7 @@ export function MarketingFooter() {
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted">
               {footer.tagline}
             </p>
-            <div className="mt-5 flex flex-wrap gap-1.5">
-              {["LinkedIn", "X", "Meta", "Blog"].map((ch) => (
-                <span
-                  key={ch}
-                  className="rounded-md border border-border-subtle bg-background px-2 py-0.5 text-[11px] font-medium text-muted-foreground"
-                >
-                  {ch}
-                </span>
-              ))}
-            </div>
+            <SocialLinks className="mt-5" />
           </div>
 
           {footer.columns.map((column) => (
