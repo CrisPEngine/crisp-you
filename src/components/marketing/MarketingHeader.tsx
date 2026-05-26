@@ -2,14 +2,16 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { navLinks } from "@/content/marketing";
+import { navLinks, productLinks } from "@/content/navigation";
 import { site } from "@/config/site";
 import { cn } from "@/lib/utils";
+import { trackEvent } from "@/lib/analytics";
 import { Button } from "./Button";
 import { BrandLogo } from "./BrandLogo";
 
 export function MarketingHeader() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [productOpen, setProductOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-50 border-b border-border-subtle bg-background/80 backdrop-blur-md">
@@ -18,14 +20,40 @@ export function MarketingHeader() {
           href="/"
           className="flex shrink-0 items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
         >
-          <BrandLogo
-            variant="logo"
-            priority
-            className="h-14 w-auto sm:h-20 lg:h-[120px]"
-          />
+          <BrandLogo variant="logo" priority className="h-14 w-auto sm:h-20 lg:h-[120px]" />
         </Link>
 
-        <nav className="hidden items-center gap-7 lg:flex" aria-label="Main">
+        <nav className="hidden items-center gap-6 lg:flex" aria-label="Main">
+          <div
+            className="relative"
+            onMouseEnter={() => setProductOpen(true)}
+            onMouseLeave={() => setProductOpen(false)}
+          >
+            <button
+              type="button"
+              className="inline-flex items-center gap-1 text-sm text-muted transition-colors hover:text-navy"
+              aria-expanded={productOpen}
+              aria-haspopup="true"
+            >
+              Product
+              <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+              </svg>
+            </button>
+            {productOpen && (
+              <div className="absolute left-0 top-full z-50 mt-2 w-52 rounded-xl border border-border-subtle bg-surface p-2 shadow-[var(--shadow-md)]">
+                {productLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="block rounded-lg px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-surface-muted hover:text-navy"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -41,10 +69,13 @@ export function MarketingHeader() {
           <a
             href={site.loginUrl}
             className="rounded-full px-4 py-2 text-sm font-medium text-muted transition-colors hover:text-navy"
+            onClick={() => trackEvent("cce_login_click")}
           >
             Login
           </a>
-          <Button href={site.startUrl}>Start free</Button>
+          <Button href={site.startUrl} event="cce_start_free_click">
+            Start free
+          </Button>
         </div>
 
         <button
@@ -55,14 +86,7 @@ export function MarketingHeader() {
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
           onClick={() => setMobileOpen(!mobileOpen)}
         >
-          <svg
-            className="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            aria-hidden="true"
-          >
+          <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" aria-hidden="true">
             {mobileOpen ? (
               <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
             ) : (
@@ -80,6 +104,17 @@ export function MarketingHeader() {
         )}
       >
         <nav className="flex flex-col gap-1 px-4 py-4" aria-label="Mobile">
+          <p className="px-3 pt-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-muted">Product</p>
+          {productLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="rounded-lg px-3 py-2.5 text-sm text-muted hover:bg-surface hover:text-navy"
+              onClick={() => setMobileOpen(false)}
+            >
+              {link.label}
+            </Link>
+          ))}
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -93,11 +128,12 @@ export function MarketingHeader() {
           <a
             href={site.loginUrl}
             className="rounded-lg px-3 py-2.5 text-sm text-muted hover:bg-surface"
+            onClick={() => trackEvent("cce_login_click")}
           >
             Login
           </a>
           <div className="mt-2 px-3">
-            <Button href={site.startUrl} className="w-full">
+            <Button href={site.startUrl} className="w-full" event="cce_start_free_click">
               Start free, no card required
             </Button>
           </div>

@@ -14,6 +14,7 @@ export const siteConfig = {
 } as const;
 
 export { navLinks, cta } from "@/config/site";
+export { productLinks, footerColumns } from "@/content/navigation";
 
 export const hero = {
   eyebrow: "CRISP Content Engine",

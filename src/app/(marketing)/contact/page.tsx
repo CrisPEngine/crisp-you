@@ -1,34 +1,57 @@
 import { createMetadata } from "@/lib/metadata";
-import { legalPages } from "@/content/marketing";
-import { site } from "@/config/site";
-import { Section, SectionHeader } from "@/components/marketing/Section";
+import { contactPage } from "@/content/pages";
+import { breadcrumbSchema } from "@/lib/schema";
+import { StructuredData } from "@/components/marketing/StructuredData";
+import { PageHero } from "@/components/marketing/PageHero";
+import { Section } from "@/components/marketing/Section";
 import { Button } from "@/components/marketing/Button";
+import { FinalCTA } from "@/components/marketing/FinalCTA";
+import type { AnalyticsEvent } from "@/lib/analytics";
 
 export const metadata = createMetadata({
-  title: `${legalPages.contact.title} | CRISP Content Engine`,
-  description: legalPages.contact.description,
+  title: "Contact | CRISP Content Engine",
+  description:
+    "Contact CRISP Content Engine for Scale plans, partnerships, support or product enquiries.",
   path: "/contact",
 });
 
 export default function ContactPage() {
   return (
-    <Section className="pt-12 sm:pt-16">
-      <SectionHeader heading={legalPages.contact.title} body={legalPages.contact.body} />
-      <div className="max-w-xl rounded-2xl border border-border bg-surface p-8 shadow-sm">
-        <p className="text-sm text-muted-foreground">
-          Email us at{" "}
-          <a href={site.contactUrl} className="font-medium text-accent hover:text-accent-hover">
-            {site.contactEmail}
-          </a>{" "}
-          for pricing, onboarding or sales questions.
-        </p>
-        <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-          <Button href={site.contactUrl}>Contact sales</Button>
-          <Button href={site.startUrl} variant="secondary">
-            Start free
-          </Button>
+    <>
+      <StructuredData
+        data={breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Contact", path: "/contact" },
+        ])}
+      />
+      <PageHero
+        eyebrow="Contact"
+        heading={contactPage.headline}
+        body={contactPage.subheadline}
+      />
+
+      <Section tone="warm">
+        <div className="grid gap-4 md:grid-cols-3">
+          {contactPage.cards.map((card) => (
+            <article key={card.title} className="glass-panel flex flex-col p-6">
+              <h2 className="text-lg font-semibold text-navy">{card.title}</h2>
+              <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
+                {card.copy}
+              </p>
+              <Button
+                href={card.href}
+                className="mt-6 w-full"
+                external={card.href.startsWith("http") || card.href.startsWith("mailto:")}
+                event={card.event as AnalyticsEvent}
+              >
+                {card.cta}
+              </Button>
+            </article>
+          ))}
         </div>
-      </div>
-    </Section>
+      </Section>
+
+      <FinalCTA />
+    </>
   );
 }

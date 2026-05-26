@@ -1,12 +1,13 @@
 import { createMetadata } from "@/lib/metadata";
-import { pricingPage } from "@/content/marketing";
+import { pricingPage, pricingFaq } from "@/content/pages";
+import { site } from "@/config/site";
 import {
   pricingProductSchema,
   faqPageSchema,
   breadcrumbSchema,
 } from "@/lib/schema";
 import { StructuredData } from "@/components/marketing/StructuredData";
-import { Section, SectionHeader } from "@/components/marketing/Section";
+import { PageHero } from "@/components/marketing/PageHero";
 import { PricingSection } from "@/components/marketing/PricingSection";
 import { PricingComparisonTable } from "@/components/marketing/PricingComparisonTable";
 import { FAQSection } from "@/components/marketing/FAQSection";
@@ -25,25 +26,32 @@ export default function PricingPage() {
       <StructuredData
         data={[
           pricingProductSchema(),
-          faqPageSchema(),
+          faqPageSchema(pricingFaq.items),
           breadcrumbSchema([
             { name: "Home", path: "/" },
             { name: "Pricing", path: "/pricing" },
           ]),
         ]}
       />
-      <Section className="pt-14 sm:pt-20">
-        <SectionHeader
-          eyebrow="Pricing"
-          heading={pricingPage.headline}
-          body={pricingPage.subheadline}
-          align="center"
-          className="mx-auto"
-        />
-      </Section>
+      <PageHero
+        eyebrow="Pricing"
+        heading={pricingPage.headline}
+        body={pricingPage.subheadline}
+        primaryCta={{
+          label: pricingPage.primaryCta,
+          href: site.startUrl,
+          event: "cce_start_free_click",
+        }}
+        secondaryCta={{
+          label: pricingPage.secondaryCta,
+          href: pricingPage.secondaryHref,
+          event: "cce_pricing_cta_click",
+        }}
+        align="center"
+      />
       <PricingSection showHeading={false} />
       <PricingComparisonTable />
-      <FAQSection />
+      <FAQSection heading={pricingFaq.heading} items={pricingFaq.items} />
       <FinalCTA />
     </>
   );

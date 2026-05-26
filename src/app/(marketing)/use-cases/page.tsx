@@ -1,14 +1,17 @@
 import { createMetadata } from "@/lib/metadata";
-import { useCasesPage } from "@/content/marketing";
+import { useCasesPage } from "@/content/pages";
+import { site } from "@/config/site";
 import { breadcrumbSchema } from "@/lib/schema";
 import { StructuredData } from "@/components/marketing/StructuredData";
-import { Section, SectionHeader } from "@/components/marketing/Section";
+import { PageHero } from "@/components/marketing/PageHero";
+import { Section } from "@/components/marketing/Section";
+import { Button } from "@/components/marketing/Button";
 import { FinalCTA } from "@/components/marketing/FinalCTA";
 
 export const metadata = createMetadata({
   title: "Use Cases | CRISP Content Engine",
   description:
-    "Explore content workflows for founders, consultants, agencies and lean teams who need to stay consistently visible.",
+    "Explore how founders, consultants, agencies and lean teams use CRISP Content Engine to build a practical content workflow and stay consistently visible.",
   path: "/use-cases",
 });
 
@@ -21,36 +24,75 @@ export default function UseCasesPage() {
           { name: "Use cases", path: "/use-cases" },
         ])}
       />
-      <Section className="pt-14 sm:pt-20">
-        <SectionHeader
-          eyebrow="Use cases"
-          heading={useCasesPage.headline}
-          body={useCasesPage.subheadline}
-          align="center"
-          className="mx-auto"
-        />
-      </Section>
+      <PageHero
+        eyebrow="Use cases"
+        heading={useCasesPage.headline}
+        body={useCasesPage.subheadline}
+        primaryCta={{
+          label: useCasesPage.primaryCta,
+          href: site.startUrl,
+          event: "cce_start_free_click",
+        }}
+        secondaryCta={{
+          label: useCasesPage.secondaryCta,
+          href: useCasesPage.secondaryHref,
+          event: "cce_pricing_cta_click",
+        }}
+      />
 
       <Section tone="warm">
-        <div className="grid gap-5 lg:grid-cols-2">
-          {useCasesPage.cases.map((useCase, i) => (
-            <article
-              key={useCase.title}
-              className={`rounded-2xl border border-border bg-surface p-8 shadow-[var(--shadow-sm)] ${
-                i === useCasesPage.cases.length - 1 && useCasesPage.cases.length % 2 !== 0
-                  ? "lg:col-span-2 lg:mx-auto lg:max-w-2xl"
-                  : ""
-              }`}
-            >
-              <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-accent">
-                Workflow
-              </p>
-              <h2 className="mt-2 text-xl font-semibold text-navy">{useCase.title}</h2>
-              <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+        <div className="space-y-8">
+          {useCasesPage.cases.map((useCase) => (
+            <article key={useCase.id} className="glass-panel p-6 sm:p-8">
+              <h2 className="text-2xl font-semibold text-navy">{useCase.title}</h2>
+              <p className="mt-4 max-w-3xl text-base leading-relaxed text-muted-foreground">
                 {useCase.copy}
               </p>
+              <div className="mt-6 overflow-x-auto">
+                <table className="w-full min-w-[640px] text-left text-sm">
+                  <thead>
+                    <tr className="border-b border-border-subtle">
+                      <th className="px-3 py-2 font-semibold text-navy">Need</th>
+                      <th className="px-3 py-2 font-semibold text-navy">CRISP workflow</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {useCase.workflow.map((row) => (
+                      <tr key={row.need} className="border-b border-border-subtle last:border-0">
+                        <td className="px-3 py-3 font-medium text-charcoal">{row.need}</td>
+                        <td className="px-3 py-3 text-muted-foreground">{row.workflow}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <div className="mt-6">
+                <Button
+                  href={site.startUrl}
+                  event="cce_start_free_click"
+                >
+                  {useCase.cta}
+                </Button>
+              </div>
             </article>
           ))}
+        </div>
+      </Section>
+
+      <Section>
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="text-xl font-medium text-navy">{useCasesPage.finalCta}</p>
+          <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <Button href={site.startUrl} size="lg" event="cce_start_free_click">
+              Start free, no card required
+            </Button>
+            <Button href="/pricing" variant="secondary" size="lg" event="cce_pricing_cta_click">
+              Compare plans
+            </Button>
+            <Button href="/blog" variant="secondary" size="lg" event="cce_blog_cta_click">
+              Read the blog
+            </Button>
+          </div>
         </div>
       </Section>
 

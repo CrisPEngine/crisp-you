@@ -25,10 +25,10 @@ export function FinalCTA() {
         </h2>
         <p className="mt-5 text-lg leading-relaxed text-muted-foreground">{finalCta.body}</p>
         <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <Button href={site.startUrl} size="lg">
+          <Button href={site.startUrl} size="lg" event="cce_start_free_click">
             Start free, no card required
           </Button>
-          <Button href="/pricing" variant="secondary" size="lg">
+          <Button href="/pricing" variant="secondary" size="lg" event="cce_pricing_cta_click">
             View pricing
           </Button>
         </div>

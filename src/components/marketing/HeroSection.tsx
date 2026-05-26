@@ -30,10 +30,10 @@ export function HeroSection() {
               {hero.supporting}
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <Button href={site.startUrl} size="lg">
+              <Button href={site.startUrl} size="lg" event="cce_start_free_click">
                 {cta.primary}
               </Button>
-              <Button href="/how-it-works" variant="secondary" size="lg">
+              <Button href="/how-it-works" variant="secondary" size="lg" event="cce_feature_cta_click">
                 See how CRISP works
               </Button>
             </div>

@@ -7,7 +7,7 @@ export function PricingComparisonTable() {
   const tierNames = pricingContent.tiers.map((t) => t.name);
 
   return (
-    <Section warm>
+    <Section warm id="compare-plans">
       <div className="overflow-x-auto glass-panel shadow-sm">
         <table className="w-full min-w-[960px] text-left text-sm">
           <thead>

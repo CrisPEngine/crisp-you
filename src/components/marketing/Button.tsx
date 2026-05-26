@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { trackEvent, type AnalyticsEvent } from "@/lib/analytics";
 
 type ButtonVariant = "primary" | "secondary" | "ghost" | "dark";
 type ButtonSize = "md" | "lg";
@@ -11,6 +14,7 @@ type ButtonProps = {
   size?: ButtonSize;
   className?: string;
   external?: boolean;
+  event?: AnalyticsEvent;
 };
 
 const variants: Record<ButtonVariant, string> = {
@@ -33,6 +37,10 @@ function isExternalHref(href: string) {
   return href.startsWith("http") || href.startsWith("mailto:");
 }
 
+function handleClick(event?: AnalyticsEvent) {
+  if (event) trackEvent(event);
+}
+
 export function Button({
   href,
   children,
@@ -40,6 +48,7 @@ export function Button({
   size = "md",
   className,
   external,
+  event,
 }: ButtonProps) {
   const classes = cn(
     "inline-flex items-center justify-center gap-1.5 font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-background",
@@ -55,6 +64,7 @@ export function Button({
       <a
         href={href}
         className={classes}
+        onClick={() => handleClick(event)}
         {...(href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
       >
         {children}
@@ -63,7 +73,7 @@ export function Button({
   }
 
   return (
-    <Link href={href} className={classes}>
+    <Link href={href} className={classes} onClick={() => handleClick(event)}>
       {children}
     </Link>
   );

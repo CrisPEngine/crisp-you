@@ -124,6 +124,13 @@ export function PricingSection({ showHeading = true, id }: PricingSectionProps) 
                 variant={tier.highlighted ? "dark" : tier.id === "starter" ? "primary" : "secondary"}
                 className="mt-6 w-full"
                 external={tier.ctaHref === "contact"}
+                event={
+                  tier.ctaHref === "contact"
+                    ? "cce_contact_sales_click"
+                    : tier.ctaHref === "start"
+                      ? "cce_start_free_click"
+                      : "cce_pricing_cta_click"
+                }
               >
                 {tier.cta}
               </Button>

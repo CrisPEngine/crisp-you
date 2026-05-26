@@ -1,6 +1,7 @@
 import { site, socialLinks } from "@/config/site";
 import { faq } from "@/content/marketing";
-import { pricingContent } from "@/content/pricing";
+import { pricingContent } from "@/config/pricing";
+import type { BlogPost } from "@/content/blog";
 
 export function organizationSchema() {
   return {
@@ -105,11 +106,12 @@ export function pricingProductSchema() {
   };
 }
 
-export function faqPageSchema() {
+export function faqPageSchema(items?: readonly { question: string; answer: string }[]) {
+  const faqItems = items ?? faq.items;
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: faq.items.map((item) => ({
+    mainEntity: faqItems.map((item) => ({
       "@type": "Question",
       name: item.question,
       acceptedAnswer: {
@@ -117,6 +119,26 @@ export function faqPageSchema() {
         text: item.answer,
       },
     })),
+  };
+}
+
+export function articleSchema(post: BlogPost) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description: post.description,
+    datePublished: post.publishedAt,
+    author: {
+      "@type": "Organization",
+      name: site.creator,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: site.name,
+      url: site.domain,
+    },
+    mainEntityOfPage: `${site.domain}/blog/${post.slug}`,
   };
 }
 

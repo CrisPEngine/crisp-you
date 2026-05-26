@@ -1,6 +1,13 @@
+import { createMetadata } from "@/lib/metadata";
 import { site, cta } from "@/config/site";
 import { Section } from "@/components/marketing/Section";
 import { Button } from "@/components/marketing/Button";
+
+export const metadata = createMetadata({
+  title: "Login | CRISP Content Engine",
+  description: "Sign in to CRISP Content Engine to manage your brand profile, content queue and publishing workflow.",
+  path: "/login",
+});
 
 export default function LoginPage() {
   return (
@@ -11,8 +18,10 @@ export default function LoginPage() {
           Sign in to CRISP Content Engine to manage your brand profile, content queue and publishing workflow.
         </p>
         <div className="mt-8 flex flex-col gap-3">
-          <Button href={site.loginUrl}>Go to app login</Button>
-          <Button href={site.startUrl} variant="secondary">
+          <Button href={site.loginUrl} event="cce_login_click">
+            Go to app login
+          </Button>
+          <Button href={site.startUrl} variant="secondary" event="cce_start_free_click">
             {cta.primary}
           </Button>
         </div>

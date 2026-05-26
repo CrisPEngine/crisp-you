@@ -1,8 +1,16 @@
 import Link from "next/link";
-import { footer, siteConfig } from "@/content/marketing";
+import { footerColumns } from "@/content/navigation";
+import { siteConfig } from "@/content/marketing";
 import { site } from "@/config/site";
 import { BrandLogo } from "./BrandLogo";
 import { SocialLinks } from "./SocialLinks";
+
+const footer = {
+  tagline:
+    "CRISP Content Engine is a structured content system for founders, consultants, agencies and lean teams.",
+  legalLine:
+    "CRISP Content Engine is created and developed by CrisP Digital trading as ABL International FZE.",
+};
 
 export function MarketingFooter() {
   return (
@@ -16,13 +24,11 @@ export function MarketingFooter() {
             >
               <BrandLogo variant="wordmark" className="h-10 w-auto sm:h-12" />
             </Link>
-            <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted">
-              {footer.tagline}
-            </p>
+            <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted">{footer.tagline}</p>
             <SocialLinks className="mt-5" />
           </div>
 
-          {footer.columns.map((column) => (
+          {footerColumns.map((column) => (
             <div key={column.title}>
               <h3 className="text-[11px] font-semibold uppercase tracking-[0.12em] text-muted">
                 {column.title}
