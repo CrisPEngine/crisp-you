@@ -10,7 +10,7 @@ export const site = {
   domain:
     process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
     "https://crisp-you.vercel.app",
-  // App and billing URLs — confirm against production routing
+  // App and billing URLs, confirm against production routing
   startUrl: "https://app.crispdigital.io",
   loginUrl: "https://app.crispdigital.io",
   billingUrl: "https://app.crispdigital.io/billing",

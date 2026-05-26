@@ -25,8 +25,9 @@ export default function BlogPage() {
           ]),
         ]}
       />
-      <Section className="pt-12 sm:pt-16">
+      <Section className="pt-14 sm:pt-20">
         <SectionHeader
+          eyebrow="Blog"
           heading={blogPage.headline}
           body={blogPage.subheadline}
           align="center"
@@ -34,20 +35,21 @@ export default function BlogPage() {
         />
       </Section>
 
-      <Section warm>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <Section tone="warm">
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {blogPage.posts.map((post) => (
             <article
               key={post.slug}
-              className="flex flex-col rounded-2xl border border-border bg-surface p-6 shadow-sm"
+              className="group flex flex-col rounded-2xl border border-border bg-surface p-6 shadow-[var(--shadow-sm)] transition-shadow hover:shadow-[var(--shadow-md)]"
             >
-              <span className="text-xs font-medium uppercase tracking-wider text-accent">
+              <span className="inline-flex w-fit items-center gap-1.5 rounded-full bg-background-deep px-2.5 py-0.5 text-[11px] font-medium text-charcoal">
+                <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true" />
                 Coming soon
               </span>
-              <h2 className="mt-3 text-lg font-semibold text-navy">
+              <h2 className="mt-4 text-lg font-semibold text-navy">
                 <Link
                   href={`/blog/${post.slug}`}
-                  className="transition-colors hover:text-accent"
+                  className="transition-colors group-hover:text-accent"
                 >
                   {post.title}
                 </Link>
@@ -57,9 +59,9 @@ export default function BlogPage() {
               </p>
               <Link
                 href={`/blog/${post.slug}`}
-                className="mt-4 text-sm font-medium text-accent hover:text-accent-hover"
+                className="mt-5 inline-flex items-center gap-1 text-sm font-medium text-accent hover:text-accent-hover"
               >
-                Read more
+                Read more <span aria-hidden="true">&rarr;</span>
               </Link>
             </article>
           ))}

@@ -9,9 +9,14 @@ export function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <Section warm>
-      <SectionHeader heading={faq.heading} align="center" className="mx-auto" />
-      <div className="mx-auto max-w-3xl space-y-3">
+    <Section tone="warm">
+      <SectionHeader
+        eyebrow="FAQ"
+        heading={faq.heading}
+        align="center"
+        className="mx-auto"
+      />
+      <div className="mx-auto max-w-3xl space-y-2.5">
         {faq.items.map((item, i) => {
           const isOpen = openIndex === i;
           const panelId = `faq-panel-${i}`;
@@ -19,7 +24,10 @@ export function FAQSection() {
           return (
             <div
               key={item.question}
-              className="overflow-hidden rounded-xl border border-border bg-surface shadow-sm"
+              className={cn(
+                "overflow-hidden rounded-xl border bg-surface shadow-[var(--shadow-xs)] transition-all",
+                isOpen ? "border-accent/30" : "border-border",
+              )}
             >
               <h3>
                 <button
@@ -30,20 +38,26 @@ export function FAQSection() {
                   aria-controls={panelId}
                   onClick={() => setOpenIndex(isOpen ? null : i)}
                 >
-                  <span className="text-base font-medium text-navy">{item.question}</span>
-                  <svg
+                  <span className="text-[15px] font-medium text-navy">{item.question}</span>
+                  <span
                     className={cn(
-                      "h-5 w-5 shrink-0 text-muted transition-transform",
-                      isOpen && "rotate-180",
+                      "flex h-7 w-7 shrink-0 items-center justify-center rounded-full border transition-all",
+                      isOpen
+                        ? "border-accent bg-accent-mint text-accent"
+                        : "border-border bg-background-deep text-charcoal",
                     )}
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="currentColor"
                     aria-hidden="true"
                   >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                  </svg>
+                    <svg
+                      className={cn("h-3.5 w-3.5 transition-transform", isOpen && "rotate-45")}
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={2.5}
+                      stroke="currentColor"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                    </svg>
+                  </span>
                 </button>
               </h3>
               <div
@@ -56,7 +70,7 @@ export function FAQSection() {
                 )}
               >
                 <div className="overflow-hidden">
-                  <p className="px-5 pb-4 text-sm leading-relaxed text-muted-foreground">
+                  <p className="px-5 pb-5 text-sm leading-relaxed text-muted-foreground">
                     {item.answer}
                   </p>
                 </div>

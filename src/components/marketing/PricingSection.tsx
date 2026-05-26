@@ -30,6 +30,7 @@ export function PricingSection({ showHeading = true, id }: PricingSectionProps) 
     <Section id={id}>
       {showHeading && (
         <SectionHeader
+          eyebrow="Pricing"
           heading={pricingContent.heading}
           body={pricingContent.subheading}
           align="center"
@@ -37,9 +38,9 @@ export function PricingSection({ showHeading = true, id }: PricingSectionProps) 
         />
       )}
 
-      <div className="mb-10 flex justify-center">
+      <div className="mb-10 flex flex-col items-center gap-2">
         <div
-          className="inline-flex rounded-xl border border-border bg-surface p-1"
+          className="inline-flex rounded-xl border border-border bg-surface p-1 shadow-[var(--shadow-xs)]"
           role="group"
           aria-label="Billing interval"
         >
@@ -51,56 +52,76 @@ export function PricingSection({ showHeading = true, id }: PricingSectionProps) 
               className={cn(
                 "rounded-lg px-4 py-2 text-sm font-medium transition-colors",
                 interval === value
-                  ? "bg-navy text-white"
-                  : "text-charcoal hover:bg-surface-warm",
+                  ? "bg-navy text-white shadow-[var(--shadow-sm)]"
+                  : "text-charcoal hover:bg-background-deep",
               )}
               aria-pressed={interval === value}
             >
-              {value === "monthly" ? "Monthly" : pricingContent.annualSaveLabel}
+              {value === "monthly" ? "Monthly" : "Annual"}
             </button>
           ))}
         </div>
+        {interval === "annual" && (
+          <p className="text-xs font-medium text-accent">
+            Save 20% on annual billing
+          </p>
+        )}
       </div>
 
-      <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-5">
+      <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-5">
         {pricingContent.tiers.map((tier) => {
           const { price, sublabel } = formatTierPrice(tier, interval);
           return (
             <div
               key={tier.id}
               className={cn(
-                "flex flex-col rounded-2xl border bg-surface p-6 shadow-sm",
+                "relative flex flex-col rounded-2xl border bg-surface p-6 shadow-[var(--shadow-sm)] transition-all",
                 tier.highlighted
-                  ? "border-accent ring-1 ring-accent xl:scale-[1.02]"
-                  : "border-border",
+                  ? "border-accent/40 ring-1 ring-accent/30 shadow-[var(--shadow-md)] xl:-translate-y-1"
+                  : "border-border hover:border-border-strong",
               )}
             >
               {tier.highlighted && (
-                <span className="mb-3 inline-flex w-fit rounded-full bg-accent-light px-2.5 py-0.5 text-xs font-medium text-accent">
+                <span className="absolute -top-3 left-6 inline-flex items-center gap-1 rounded-full bg-accent px-2.5 py-0.5 text-[11px] font-semibold text-white shadow-[var(--shadow-sm)]">
+                  <span className="h-1 w-1 rounded-full bg-white/80" aria-hidden="true" />
                   Most popular
                 </span>
               )}
               {tier.badge && !tier.highlighted && (
-                <span className="mb-3 inline-flex w-fit rounded-full bg-surface-warm px-2.5 py-0.5 text-xs font-medium text-charcoal">
+                <span className="mb-3 inline-flex w-fit rounded-full bg-background-deep px-2.5 py-0.5 text-[11px] font-medium text-charcoal">
                   {tier.badge}
                 </span>
               )}
               <h3 className="text-lg font-semibold text-navy">{tier.name}</h3>
-              <p className="mt-2 text-2xl font-semibold tracking-tight text-navy">{price}</p>
+              <div className="mt-3 flex items-baseline gap-1">
+                <p className="text-3xl font-semibold tracking-tight text-navy">{price}</p>
+              </div>
               {sublabel && (
-                <p className="mt-1 text-xs text-muted-foreground">{sublabel}</p>
+                <p className="mt-1 text-[11px] text-muted-foreground">{sublabel}</p>
               )}
-              <p className="mt-3 text-sm text-muted-foreground">{tier.bestFor}</p>
-              <ul className="mt-5 flex-1 space-y-2">
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                {tier.bestFor}
+              </p>
+              <ul className="mt-5 flex-1 space-y-2.5 border-t border-border-subtle pt-5">
                 {tier.includes.map((item) => (
-                  <li key={item} className="text-sm leading-snug text-charcoal">
+                  <li key={item} className="flex items-start gap-2 text-[13px] leading-snug text-charcoal">
+                    <svg
+                      className="mt-0.5 h-3.5 w-3.5 shrink-0 text-accent"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={2.5}
+                      stroke="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
                     {item}
                   </li>
                 ))}
               </ul>
               <Button
                 href={tierHref(tier)}
-                variant={tier.highlighted || tier.id === "starter" ? "primary" : "secondary"}
+                variant={tier.highlighted ? "dark" : tier.id === "starter" ? "primary" : "secondary"}
                 className="mt-6 w-full"
                 external={tier.ctaHref === "contact"}
               >
@@ -111,12 +132,15 @@ export function PricingSection({ showHeading = true, id }: PricingSectionProps) 
         })}
       </div>
 
-      <div className="mt-8 space-y-2">
-        {pricingContent.notes.map((note) => (
-          <p key={note} className="text-xs leading-relaxed text-muted">
-            {note}
-          </p>
-        ))}
+      <div className="mt-10 rounded-2xl border border-border-subtle bg-surface p-5">
+        <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-muted">
+          The fine print
+        </p>
+        <div className="mt-3 grid gap-2 text-xs leading-relaxed text-muted-foreground sm:grid-cols-2">
+          {pricingContent.notes.map((note) => (
+            <p key={note}>{note}</p>
+          ))}
+        </div>
       </div>
     </Section>
   );

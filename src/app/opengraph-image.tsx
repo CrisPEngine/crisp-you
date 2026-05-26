@@ -15,20 +15,20 @@ export default function OpenGraphImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          padding: "64px",
-          background: "#faf9f7",
+          padding: "72px",
+          background: "#f8f5ef",
           backgroundImage:
-            "linear-gradient(to right, rgba(226,232,240,0.5) 1px, transparent 1px), linear-gradient(to bottom, rgba(226,232,240,0.5) 1px, transparent 1px)",
-          backgroundSize: "48px 48px",
+            "linear-gradient(to right, rgba(11,18,32,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(11,18,32,0.05) 1px, transparent 1px)",
+          backgroundSize: "56px 56px",
         }}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
           <div
             style={{
               width: 48,
               height: 48,
               borderRadius: 12,
-              background: "#0f172a",
+              background: "#0b1220",
               color: "#fff",
               display: "flex",
               alignItems: "center",
@@ -39,53 +39,89 @@ export default function OpenGraphImage() {
           >
             C
           </div>
-          <span style={{ fontSize: 28, fontWeight: 600, color: "#0f172a" }}>
+          <span style={{ fontSize: 26, fontWeight: 600, color: "#0b1220" }}>
             CRISP Content Engine
           </span>
         </div>
-        <div style={{ maxWidth: 900 }}>
-          <p
+
+        <div style={{ display: "flex", flexDirection: "column", maxWidth: 960 }}>
+          <span
             style={{
-              fontSize: 52,
+              fontSize: 16,
               fontWeight: 600,
-              color: "#0f172a",
-              lineHeight: 1.15,
-              margin: 0,
+              color: "#0a7a64",
+              letterSpacing: 2,
+              textTransform: "uppercase",
             }}
           >
-            A content system built around your brand
+            Consistent visibility, without the weekly restart
+          </span>
+          <p
+            style={{
+              fontSize: 64,
+              fontWeight: 600,
+              color: "#0b1220",
+              lineHeight: 1.05,
+              margin: "20px 0 0 0",
+            }}
+          >
+            Build consistent visibility without burning out
           </p>
           <p
             style={{
               fontSize: 24,
-              color: "#475569",
-              marginTop: 24,
+              color: "#4b5563",
+              marginTop: 22,
               lineHeight: 1.5,
             }}
           >
-            Strategy, queue, review and publishing for LinkedIn, X, Meta and blog.
+            A structured content system for LinkedIn, X, Meta and blog.
           </p>
         </div>
+
         <div
           style={{
             display: "flex",
-            gap: 12,
+            gap: 16,
             alignItems: "center",
           }}
         >
           <div
             style={{
-              padding: "10px 20px",
-              background: "#0d9488",
+              padding: "12px 22px",
+              background: "#0b1220",
               color: "#fff",
-              borderRadius: 8,
+              borderRadius: 10,
               fontSize: 18,
               fontWeight: 500,
             }}
           >
-            Start free
+            Start free, no card required
           </div>
-          <span style={{ fontSize: 18, color: "#64748b" }}>crisp.you</span>
+          <div
+            style={{
+              display: "flex",
+              gap: 6,
+              alignItems: "center",
+              padding: "8px 14px",
+              background: "#d4f0e6",
+              color: "#0a7a64",
+              borderRadius: 999,
+              fontSize: 13,
+              fontWeight: 600,
+            }}
+          >
+            <span
+              style={{
+                width: 6,
+                height: 6,
+                background: "#0a7a64",
+                borderRadius: 999,
+                display: "block",
+              }}
+            />
+            crispdigital.io
+          </div>
         </div>
       </div>
     ),

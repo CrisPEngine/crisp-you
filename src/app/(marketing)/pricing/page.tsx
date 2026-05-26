@@ -32,8 +32,9 @@ export default function PricingPage() {
           ]),
         ]}
       />
-      <Section className="pt-12 sm:pt-16">
+      <Section className="pt-14 sm:pt-20">
         <SectionHeader
+          eyebrow="Pricing"
           heading={pricingPage.headline}
           body={pricingPage.subheadline}
           align="center"

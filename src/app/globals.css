@@ -1,36 +1,57 @@
 @import "tailwindcss";
 
 :root {
-  --background: #faf9f7;
-  --foreground: #0f172a;
-  --muted: #64748b;
-  --muted-foreground: #475569;
-  --accent: #0d9488;
-  --accent-hover: #0f766e;
-  --accent-light: #ccfbf1;
+  --background: #f8f5ef;
+  --background-deep: #f1ece1;
+  --foreground: #0b1220;
+  --muted: #6b7280;
+  --muted-foreground: #4b5563;
+  --accent: #0a7a64;
+  --accent-hover: #086150;
+  --accent-light: #d4f0e6;
+  --accent-mint: #e8f6ee;
   --surface: #ffffff;
-  --surface-warm: #f5f4f0;
-  --border: #e2e8f0;
-  --border-subtle: #f1f5f9;
-  --navy: #0f172a;
-  --charcoal: #334155;
-  --shadow-sm: 0 1px 2px 0 rgb(15 23 42 / 0.04);
-  --shadow-md: 0 4px 6px -1px rgb(15 23 42 / 0.06), 0 2px 4px -2px rgb(15 23 42 / 0.04);
-  --shadow-lg: 0 10px 15px -3px rgb(15 23 42 / 0.06), 0 4px 6px -4px rgb(15 23 42 / 0.04);
+  --surface-warm: #f3eee2;
+  --surface-elevated: #ffffff;
+  --border: #e6dfd1;
+  --border-subtle: #efe9da;
+  --border-strong: #d8cfb8;
+  --navy: #0b1220;
+  --charcoal: #1f2937;
+  --status-draft: #f4eddb;
+  --status-draft-text: #7a5a14;
+  --status-review: #fde9c5;
+  --status-review-text: #92400e;
+  --status-approved: #d4f0e6;
+  --status-approved-text: #065f46;
+  --status-scheduled: #dfe4ff;
+  --status-scheduled-text: #3730a3;
+  --status-export: #e5e7eb;
+  --status-export-text: #1f2937;
+  --shadow-xs: 0 1px 1px 0 rgb(11 18 32 / 0.04);
+  --shadow-sm: 0 1px 2px 0 rgb(11 18 32 / 0.05), 0 1px 1px 0 rgb(11 18 32 / 0.03);
+  --shadow-md:
+    0 8px 24px -8px rgb(11 18 32 / 0.08), 0 2px 4px -2px rgb(11 18 32 / 0.04);
+  --shadow-lg:
+    0 24px 48px -16px rgb(11 18 32 / 0.12), 0 8px 16px -8px rgb(11 18 32 / 0.06);
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-background-deep: var(--background-deep);
   --color-foreground: var(--foreground);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--accent);
   --color-accent-hover: var(--accent-hover);
   --color-accent-light: var(--accent-light);
+  --color-accent-mint: var(--accent-mint);
   --color-surface: var(--surface);
   --color-surface-warm: var(--surface-warm);
+  --color-surface-elevated: var(--surface-elevated);
   --color-border: var(--border);
   --color-border-subtle: var(--border-subtle);
+  --color-border-strong: var(--border-strong);
   --color-navy: var(--navy);
   --color-charcoal: var(--charcoal);
   --font-sans: var(--font-geist-sans);
@@ -41,6 +62,7 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-geist-sans), system-ui, sans-serif;
+  font-feature-settings: "ss01", "cv11";
 }
 
 html {
@@ -54,9 +76,43 @@ html {
 
 .grid-bg {
   background-image:
-    linear-gradient(to right, rgb(226 232 240 / 0.45) 1px, transparent 1px),
-    linear-gradient(to bottom, rgb(226 232 240 / 0.45) 1px, transparent 1px);
-  background-size: 48px 48px;
+    linear-gradient(to right, rgb(11 18 32 / 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(11 18 32 / 0.04) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+.grid-bg-fine {
+  background-image:
+    linear-gradient(to right, rgb(11 18 32 / 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(11 18 32 / 0.03) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.dotted-bg {
+  background-image: radial-gradient(rgb(11 18 32 / 0.08) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+.fade-mask-y {
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 12%,
+    black 88%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 12%,
+    black 88%,
+    transparent 100%
+  );
+}
+
+.fade-mask-radial {
+  mask-image: radial-gradient(ellipse at center, black 50%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 50%, transparent 80%);
 }
 
 .system-node {
@@ -72,4 +128,59 @@ html {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.connector-line {
+  animation: connector-draw 1.2s ease-out both;
+}
+
+@keyframes connector-draw {
+  from {
+    stroke-dashoffset: 200;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .system-node,
+  .connector-line,
+  html {
+    animation: none !important;
+    scroll-behavior: auto;
+  }
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.125rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.chip-draft {
+  background: var(--status-draft);
+  color: var(--status-draft-text);
+}
+.chip-review {
+  background: var(--status-review);
+  color: var(--status-review-text);
+}
+.chip-approved {
+  background: var(--status-approved);
+  color: var(--status-approved-text);
+}
+.chip-scheduled {
+  background: var(--status-scheduled);
+  color: var(--status-scheduled-text);
+}
+.chip-export {
+  background: var(--status-export);
+  color: var(--status-export-text);
 }

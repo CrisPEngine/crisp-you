@@ -1,95 +1,102 @@
 import { product } from "@/content/marketing";
 import { Section, SectionHeader } from "./Section";
+import { cn } from "@/lib/utils";
+
+const layerAccent: Record<string, string> = {
+  "01 Foundation": "from-accent/15 via-accent-mint to-surface border-accent/30",
+  "02 Strategy": "from-[#0a66c2]/8 via-surface to-surface border-[#0a66c2]/20",
+  "03 Production": "from-[#7c3aed]/8 via-surface to-surface border-[#7c3aed]/20",
+  "04 Governance": "from-[#0a7a64]/8 via-surface to-surface border-[#0a7a64]/20",
+  "05 Distribution": "from-[#1877f2]/8 via-surface to-surface border-[#1877f2]/20",
+  "06 Creative": "from-[#d97706]/8 via-surface to-surface border-[#d97706]/20",
+  "07 Improvement": "from-muted/10 via-surface to-surface border-border",
+};
 
 export function CapabilitySystem() {
-  const [primary, ...rest] = product.capabilities;
+  const [primary, ...rest] = product.layers;
 
   return (
-    <Section id="product">
-      <SectionHeader heading={product.heading} body={product.body} />
+    <Section id="product" tone="deep">
+      <SectionHeader
+        eyebrow="The system stack"
+        heading={product.heading}
+        body={product.body}
+      />
 
       <div className="grid gap-6 lg:grid-cols-12">
-        <div className="lg:col-span-5">
-          <div className="sticky top-24 rounded-2xl border border-accent/20 bg-gradient-to-br from-surface to-accent-light/20 p-6 shadow-sm lg:p-8">
-            <p className="text-xs font-medium uppercase tracking-wider text-accent">
-              {primary.layer}
-            </p>
-            <h3 className="mt-2 text-2xl font-semibold text-navy">{primary.title}</h3>
-            <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-              {primary.copy}
-            </p>
-            <div className="mt-8 space-y-3 rounded-xl border border-border bg-surface/80 p-4">
-              {["Tone: Confident, practical", "Audience: Founders, operators", "Offers: 3 connected", "Rules: 12 active"].map(
-                (row) => (
-                  <div key={row} className="flex items-center gap-2 text-sm text-charcoal">
-                    <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-                    {row}
+        <aside className="lg:col-span-5">
+          <div className="sticky top-24 overflow-hidden rounded-2xl border border-accent/30 bg-gradient-to-br from-accent-mint via-surface to-surface p-6 shadow-[var(--shadow-md)] lg:p-8">
+            <div
+              className="grid-bg-fine pointer-events-none absolute inset-0 opacity-40"
+              aria-hidden="true"
+            />
+            <div className="relative">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-accent">
+                {primary.layer}
+              </p>
+              <h3 className="mt-2 text-2xl font-semibold text-navy">{primary.title}</h3>
+              <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+                {primary.copy}
+              </p>
+
+              <div className="mt-6 space-y-2">
+                {[
+                  { k: "Tone", v: "Confident, practical" },
+                  { k: "Audience", v: "Founders, operators" },
+                  { k: "Offers", v: "3 connected" },
+                  { k: "Exclusions", v: "Set" },
+                ].map((row) => (
+                  <div
+                    key={row.k}
+                    className="flex items-center justify-between rounded-lg border border-border-subtle bg-surface px-3 py-2"
+                  >
+                    <span className="text-[11px] text-muted">{row.k}</span>
+                    <span className="text-[11px] font-medium text-navy">{row.v}</span>
                   </div>
-                ),
-              )}
+                ))}
+              </div>
+
+              <div className="mt-6 flex items-center gap-2 rounded-lg border border-accent/20 bg-accent-mint px-3 py-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true" />
+                <p className="text-[11px] font-medium text-accent">
+                  Brand profile ready
+                </p>
+              </div>
             </div>
           </div>
-        </div>
+        </aside>
 
-        <div className="grid gap-4 sm:grid-cols-2 lg:col-span-7">
-          {rest.map((cap) => (
-            <div
-              key={cap.id}
-              className="rounded-2xl border border-border bg-surface p-5 shadow-sm transition-transform hover:-translate-y-0.5 hover:shadow-md"
+        <div className="space-y-3 lg:col-span-7">
+          {rest.map((layer, i) => (
+            <article
+              key={layer.id}
+              className={cn(
+                "relative flex items-start gap-4 overflow-hidden rounded-2xl border bg-gradient-to-br p-5 shadow-[var(--shadow-sm)] transition-all hover:shadow-[var(--shadow-md)] sm:p-6",
+                layerAccent[layer.layer],
+              )}
+              style={{ marginLeft: `${i * 6}px` }}
             >
-              <p className="text-[10px] font-medium uppercase tracking-wider text-muted">
-                {cap.layer}
-              </p>
-              <h3 className="mt-1.5 text-base font-semibold text-navy">{cap.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{cap.copy}</p>
-            </div>
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-border bg-surface text-[11px] font-semibold text-navy shadow-[var(--shadow-xs)]">
+                {layer.layer.split(" ")[0]}
+              </div>
+              <div className="min-w-0 flex-1">
+                <div className="flex flex-wrap items-center gap-2">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-charcoal">
+                    {layer.layer.split(" ").slice(1).join(" ")}
+                  </p>
+                  {"soon" in layer && layer.soon ? (
+                    <span className="chip chip-draft">Soon</span>
+                  ) : null}
+                </div>
+                <h3 className="mt-1 text-base font-semibold text-navy">{layer.title}</h3>
+                <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
+                  {layer.copy}
+                </p>
+              </div>
+            </article>
           ))}
         </div>
       </div>
-
-      <ContentQueuePreview />
     </Section>
-  );
-}
-
-function ContentQueuePreview() {
-  const rows = [
-    { title: "Why systems beat sporadic posting", channel: "LinkedIn", status: "Approved", objective: "Authority" },
-    { title: "5 content mistakes founders make", channel: "X", status: "Review", objective: "Engagement" },
-    { title: "How to build a content queue", channel: "Blog", status: "Scheduled", objective: "Traffic" },
-    { title: "Campaign visual direction", channel: "Meta", status: "Draft", objective: "Awareness" },
-  ];
-
-  const statusStyles: Record<string, string> = {
-    Approved: "bg-accent-light text-accent",
-    Review: "bg-amber-50 text-amber-700",
-    Scheduled: "bg-indigo-50 text-indigo-700",
-    Draft: "bg-surface-warm text-charcoal",
-  };
-
-  return (
-    <div className="mt-12 overflow-hidden rounded-2xl border border-border bg-surface shadow-sm">
-      <div className="flex items-center justify-between border-b border-border bg-surface-warm px-5 py-3">
-        <p className="text-sm font-semibold text-navy">Content queue preview</p>
-        <p className="text-xs text-muted">4 items in flow</p>
-      </div>
-      <div className="divide-y divide-border-subtle">
-        {rows.map((row) => (
-          <div
-            key={row.title}
-            className="grid gap-2 px-5 py-3.5 sm:grid-cols-[1fr_auto_auto_auto] sm:items-center sm:gap-4"
-          >
-            <p className="text-sm font-medium text-navy">{row.title}</p>
-            <span className="text-xs text-muted">{row.channel}</span>
-            <span className="text-xs text-muted-foreground">{row.objective}</span>
-            <span
-              className={`inline-flex w-fit rounded-full px-2.5 py-0.5 text-[10px] font-medium ${statusStyles[row.status]}`}
-            >
-              {row.status}
-            </span>
-          </div>
-        ))}
-      </div>
-    </div>
   );
 }

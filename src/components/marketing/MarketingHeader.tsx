@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { navLinks, cta } from "@/content/marketing";
+import { navLinks } from "@/content/marketing";
 import { site } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { Button } from "./Button";
@@ -11,18 +11,18 @@ export function MarketingHeader() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border/70 bg-background/95 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-border/70 bg-background/85 backdrop-blur-md">
       <div className="mx-auto flex h-[4.25rem] max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex min-w-0 items-center gap-2.5">
           <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-navy text-sm font-bold text-white">
             C
           </span>
-          <span className="truncate text-sm font-semibold leading-tight text-navy sm:text-[0.9375rem]">
+          <span className="hidden truncate text-sm font-semibold leading-tight text-navy sm:inline sm:text-[0.9375rem]">
             CRISP Content Engine
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-7 xl:flex" aria-label="Main">
+        <nav className="hidden items-center gap-7 lg:flex" aria-label="Main">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -41,7 +41,7 @@ export function MarketingHeader() {
           >
             Login
           </a>
-          <Button href={site.startUrl}>{cta.primary}</Button>
+          <Button href={site.startUrl}>Start free</Button>
         </div>
 
         <button
@@ -95,7 +95,7 @@ export function MarketingHeader() {
           </a>
           <div className="mt-2 px-3">
             <Button href={site.startUrl} className="w-full">
-              {cta.primary}
+              Start free, no card required
             </Button>
           </div>
         </nav>

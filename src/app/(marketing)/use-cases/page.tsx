@@ -21,8 +21,9 @@ export default function UseCasesPage() {
           { name: "Use cases", path: "/use-cases" },
         ])}
       />
-      <Section className="pt-12 sm:pt-16">
+      <Section className="pt-14 sm:pt-20">
         <SectionHeader
+          eyebrow="Use cases"
           heading={useCasesPage.headline}
           body={useCasesPage.subheadline}
           align="center"
@@ -30,18 +31,21 @@ export default function UseCasesPage() {
         />
       </Section>
 
-      <Section warm>
-        <div className="grid gap-6 lg:grid-cols-2">
+      <Section tone="warm">
+        <div className="grid gap-5 lg:grid-cols-2">
           {useCasesPage.cases.map((useCase, i) => (
             <article
               key={useCase.title}
-              className={`rounded-2xl border border-border bg-surface p-8 shadow-sm ${
+              className={`rounded-2xl border border-border bg-surface p-8 shadow-[var(--shadow-sm)] ${
                 i === useCasesPage.cases.length - 1 && useCasesPage.cases.length % 2 !== 0
-                  ? "lg:col-span-2 lg:max-w-2xl lg:justify-self-center lg:w-full"
+                  ? "lg:col-span-2 lg:mx-auto lg:max-w-2xl"
                   : ""
               }`}
             >
-              <h2 className="text-xl font-semibold text-navy">{useCase.title}</h2>
+              <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-accent">
+                Workflow
+              </p>
+              <h2 className="mt-2 text-xl font-semibold text-navy">{useCase.title}</h2>
               <p className="mt-4 text-base leading-relaxed text-muted-foreground">
                 {useCase.copy}
               </p>
