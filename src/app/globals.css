@@ -118,6 +118,13 @@ body {
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 9rem;
+}
+
+@media (min-width: 1024px) {
+  html {
+    scroll-padding-top: 10.5rem;
+  }
 }
 
 ::selection {
