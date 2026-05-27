@@ -1,3 +1,4 @@
+/** Legacy: superseded by src/content/landing-pages/compare-pages.ts. Not used by routes. Kept for reference. */
 export type ComparePageContent = {
   slug: string;
   seoTitle: string;

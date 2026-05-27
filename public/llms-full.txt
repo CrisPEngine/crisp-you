@@ -2,6 +2,15 @@
 
 See https://crisp.you/llms.txt for the primary summary.
 
+## Core pages
+
+Homepage: https://crisp.you/
+Pricing: https://crisp.you/pricing
+How it works: https://crisp.you/how-it-works
+Use cases hub: https://crisp.you/use-cases
+Blog: https://crisp.you/blog
+Contact: https://crisp.you/contact
+
 ## Homepage
 
 CRISP Content Engine helps founders, consultants, agencies and lean teams build consistent visibility without burning out. The homepage explains the content system stack: brand profile, strategy-led generation, content queue, human review, export and auto-publishing paths, AI image prompts and future reporting.
@@ -20,37 +29,58 @@ Billing: https://app.crispdigital.io/billing
 
 ## Features
 
-Brand profile stores tone, audience, offers, keywords, exclusions and content rules.
-Content queue keeps drafts, channels, statuses and publishing paths visible.
-LinkedIn content system supports strategy-led drafts, review and auto-publishing on supported plans.
-AI image prompts provide visual direction matched to post, platform and brand.
+Brand profile: https://crisp.you/features/brand-profile
+Content queue: https://crisp.you/features/content-queue
+LinkedIn content system: https://crisp.you/features/linkedin-content-system
+AI image prompts: https://crisp.you/features/ai-image-prompts
 
 ## Use cases
 
-Founders: visibility without a second full-time content job.
-Consultants: authority content connected to expertise and offer clarity.
-Agencies: multi-brand workflows with separate profiles and queues.
-Lean teams: shared queue, approvals and channel outputs.
+Founders: https://crisp.you/use-cases/founders
+Consultants: https://crisp.you/use-cases/consultants
+Agencies: https://crisp.you/use-cases/agencies
+Lean teams: https://crisp.you/use-cases/lean-teams
 
 ## Comparisons
 
-ChatGPT vs CRISP: prompt-first drafting vs brand-profile-first workflow with queue and publishing paths.
-Content calendar vs content engine: scheduling visibility vs connected strategy, drafts, review and publishing.
-
-## Articles summary
-
-Founders need a system that connects brand, themes, channels, review and publishing rhythm.
-AI generators help isolated drafts; content systems help consistency across weeks and channels.
-LinkedIn consistency requires workflow, not willpower alone.
-Businesses need brand context, queue, review and publishing path connected.
-Calendars plan dates; engines create the work behind the plan.
-Founders should look for brand memory, review control and a free starting point.
-One strong idea can become multiple channel-ready outputs with proper adaptation.
-Brand voice should be stored once and reused, not rebuilt every prompt.
+ChatGPT vs CRISP: https://crisp.you/compare/chatgpt-vs-crisp-content-engine
+Content calendar vs content engine: https://crisp.you/compare/content-calendar-vs-content-engine
 
 ## Free entry
 
-https://crisp.you/free-ai-content-planner describes the Starter plan as the free entry into the full CRISP Content Engine workflow.
+https://crisp.you/free-ai-content-planner
+
+## Articles
+
+How to build a content system for your business:
+https://crisp.you/blog/how-to-build-a-content-system-for-your-business
+
+A content system for founders who need to stay visible:
+https://crisp.you/blog/content-system-for-founders
+
+AI content generator vs content system:
+https://crisp.you/blog/ai-content-generator-vs-content-system
+
+How to stay consistent on LinkedIn:
+https://crisp.you/blog/how-to-stay-consistent-on-linkedin
+
+Content calendar vs content engine:
+https://crisp.you/blog/content-calendar-vs-content-engine
+
+Best AI content tools for founders:
+https://crisp.you/blog/best-ai-content-tools-for-founders
+
+How to turn one idea into a month of content:
+https://crisp.you/blog/turn-one-idea-into-a-month-of-content
+
+AI content with brand voice:
+https://crisp.you/blog/ai-content-with-brand-voice
+
+Content workflow for consultants:
+https://crisp.you/blog/content-workflow-for-consultants
+
+Multi-brand content management for agencies:
+https://crisp.you/blog/multi-brand-content-management-for-agencies
 
 ## Legal
 

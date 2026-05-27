@@ -1,3 +1,4 @@
+/** Legacy: superseded by src/content/landing-pages/free-planner-page.ts. Not used by routes. Kept for reference. */
 import { cta } from "@/config/site";
 
 export const freePlannerPage = {

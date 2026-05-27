@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "verify:routes": "node scripts/verify-public-routes.mjs",
+    "check:live-routes": "node scripts/check-live-routes.mjs"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

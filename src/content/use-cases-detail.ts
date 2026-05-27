@@ -1,3 +1,4 @@
+/** Legacy: superseded by src/content/landing-pages/use-cases-pages.ts. Not used by routes. Kept for reference. */
 export type UseCaseDetail = {
   slug: string;
   seoTitle: string;

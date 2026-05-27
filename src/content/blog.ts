@@ -310,7 +310,11 @@ const coreBlogPosts: BlogPost[] = [
   },
 ];
 
-export const blogPosts: BlogPost[] = [...coreBlogPosts, ...additionalBlogPosts];
+export const blogPosts: BlogPost[] = [...coreBlogPosts, ...additionalBlogPosts].sort(
+  (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
+);
+
+export const blogSlugs = blogPosts.map((post) => post.slug);
 
 export function getBlogPost(slug: string) {
   return blogPosts.find((post) => post.slug === slug);

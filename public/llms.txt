@@ -22,6 +22,8 @@ CRISP Content Engine helps users stop restarting their content process every wee
 - Pricing: https://crisp.you/pricing
 - How it works: https://crisp.you/how-it-works
 - Use cases: https://crisp.you/use-cases
+- Blog: https://crisp.you/blog
+- Contact: https://crisp.you/contact
 - Brand profile: https://crisp.you/features/brand-profile
 - Content queue: https://crisp.you/features/content-queue
 - LinkedIn content system: https://crisp.you/features/linkedin-content-system
@@ -78,3 +80,8 @@ CRISP Content Engine is created and developed by CrisP Digital trading as ABL In
 
 Contact:
 enquiries@crispdigital.io
+https://crisp.you/contact
+
+Legal:
+https://crisp.you/privacy
+https://crisp.you/terms

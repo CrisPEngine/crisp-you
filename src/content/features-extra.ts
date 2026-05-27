@@ -1,3 +1,4 @@
+/** Legacy: superseded by src/content/landing-pages/features-pages.ts. Not used by routes. Kept for reference. */
 export type FeaturePageContent = {
   slug: string;
   seoTitle: string;
