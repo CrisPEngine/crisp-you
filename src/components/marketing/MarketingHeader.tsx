@@ -48,20 +48,20 @@ export function MarketingHeader() {
   return (
     <>
       <header className="sticky top-0 z-50 border-b border-border-subtle bg-background/90 backdrop-blur-md">
-        <div className="mx-auto flex h-14 max-w-7xl items-center justify-between gap-3 px-4 sm:h-16 sm:gap-4 sm:px-6 xl:h-auto xl:min-h-[5.5rem] xl:px-8 xl:py-3">
+        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-2 overflow-hidden px-4 xl:h-auto xl:min-h-[5.5rem] xl:gap-4 xl:px-8 xl:py-3">
           <Link
             href="/"
-            className="flex shrink-0 items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            className="flex min-w-0 items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
             <BrandLogo
-              variant="wordmark"
+              variant="logo"
               priority
-              className="h-7 w-auto sm:h-8 xl:hidden"
+              className="h-[26px] max-h-[30px] w-auto max-w-[112px] xl:hidden min-[360px]:h-7 min-[360px]:max-h-[34px] min-[360px]:max-w-[128px] min-[390px]:h-8 min-[390px]:max-w-[140px]"
             />
             <BrandLogo
               variant="logo"
               priority
-              className="hidden h-20 w-auto xl:block 2xl:h-24"
+              className="hidden h-20 w-auto max-w-none xl:block 2xl:h-24"
             />
           </Link>
 
@@ -137,7 +137,7 @@ export function MarketingHeader() {
             ))}
           </nav>
 
-          <div className="flex items-center gap-2 sm:gap-3">
+          <div className="flex shrink-0 items-center">
             <div className="hidden items-center gap-3 xl:flex">
               <a
                 href={site.loginUrl}
@@ -151,21 +151,12 @@ export function MarketingHeader() {
               </Button>
             </div>
 
-            <Button
-              href={site.startUrl}
-              size="md"
-              event="cce_start_free_click"
-              className="hidden min-[375px]:inline-flex xl:hidden"
-            >
-              Start free
-            </Button>
-
             <button
               type="button"
-              className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-border-subtle bg-surface text-muted-foreground transition-colors hover:bg-surface-muted hover:text-navy focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background xl:hidden"
+              className="inline-flex h-11 min-h-11 w-11 min-w-11 items-center justify-center rounded-xl border border-border-subtle bg-surface text-muted-foreground transition-colors hover:bg-surface-muted hover:text-navy focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background xl:hidden"
               aria-expanded={mobileOpen}
               aria-controls={mobileMenuId}
-              aria-label={mobileOpen ? "Close menu" : "Open menu"}
+              aria-label={mobileOpen ? "Close navigation" : "Open navigation"}
               onClick={() => setMobileOpen((open) => !open)}
             >
               <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.75} stroke="currentColor" aria-hidden="true">

@@ -7,6 +7,7 @@ import { site, cta } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { trackEvent } from "@/lib/analytics";
 import { Button } from "./Button";
+import { BrandLogo } from "./BrandLogo";
 
 type MobileNavigationProps = {
   open: boolean;
@@ -69,13 +70,18 @@ export function MobileNavigation({ open, onClose, menuId }: MobileNavigationProp
           open ? "translate-y-0 opacity-100" : "-translate-y-2 opacity-0",
         )}
       >
-        <div className="flex items-center justify-between border-b border-border-subtle px-4 py-3">
-          <p className="text-sm font-semibold text-navy">Menu</p>
+        <div className="flex h-16 items-center justify-between gap-3 border-b border-border-subtle px-4">
+          <div className="min-w-0">
+            <BrandLogo
+              variant="wordmark"
+              className="h-6 max-h-7 w-auto max-w-[220px] object-contain sm:max-w-[260px]"
+            />
+          </div>
           <button
             ref={closeButtonRef}
             type="button"
-            className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-border-subtle bg-surface text-muted-foreground transition-colors hover:bg-surface-muted hover:text-navy focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background-elevated"
-            aria-label="Close menu"
+            className="inline-flex h-11 min-h-11 w-11 min-w-11 shrink-0 items-center justify-center rounded-xl border border-border-subtle bg-surface text-muted-foreground transition-colors hover:bg-surface-muted hover:text-navy focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background-elevated"
+            aria-label="Close navigation"
             onClick={onClose}
           >
             <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.75} stroke="currentColor" aria-hidden="true">

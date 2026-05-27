@@ -16,7 +16,7 @@ export function BrandLogo({ variant, className, priority = false }: BrandLogoPro
         alt="CRISP Content Engine"
         width={1080}
         height={200}
-        className={cn("h-auto w-auto", className)}
+        className={cn("shrink-0 object-contain", className)}
         priority={priority}
       />
     );
@@ -28,7 +28,7 @@ export function BrandLogo({ variant, className, priority = false }: BrandLogoPro
       alt="CRISP Content Engine"
       width={1200}
       height={627}
-      className={cn("h-auto w-auto", className)}
+      className={cn("shrink-0 object-contain", className)}
       priority={priority}
     />
   );
