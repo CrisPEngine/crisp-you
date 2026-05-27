@@ -279,6 +279,9 @@ export const blogPage = {
     "AI-assisted workflows",
     "Brand voice",
     "Content operations",
+    "Consultants",
+    "Agencies",
+    "Free tools",
   ],
 } as const;
 

@@ -1,14 +1,17 @@
+import { additionalBlogPosts } from "./blog-extra";
+
 export type ArticleBlock =
   | { type: "paragraph"; text: string }
-  | { type: "heading"; text: string }
+  | { type: "heading"; text: string; id?: string }
   | { type: "cards"; items: { title: string; body: string }[] }
-  | { type: "table"; headers: [string, string, string]; rows: [string, string, string][] }
+  | { type: "table"; headers: readonly string[]; rows: readonly (readonly string[])[] }
   | { type: "steps"; items: { title: string; body: string }[] }
   | {
       type: "ideaOutputs";
       core: string;
       outputs: { channel: string; format: string }[];
-    };
+    }
+  | { type: "faq"; items: { question: string; answer: string }[] };
 
 export type BlogPost = {
   slug: string;
@@ -19,10 +22,13 @@ export type BlogPost = {
   excerpt: string;
   publishedAt: string;
   cta: string;
+  ctaHref?: string;
+  featured?: boolean;
+  relatedLinks?: readonly { label: string; href: string }[];
   blocks: ArticleBlock[];
 };
 
-export const blogPosts: BlogPost[] = [
+const coreBlogPosts: BlogPost[] = [
   {
     slug: "content-system-for-founders",
     title: "A content system for founders who need to stay visible without burning out",
@@ -34,6 +40,12 @@ export const blogPosts: BlogPost[] = [
       "Founders usually do not have a shortage of ideas. The harder problem is turning those ideas into a steady publishing rhythm while running the business.",
     publishedAt: "2026-05-01",
     cta: "Start free and build your founder content rhythm",
+    relatedLinks: [
+      { label: "Founders use case", href: "/use-cases/founders" },
+      { label: "Brand profile", href: "/features/brand-profile" },
+      { label: "LinkedIn system", href: "/features/linkedin-content-system" },
+      { label: "Pricing", href: "/pricing" },
+    ],
     blocks: [
       {
         type: "paragraph",
@@ -90,6 +102,21 @@ export const blogPosts: BlogPost[] = [
         type: "paragraph",
         text: "A founder's content should not depend on whether there is enough spare time at the end of the week. When the brand, offer, ideas and workflow are connected, content becomes easier to sustain and more useful to the business.",
       },
+      {
+        type: "faq",
+        items: [
+          {
+            question: "Can founders start without a credit card?",
+            answer:
+              "Yes. CRISP Starter is free forever and includes a brand profile, limited monthly exports and AI image prompts with no credit card required.",
+          },
+          {
+            question: "Does CRISP auto-publish LinkedIn for founders?",
+            answer:
+              "LinkedIn auto-publishing is available on Creator, Growth and Pro where the account connection and plan support it. Starter uses export workflows.",
+          },
+        ],
+      },
     ],
   },
   {
@@ -103,6 +130,11 @@ export const blogPosts: BlogPost[] = [
       "AI content generators can be useful for isolated drafts. A content system solves a different problem: consistency across weeks, channels and campaigns.",
     publishedAt: "2026-05-08",
     cta: "Start free and build a content system around your brand",
+    relatedLinks: [
+      { label: "ChatGPT vs CRISP", href: "/compare/chatgpt-vs-crisp-content-engine" },
+      { label: "Content queue", href: "/features/content-queue" },
+      { label: "Build a content system", href: "/blog/how-to-build-a-content-system-for-your-business" },
+    ],
     blocks: [
       {
         type: "paragraph",
@@ -169,6 +201,21 @@ export const blogPosts: BlogPost[] = [
         type: "paragraph",
         text: "An AI content generator can help create a draft. A content system helps a brand keep showing up with a clearer message, a stronger workflow and a more sustainable rhythm.",
       },
+      {
+        type: "faq",
+        items: [
+          {
+            question: "Can I use ChatGPT and CRISP together?",
+            answer:
+              "Yes. Many users keep a general AI assistant for brainstorming while CRISP handles brand context, queue, review and publishing workflow for repeatable content.",
+          },
+          {
+            question: "Is CRISP just another AI writer?",
+            answer:
+              "No. CRISP is a content system built around brand profiles, queues, review and publishing paths. AI supports drafting inside that workflow.",
+          },
+        ],
+      },
     ],
   },
   {
@@ -182,6 +229,11 @@ export const blogPosts: BlogPost[] = [
       "LinkedIn consistency is difficult because it asks for more than writing. It asks for a point of view, a rhythm and a set of repeatable themes.",
     publishedAt: "2026-05-15",
     cta: "Start free and build your LinkedIn content rhythm",
+    relatedLinks: [
+      { label: "LinkedIn content system", href: "/features/linkedin-content-system" },
+      { label: "Turn one idea into a month", href: "/blog/turn-one-idea-into-a-month-of-content" },
+      { label: "Consultants use case", href: "/use-cases/consultants" },
+    ],
     blocks: [
       {
         type: "paragraph",
@@ -239,10 +291,33 @@ export const blogPosts: BlogPost[] = [
         type: "paragraph",
         text: "LinkedIn consistency becomes easier when the system does more of the preparation. The user still provides judgement and direction, but the blank page, scattered notes and weekly restart are no longer carrying the whole process.",
       },
+      {
+        type: "faq",
+        items: [
+          {
+            question: "How often should founders post on LinkedIn?",
+            answer:
+              "The right cadence depends on capacity and strategy. CRISP helps users set a realistic rhythm based on plan limits and review workflow rather than forcing daily posting.",
+          },
+          {
+            question: "Does CRISP write LinkedIn posts automatically without review?",
+            answer:
+              "No. CRISP supports human review before export or auto-publishing. The user approves what fits the brand and the channel.",
+          },
+        ],
+      },
     ],
   },
 ];
 
+export const blogPosts: BlogPost[] = [...coreBlogPosts, ...additionalBlogPosts];
+
 export function getBlogPost(slug: string) {
   return blogPosts.find((post) => post.slug === slug);
+}
+
+export function extractArticleFaq(blocks: ArticleBlock[]) {
+  return blocks
+    .filter((block): block is Extract<ArticleBlock, { type: "faq" }> => block.type === "faq")
+    .flatMap((block) => block.items);
 }

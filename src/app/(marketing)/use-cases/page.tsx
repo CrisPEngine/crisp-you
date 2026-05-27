@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { createMetadata } from "@/lib/metadata";
 import { useCasesPage } from "@/content/pages";
 import { site } from "@/config/site";
@@ -66,13 +67,16 @@ export default function UseCasesPage() {
                   </tbody>
                 </table>
               </div>
-              <div className="mt-6">
-                <Button
-                  href={site.startUrl}
-                  event="cce_start_free_click"
-                >
+              <div className="mt-6 flex flex-wrap gap-3">
+                <Button href={site.startUrl} event="cce_start_free_click">
                   {useCase.cta}
                 </Button>
+                <Link
+                  href={`/use-cases/${useCase.id}`}
+                  className="inline-flex items-center text-sm font-medium text-accent hover:text-accent-hover"
+                >
+                  Read the full workflow &rarr;
+                </Link>
               </div>
             </article>
           ))}

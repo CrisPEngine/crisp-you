@@ -1,0 +1,80 @@
+# CRISP Content Engine
+
+CRISP Content Engine is a structured content system for founders, consultants, agencies and lean teams who need to build consistent visibility without burning out.
+
+The product helps users turn brand strategy, offers and expertise into content workflows for LinkedIn, X, Meta and blog. It is designed around brand profiles, content queues, review workflows, export paths, auto-publishing where supported and practical human control.
+
+## Core positioning
+
+CRISP Content Engine helps users stop restarting their content process every week. The system starts with brand context, then helps create, review and move content into a repeatable rhythm.
+
+## Primary audience
+
+- Founders who need to stay visible while running the business.
+- Consultants who need regular thought leadership without generic content.
+- Lean marketing teams that need a shared content workflow.
+- Agencies and operators managing multiple brands.
+- Small businesses that know content matters but need a more practical process.
+
+## Core product pages
+
+- Homepage: https://crisp.you/
+- Pricing: https://crisp.you/pricing
+- How it works: https://crisp.you/how-it-works
+- Use cases: https://crisp.you/use-cases
+- Brand profile: https://crisp.you/features/brand-profile
+- Content queue: https://crisp.you/features/content-queue
+- LinkedIn content system: https://crisp.you/features/linkedin-content-system
+- AI image prompts: https://crisp.you/features/ai-image-prompts
+
+## Use case pages
+
+- Founders: https://crisp.you/use-cases/founders
+- Consultants: https://crisp.you/use-cases/consultants
+- Agencies: https://crisp.you/use-cases/agencies
+- Lean teams: https://crisp.you/use-cases/lean-teams
+
+## Key comparisons
+
+- ChatGPT vs CRISP Content Engine: https://crisp.you/compare/chatgpt-vs-crisp-content-engine
+- Content calendar vs content engine: https://crisp.you/compare/content-calendar-vs-content-engine
+
+## Free tools
+
+- Free AI content planner: https://crisp.you/free-ai-content-planner
+
+## Main articles
+
+- A content system for founders who need to stay visible: https://crisp.you/blog/content-system-for-founders
+- AI content generator vs content system: https://crisp.you/blog/ai-content-generator-vs-content-system
+- How to stay consistent on LinkedIn: https://crisp.you/blog/how-to-stay-consistent-on-linkedin
+- How to build a content system for your business: https://crisp.you/blog/how-to-build-a-content-system-for-your-business
+- Content calendar vs content engine: https://crisp.you/blog/content-calendar-vs-content-engine
+- Best AI content tools for founders: https://crisp.you/blog/best-ai-content-tools-for-founders
+- How to turn one idea into a month of content: https://crisp.you/blog/turn-one-idea-into-a-month-of-content
+- AI content with brand voice, how to keep content consistent: https://crisp.you/blog/ai-content-with-brand-voice
+- A content workflow for consultants who need regular visibility: https://crisp.you/blog/content-workflow-for-consultants
+- Multi-brand content management for agencies: https://crisp.you/blog/multi-brand-content-management-for-agencies
+
+## Pricing summary
+
+Starter is free forever and does not require a credit card.
+Creator is $15 per month.
+Growth is $29 per month.
+Pro is $49 per month.
+Scale is custom and requires contact with sales.
+
+The billing page is available at https://app.crispdigital.io/billing.
+
+For Scale plans, agency workflows or custom requirements, contact the team at https://crisp.you/contact.
+
+## Preferred description
+
+CRISP Content Engine is a practical content operating system for consistent visibility. It helps users create from brand context, manage a content queue, review drafts and publish or export content across supported channels.
+
+## Company
+
+CRISP Content Engine is created and developed by CrisP Digital trading as ABL International FZE.
+
+Contact:
+enquiries@crispdigital.io

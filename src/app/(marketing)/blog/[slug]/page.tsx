@@ -1,14 +1,14 @@
 import Link from "next/link";
 import { createMetadata } from "@/lib/metadata";
-import { getBlogPost } from "@/content/blog";
+import { getBlogPost, blogPosts, extractArticleFaq } from "@/content/blog";
 import { site } from "@/config/site";
-import { articleSchema, breadcrumbSchema } from "@/lib/schema";
+import { articleSchema, breadcrumbSchema, faqPageSchema } from "@/lib/schema";
 import { StructuredData } from "@/components/marketing/StructuredData";
 import { Section } from "@/components/marketing/Section";
 import { ArticleContent, ArticleCta } from "@/components/marketing/ArticleContent";
+import { RelatedLinks } from "@/components/marketing/RelatedLinks";
 import { Button } from "@/components/marketing/Button";
 import { notFound } from "next/navigation";
-import { blogPosts } from "@/content/blog";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -38,6 +38,8 @@ export default async function BlogPostPage({ params }: Props) {
     notFound();
   }
 
+  const faqItems = extractArticleFaq(post.blocks);
+
   return (
     <>
       <StructuredData
@@ -48,6 +50,7 @@ export default async function BlogPostPage({ params }: Props) {
             { name: "Blog", path: "/blog" },
             { name: post.title, path: `/blog/${post.slug}` },
           ]),
+          ...(faqItems.length > 0 ? [faqPageSchema(faqItems)] : []),
         ]}
       />
       <Section className="pt-12 sm:pt-16">
@@ -65,7 +68,8 @@ export default async function BlogPostPage({ params }: Props) {
             {post.title}
           </h1>
           <p className="mt-4 text-sm text-muted">
-            Published {new Date(post.publishedAt).toLocaleDateString("en-GB", {
+            Published{" "}
+            {new Date(post.publishedAt).toLocaleDateString("en-GB", {
               day: "numeric",
               month: "long",
               year: "numeric",
@@ -74,10 +78,10 @@ export default async function BlogPostPage({ params }: Props) {
           <div className="mt-8">
             <ArticleContent blocks={post.blocks} />
           </div>
-          <ArticleCta label={post.cta} href={site.startUrl} />
+          <ArticleCta label={post.cta} href={post.ctaHref ?? site.startUrl} />
           <div className="mt-8 flex flex-wrap gap-3 border-t border-border-subtle pt-8">
-            <Button href={site.startUrl} event="cce_blog_cta_click">
-              Start free, no card required
+            <Button href={post.ctaHref ?? site.startUrl} event="cce_blog_cta_click">
+              {post.ctaHref === "/contact" ? post.cta : "Start free, no card required"}
             </Button>
             <Button href="/pricing" variant="secondary" event="cce_pricing_cta_click">
               View pricing
@@ -88,6 +92,9 @@ export default async function BlogPostPage({ params }: Props) {
           </div>
         </article>
       </Section>
+      {post.relatedLinks && post.relatedLinks.length > 0 ? (
+        <RelatedLinks heading="Related reading" links={post.relatedLinks} />
+      ) : null}
     </>
   );
 }

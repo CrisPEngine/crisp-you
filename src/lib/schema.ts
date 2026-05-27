@@ -129,9 +129,10 @@ export function articleSchema(post: BlogPost) {
     headline: post.title,
     description: post.description,
     datePublished: post.publishedAt,
+    dateModified: post.publishedAt,
     author: {
       "@type": "Organization",
-      name: site.creator,
+      name: site.name,
     },
     publisher: {
       "@type": "Organization",
@@ -139,6 +140,7 @@ export function articleSchema(post: BlogPost) {
       url: site.domain,
     },
     mainEntityOfPage: `${site.domain}/blog/${post.slug}`,
+    image: `${site.domain}/opengraph-image`,
   };
 }
 

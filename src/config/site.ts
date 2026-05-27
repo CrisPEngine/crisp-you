@@ -8,8 +8,7 @@ export const site = {
   creator: "CrisP Digital",
   contactEmail: "enquiries@crispdigital.io",
   domain:
-    process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
-    "https://crisp-you.vercel.app",
+    process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ?? "https://crisp.you",
   // App and billing URLs, confirm against production routing
   startUrl: "https://app.crispdigital.io",
   loginUrl: "https://app.crispdigital.io",
