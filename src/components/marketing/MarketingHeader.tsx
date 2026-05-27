@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { navLinks, productLinks } from "@/content/navigation";
 import { site } from "@/config/site";
 import { cn } from "@/lib/utils";
@@ -12,6 +12,36 @@ import { BrandLogo } from "./BrandLogo";
 export function MarketingHeader() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [productOpen, setProductOpen] = useState(false);
+  const productMenuRef = useRef<HTMLDivElement>(null);
+  const productMenuId = useId();
+
+  useEffect(() => {
+    if (!productOpen) return;
+
+    function handlePointerDown(event: MouseEvent | TouchEvent) {
+      const target = event.target;
+      if (!(target instanceof Node)) return;
+      if (!productMenuRef.current?.contains(target)) {
+        setProductOpen(false);
+      }
+    }
+
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        setProductOpen(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handlePointerDown);
+    document.addEventListener("touchstart", handlePointerDown);
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("mousedown", handlePointerDown);
+      document.removeEventListener("touchstart", handlePointerDown);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [productOpen]);
 
   return (
     <header className="sticky top-0 z-50 border-b border-border-subtle bg-background/80 backdrop-blur-md">
@@ -25,34 +55,64 @@ export function MarketingHeader() {
 
         <nav className="hidden items-center gap-6 lg:flex" aria-label="Main">
           <div
+            ref={productMenuRef}
             className="relative"
             onMouseEnter={() => setProductOpen(true)}
             onMouseLeave={() => setProductOpen(false)}
           >
             <button
               type="button"
-              className="inline-flex items-center gap-1 text-sm text-muted transition-colors hover:text-navy"
+              className={cn(
+                "inline-flex items-center gap-1 rounded-md px-1 py-1 text-sm transition-colors hover:text-navy focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+                productOpen ? "text-navy" : "text-muted",
+              )}
               aria-expanded={productOpen}
               aria-haspopup="true"
+              aria-controls={productMenuId}
+              onClick={() => setProductOpen((open) => !open)}
             >
               Product
-              <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" aria-hidden="true">
+              <svg
+                className={cn("h-3.5 w-3.5 transition-transform", productOpen && "rotate-180")}
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={2}
+                stroke="currentColor"
+                aria-hidden="true"
+              >
                 <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
               </svg>
             </button>
-            {productOpen && (
-              <div className="absolute left-0 top-full z-50 mt-2 w-52 rounded-xl border border-border-subtle bg-surface p-2 shadow-[var(--shadow-md)]">
+            <div
+              id={productMenuId}
+              className={cn(
+                "absolute left-0 top-full z-50 w-52 pt-2",
+                productOpen ? "pointer-events-auto" : "pointer-events-none",
+              )}
+            >
+              <div
+                className={cn(
+                  "rounded-xl border border-border-subtle bg-surface p-2 shadow-[var(--shadow-md)] transition-[opacity,transform] duration-150",
+                  productOpen
+                    ? "visible translate-y-0 opacity-100"
+                    : "invisible -translate-y-1 opacity-0",
+                )}
+                role="menu"
+                aria-hidden={!productOpen}
+              >
                 {productLinks.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="block rounded-lg px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-surface-muted hover:text-navy"
+                    role="menuitem"
+                    className="block rounded-lg px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-surface-muted hover:text-navy focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                    onClick={() => setProductOpen(false)}
                   >
                     {link.label}
                   </Link>
                 ))}
               </div>
-            )}
+            </div>
           </div>
           {navLinks.map((link) => (
             <Link
