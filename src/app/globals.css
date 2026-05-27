@@ -582,3 +582,34 @@ html {
     var(--surface) 100%
   );
 }
+
+/* ── Interactive capability system ── */
+
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes capability-detail-in {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .capability-detail-content {
+    animation: capability-detail-in 0.32s ease-out both;
+  }
+
+  @media (hover: hover) {
+    .capability-selector:not(.capability-selector-active):hover {
+      transform: translateY(-2px);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .capability-selector:hover {
+    transform: none !important;
+  }
+}
