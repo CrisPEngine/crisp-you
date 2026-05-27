@@ -38,16 +38,16 @@ export function PageHero({
             {eyebrow}
           </p>
         )}
-        <h1 className="max-w-4xl text-3xl font-semibold tracking-tight text-navy sm:text-4xl lg:text-[2.75rem] lg:leading-[1.08]">
+        <h1 className="max-w-4xl text-[1.75rem] font-semibold leading-[1.15] tracking-tight text-navy sm:text-4xl lg:text-[2.75rem] lg:leading-[1.08]">
           {heading}
         </h1>
         {paragraphs.map((paragraph, i) => (
           <p
             key={i}
             className={cn(
-              "max-w-3xl text-lg leading-relaxed text-muted-foreground",
+              "max-w-prose text-base leading-relaxed text-muted-foreground sm:text-lg",
               align === "center" ? "mx-auto" : "",
-              i === 0 ? "mt-5" : "mt-3",
+              i === 0 ? "mt-4 sm:mt-5" : "mt-3",
             )}
           >
             {paragraph}
@@ -56,17 +56,17 @@ export function PageHero({
         {(primaryCta || secondaryCta) && (
           <div
             className={cn(
-              "mt-8 flex flex-col gap-3 sm:flex-row sm:items-center",
-              align === "center" && "justify-center",
+              "mt-7 flex w-full flex-col gap-3 sm:mt-8 sm:w-auto sm:flex-row sm:items-center",
+              align === "center" && "sm:justify-center",
             )}
           >
             {primaryCta && (
-              <Button href={primaryCta.href} size="lg" event={primaryCta.event}>
+              <Button href={primaryCta.href} size="lg" className="w-full sm:w-auto" event={primaryCta.event}>
                 {primaryCta.label}
               </Button>
             )}
             {secondaryCta && (
-              <Button href={secondaryCta.href} variant="secondary" size="lg" event={secondaryCta.event}>
+              <Button href={secondaryCta.href} variant="secondary" size="lg" className="w-full sm:w-auto" event={secondaryCta.event}>
                 {secondaryCta.label}
               </Button>
             )}

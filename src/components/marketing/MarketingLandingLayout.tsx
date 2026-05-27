@@ -1,3 +1,4 @@
+import { ResponsiveDataTable } from "@/components/marketing/ResponsiveDataTable";
 import { PageHero } from "@/components/marketing/PageHero";
 import { Section, SectionHeader } from "@/components/marketing/Section";
 import { FAQSection } from "@/components/marketing/FAQSection";
@@ -61,36 +62,10 @@ export function MarketingLandingLayout({ page }: { page: LandingPageContent }) {
             </div>
           )}
           {section.type === "table" && (
-            <div className="overflow-x-auto glass-panel">
-              <table className="w-full min-w-[640px] text-left text-sm">
-                <thead>
-                  <tr className="border-b border-border-subtle">
-                    {section.table.headers.map((header) => (
-                      <th key={header} className="px-4 py-3 font-semibold text-navy">
-                        {header}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody>
-                  {section.table.rows.map((row, rowIndex) => (
-                    <tr key={rowIndex} className="border-b border-border-subtle last:border-0">
-                      {row.map((cell, cellIndex) => (
-                        <td
-                          key={cellIndex}
-                          className={cn(
-                            "px-4 py-3 text-muted-foreground",
-                            cellIndex === 0 && "font-medium text-charcoal",
-                          )}
-                        >
-                          {cell}
-                        </td>
-                      ))}
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+            <ResponsiveDataTable
+              headers={section.table.headers}
+              rows={section.table.rows}
+            />
           )}
           {section.type === "steps" && (
             <ol className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -139,12 +114,12 @@ export function MarketingLandingLayout({ page }: { page: LandingPageContent }) {
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="text-2xl font-semibold text-navy sm:text-3xl">{page.finalCtaHeading}</h2>
           <p className="mt-4 text-base leading-relaxed text-muted-foreground">{page.finalCtaCopy}</p>
-          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Button href={finalHref} size="lg" event={finalEvent}>
+          <div className="mt-8 flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:items-center sm:justify-center">
+            <Button href={finalHref} size="lg" className="w-full sm:w-auto" event={finalEvent}>
               {page.finalCta}
             </Button>
             {page.primaryCtaHref !== "start" ? (
-              <Button href={site.startUrl} variant="secondary" size="lg" event="cce_start_free_click">
+              <Button href={site.startUrl} variant="secondary" size="lg" className="w-full sm:w-auto" event="cce_start_free_click">
                 {siteCta.primary}
               </Button>
             ) : null}

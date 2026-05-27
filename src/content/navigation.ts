@@ -6,6 +6,44 @@ export const productLinks = [
   { label: "AI image prompts", href: "/features/ai-image-prompts" },
 ] as const;
 
+export const mobileNavGroups = [
+  {
+    title: "Product",
+    links: [
+      { label: "How it works", href: "/how-it-works" },
+      { label: "Pricing", href: "/pricing" },
+      { label: "Brand profile", href: "/features/brand-profile" },
+      { label: "Content queue", href: "/features/content-queue" },
+      { label: "LinkedIn content system", href: "/features/linkedin-content-system" },
+      { label: "AI image prompts", href: "/features/ai-image-prompts" },
+    ],
+  },
+  {
+    title: "Use cases",
+    links: [
+      { label: "Founders", href: "/use-cases/founders" },
+      { label: "Consultants", href: "/use-cases/consultants" },
+      { label: "Agencies", href: "/use-cases/agencies" },
+      { label: "Lean teams", href: "/use-cases/lean-teams" },
+    ],
+  },
+  {
+    title: "Resources",
+    links: [
+      { label: "Blog", href: "/blog" },
+      { label: "Free AI content planner", href: "/free-ai-content-planner" },
+      { label: "ChatGPT vs CRISP", href: "/compare/chatgpt-vs-crisp-content-engine" },
+      { label: "Content calendar vs content engine", href: "/compare/content-calendar-vs-content-engine" },
+    ],
+  },
+  {
+    title: "Account",
+    links: [
+      { label: "Login", href: "https://app.crispdigital.io", external: true },
+    ],
+  },
+] as const;
+
 export const navLinks = [
   { label: "How it works", href: "/how-it-works" },
   { label: "Use cases", href: "/use-cases" },

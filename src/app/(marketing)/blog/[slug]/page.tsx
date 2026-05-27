@@ -64,10 +64,10 @@ export default async function BlogPostPage({ params }: Props) {
           <span className="text-xs font-medium uppercase tracking-wider text-accent">
             {post.category}
           </span>
-          <h1 className="mt-3 text-3xl font-semibold tracking-tight text-navy sm:text-4xl">
+          <h1 className="mt-3 text-[1.75rem] font-semibold leading-[1.15] tracking-tight text-navy sm:text-4xl">
             {post.title}
           </h1>
-          <p className="mt-4 text-sm text-muted">
+          <p className="mt-4 text-sm text-muted sm:text-base">
             Published{" "}
             {new Date(post.publishedAt).toLocaleDateString("en-GB", {
               day: "numeric",
@@ -79,14 +79,14 @@ export default async function BlogPostPage({ params }: Props) {
             <ArticleContent blocks={post.blocks} />
           </div>
           <ArticleCta label={post.cta} href={post.ctaHref ?? site.startUrl} />
-          <div className="mt-8 flex flex-wrap gap-3 border-t border-border-subtle pt-8">
-            <Button href={post.ctaHref ?? site.startUrl} event="cce_blog_cta_click">
+          <div className="mt-8 flex w-full flex-col gap-3 border-t border-border-subtle pt-8 sm:w-auto sm:flex-row sm:flex-wrap">
+            <Button href={post.ctaHref ?? site.startUrl} className="w-full sm:w-auto" event="cce_blog_cta_click">
               {post.ctaHref === "/contact" ? post.cta : "Start free, no card required"}
             </Button>
-            <Button href="/pricing" variant="secondary" event="cce_pricing_cta_click">
+            <Button href="/pricing" variant="secondary" className="w-full sm:w-auto" event="cce_pricing_cta_click">
               View pricing
             </Button>
-            <Button href="/features/brand-profile" variant="secondary" event="cce_feature_cta_click">
+            <Button href="/features/brand-profile" variant="secondary" className="w-full sm:w-auto" event="cce_feature_cta_click">
               Brand profile
             </Button>
           </div>

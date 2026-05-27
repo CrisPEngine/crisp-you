@@ -17,7 +17,7 @@ export function RelatedLinks({ heading = "Related pages", links }: RelatedLinksP
             <Link
               key={link.href}
               href={link.href}
-              className="glass-panel glass-panel-interactive block p-4 text-sm font-medium text-charcoal hover:text-navy"
+              className="glass-panel glass-panel-interactive block min-h-11 p-4 text-sm font-medium leading-snug text-charcoal hover:text-navy"
             >
               {link.label}
             </Link>

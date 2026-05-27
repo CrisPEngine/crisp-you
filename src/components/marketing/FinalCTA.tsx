@@ -24,11 +24,11 @@ export function FinalCTA() {
           {finalCta.heading}
         </h2>
         <p className="mt-5 text-lg leading-relaxed text-muted-foreground">{finalCta.body}</p>
-        <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <Button href={site.startUrl} size="lg" event="cce_start_free_click">
+        <div className="mt-8 flex w-full flex-col items-stretch gap-3 sm:mt-9 sm:w-auto sm:flex-row sm:items-center sm:justify-center">
+          <Button href={site.startUrl} size="lg" className="w-full sm:w-auto" event="cce_start_free_click">
             Start free, no card required
           </Button>
-          <Button href="/pricing" variant="secondary" size="lg" event="cce_pricing_cta_click">
+          <Button href="/pricing" variant="secondary" size="lg" className="w-full sm:w-auto" event="cce_pricing_cta_click">
             View pricing
           </Button>
         </div>

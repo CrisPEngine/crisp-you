@@ -1,3 +1,4 @@
+import { ResponsiveDataTable } from "@/components/marketing/ResponsiveDataTable";
 import { createMetadata } from "@/lib/metadata";
 import { contentQueuePage } from "@/content/pages";
 import { site } from "@/config/site";
@@ -57,26 +58,10 @@ export default function ContentQueuePage() {
 
       <Section tone="warm">
         <SectionHeader heading={contentQueuePage.workflowHeading} />
-        <div className="overflow-x-auto glass-panel">
-          <table className="w-full min-w-[720px] text-left text-sm">
-            <thead>
-              <tr className="border-b border-border-subtle">
-                <th className="px-4 py-3 font-semibold text-navy">Stage</th>
-                <th className="px-4 py-3 font-semibold text-navy">What happens</th>
-                <th className="px-4 py-3 font-semibold text-navy">Why it matters</th>
-              </tr>
-            </thead>
-            <tbody>
-              {contentQueuePage.workflowStages.map((row) => (
-                <tr key={row.stage} className="border-b border-border-subtle last:border-0">
-                  <td className="px-4 py-3 font-medium text-charcoal">{row.stage}</td>
-                  <td className="px-4 py-3 text-muted-foreground">{row.happens}</td>
-                  <td className="px-4 py-3 text-muted-foreground">{row.matters}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+        <ResponsiveDataTable
+          headers={["Stage", "What happens", "Why it matters"]}
+          rows={contentQueuePage.workflowStages.map((row) => [row.stage, row.happens, row.matters])}
+        />
         <div className="mt-8">
           <Button href={site.startUrl} size="lg" event="cce_feature_cta_click">
             {contentQueuePage.ctaHeading}

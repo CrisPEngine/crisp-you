@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { ArticleBlock } from "@/content/blog";
-import { cn } from "@/lib/utils";
+import { ResponsiveDataTable } from "./ResponsiveDataTable";
 
 function slugify(text: string) {
   return text
@@ -54,7 +54,7 @@ export function ArticleContent({ blocks }: { blocks: ArticleBlock[] }) {
               <h2
                 key={i}
                 id={id}
-                className="scroll-mt-36 pt-2 text-2xl font-semibold tracking-tight text-navy"
+                className="scroll-mt-28 pt-2 text-xl font-semibold tracking-tight text-navy sm:text-2xl"
               >
                 {block.text}
               </h2>
@@ -73,36 +73,12 @@ export function ArticleContent({ blocks }: { blocks: ArticleBlock[] }) {
             );
           case "table":
             return (
-              <div key={i} className="overflow-x-auto glass-panel">
-                <table className="w-full min-w-[480px] text-left text-sm">
-                  <thead>
-                    <tr className="border-b border-border-subtle">
-                      {block.headers.map((header) => (
-                        <th key={header} className="px-4 py-3 font-semibold text-navy">
-                          {header}
-                        </th>
-                      ))}
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {block.rows.map((row, rowIndex) => (
-                      <tr key={rowIndex} className="border-b border-border-subtle last:border-0">
-                        {row.map((cell, cellIndex) => (
-                          <td
-                            key={cellIndex}
-                            className={cn(
-                              "px-4 py-3 text-muted-foreground",
-                              cellIndex === 0 && "font-medium text-charcoal",
-                            )}
-                          >
-                            {cell}
-                          </td>
-                        ))}
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
+              <ResponsiveDataTable
+                key={i}
+                headers={block.headers}
+                rows={block.rows}
+                minWidth="480px"
+              />
             );
           case "steps":
             return (

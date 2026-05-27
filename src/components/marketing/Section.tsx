@@ -29,7 +29,7 @@ export function Section({
     <section
       id={id}
       className={cn(
-        "py-16 sm:py-20 lg:py-24",
+        "py-12 sm:py-20 lg:py-24",
         toneClasses[resolvedTone],
         className,
       )}

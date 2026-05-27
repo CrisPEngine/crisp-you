@@ -42,53 +42,82 @@ export function InteractiveCapabilitySystem() {
   );
 
   return (
-    <div className="grid gap-6 lg:grid-cols-12">
-      <div className="lg:col-span-5">
-        <CapabilityDetailPanel
-          capability={active}
-          panelId="capability-detail-panel"
-          labelledBy={`capability-tab-${active.id}`}
-          animateKey={active.id}
-        />
+    <>
+      <div className="space-y-3 lg:hidden">
+        {capabilities.map((capability, index) => (
+          <div key={capability.id}>
+            <CapabilitySelectorCard
+              ref={(node) => {
+                tabRefs.current[index] = node;
+              }}
+              capability={capability}
+              isActive={index === activeIndex}
+              tabId={`capability-tab-mobile-${capability.id}`}
+              onSelect={() => setActiveIndex(index)}
+              onKeyDown={(event) => handleTabKeyDown(event, index)}
+            />
+            {index === activeIndex ? (
+              <div className="mt-3">
+                <CapabilityDetailPanel
+                  capability={capability}
+                  panelId="capability-detail-panel-mobile"
+                  labelledBy={`capability-tab-mobile-${capability.id}`}
+                  animateKey={capability.id}
+                />
+              </div>
+            ) : null}
+          </div>
+        ))}
       </div>
 
-      <div
-        className="relative lg:col-span-7"
-        role="tablist"
-        aria-label="Product capabilities"
-      >
-        <div
-          className="pointer-events-none absolute bottom-6 left-[1.65rem] top-6 hidden w-px lg:block"
-          aria-hidden="true"
-        >
-          <span className="absolute inset-0 bg-accent/10" />
-          <span
-            className="absolute left-0 top-0 w-full bg-accent/35 transition-[height] duration-500 ease-out"
-            style={{ height: `${((activeIndex + 1) / capabilities.length) * 100}%` }}
+      <div className="hidden gap-6 lg:grid lg:grid-cols-12">
+        <div className="lg:col-span-5">
+          <CapabilityDetailPanel
+            capability={active}
+            panelId="capability-detail-panel"
+            labelledBy={`capability-tab-${active.id}`}
+            animateKey={active.id}
           />
         </div>
 
-        <div className="space-y-3">
-          {capabilities.map((capability, index) => (
-            <div
-              key={capability.id}
-              className="lg:transition-[margin] lg:duration-300"
-              style={{ marginLeft: index === 0 ? 0 : `${Math.min(index, 5) * 6}px` }}
-            >
-              <CapabilitySelectorCard
-                ref={(node) => {
-                  tabRefs.current[index] = node;
-                }}
-                capability={capability}
-                isActive={index === activeIndex}
-                tabId={`capability-tab-${capability.id}`}
-                onSelect={() => setActiveIndex(index)}
-                onKeyDown={(event) => handleTabKeyDown(event, index)}
-              />
-            </div>
-          ))}
+        <div
+          className="relative lg:col-span-7"
+          role="tablist"
+          aria-label="Product capabilities"
+        >
+          <div
+            className="pointer-events-none absolute bottom-6 left-[1.65rem] top-6 hidden w-px lg:block"
+            aria-hidden="true"
+          >
+            <span className="absolute inset-0 bg-accent/10" />
+            <span
+              className="absolute left-0 top-0 w-full bg-accent/35 transition-[height] duration-500 ease-out motion-reduce:transition-none"
+              style={{ height: `${((activeIndex + 1) / capabilities.length) * 100}%` }}
+            />
+          </div>
+
+          <div className="space-y-3">
+            {capabilities.map((capability, index) => (
+              <div
+                key={capability.id}
+                className="lg:transition-[margin] lg:duration-300 motion-reduce:transition-none"
+                style={{ marginLeft: index === 0 ? 0 : `${Math.min(index, 5) * 6}px` }}
+              >
+                <CapabilitySelectorCard
+                  ref={(node) => {
+                    tabRefs.current[index] = node;
+                  }}
+                  capability={capability}
+                  isActive={index === activeIndex}
+                  tabId={`capability-tab-${capability.id}`}
+                  onSelect={() => setActiveIndex(index)}
+                  onKeyDown={(event) => handleTabKeyDown(event, index)}
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

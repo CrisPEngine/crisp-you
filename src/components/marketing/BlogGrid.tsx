@@ -25,11 +25,11 @@ export function BlogGrid({ posts, categories }: BlogGridProps) {
   return (
     <>
       {featured ? (
-        <article className="cce-panel-highlight mb-10 overflow-hidden rounded-2xl p-6 sm:p-8">
+        <article className="cce-panel-highlight mb-8 overflow-hidden rounded-2xl p-5 sm:mb-10 sm:p-8">
           <span className="text-[11px] font-semibold uppercase tracking-[0.12em] text-accent">
             Featured · {featured.category}
           </span>
-          <h2 className="mt-3 max-w-3xl text-2xl font-semibold text-navy sm:text-3xl">
+          <h2 className="mt-3 max-w-3xl text-xl font-semibold text-navy sm:text-2xl lg:text-3xl">
             <Link href={`/blog/${featured.slug}`} className="hover:text-accent">
               {featured.title}
             </Link>
@@ -98,17 +98,17 @@ export function BlogGrid({ posts, categories }: BlogGridProps) {
         ))}
       </div>
 
-      <div className="mt-10 flex flex-wrap gap-3">
-        <Button href="/features/brand-profile" variant="secondary" event="cce_feature_cta_click">
+      <div className="mt-8 flex w-full flex-col gap-3 sm:flex-row sm:flex-wrap">
+        <Button href="/features/brand-profile" variant="secondary" className="w-full sm:w-auto" event="cce_feature_cta_click">
           Brand profile
         </Button>
-        <Button href="/features/linkedin-content-system" variant="secondary" event="cce_feature_cta_click">
+        <Button href="/features/linkedin-content-system" variant="secondary" className="w-full sm:w-auto" event="cce_feature_cta_click">
           LinkedIn system
         </Button>
-        <Button href="/free-ai-content-planner" variant="secondary" event="cce_start_free_click">
+        <Button href="/free-ai-content-planner" variant="secondary" className="w-full sm:w-auto" event="cce_start_free_click">
           Free content planner
         </Button>
-        <Button href="/pricing" variant="secondary" event="cce_pricing_cta_click">
+        <Button href="/pricing" variant="secondary" className="w-full sm:w-auto" event="cce_pricing_cta_click">
           View pricing
         </Button>
       </div>

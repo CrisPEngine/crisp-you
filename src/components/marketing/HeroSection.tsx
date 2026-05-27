@@ -5,7 +5,7 @@ import { HeroSystemMap } from "./HeroSystemMap";
 
 export function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-background pt-10 pb-16 sm:pt-14 sm:pb-20 lg:pt-20 lg:pb-28">
+    <section className="relative overflow-hidden bg-background pt-8 pb-14 sm:pt-14 sm:pb-20 lg:pt-20 lg:pb-28">
       <div
         className="grid-bg pointer-events-none absolute inset-0 fade-mask-radial opacity-40"
         aria-hidden="true"
@@ -20,20 +20,20 @@ export function HeroSection() {
                 {hero.eyebrow}
               </p>
             </div>
-            <h1 className="mt-5 text-[2.5rem] font-semibold tracking-tight text-navy sm:text-5xl lg:text-[3.5rem] lg:leading-[1.05]">
+            <h1 className="mt-5 text-[1.75rem] font-semibold leading-[1.15] tracking-tight text-navy sm:text-4xl sm:leading-tight lg:text-[3.5rem] lg:leading-[1.05]">
               {hero.headline}
             </h1>
-            <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
+            <p className="mt-5 max-w-prose text-base leading-relaxed text-muted-foreground sm:mt-6 sm:text-lg">
               {hero.subheadline}
             </p>
-            <p className="mt-4 text-base leading-relaxed text-charcoal">
+            <p className="mt-3 max-w-prose text-sm leading-relaxed text-charcoal sm:mt-4 sm:text-base">
               {hero.supporting}
             </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <Button href={site.startUrl} size="lg" event="cce_start_free_click">
+            <div className="mt-7 flex w-full flex-col gap-3 sm:mt-8 sm:w-auto sm:flex-row sm:items-center">
+              <Button href={site.startUrl} size="lg" className="w-full sm:w-auto" event="cce_start_free_click">
                 {cta.primary}
               </Button>
-              <Button href="/how-it-works" variant="secondary" size="lg" event="cce_feature_cta_click">
+              <Button href="/how-it-works" variant="secondary" size="lg" className="w-full sm:w-auto" event="cce_feature_cta_click">
                 See how CRISP works
               </Button>
             </div>
@@ -41,7 +41,7 @@ export function HeroSection() {
               {hero.trustStrip}
             </p>
           </div>
-          <div className="relative">
+          <div className="relative min-w-0 overflow-hidden">
             <HeroSystemMap />
           </div>
         </div>

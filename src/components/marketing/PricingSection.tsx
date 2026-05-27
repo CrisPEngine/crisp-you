@@ -75,15 +75,15 @@ export function PricingSection({ showHeading = true, id }: PricingSectionProps) 
             <div
               key={tier.id}
               className={cn(
-                "glass-panel relative flex flex-col p-6",
+                "glass-panel relative flex flex-col p-5 sm:p-6",
                 tier.highlighted
                   ? "glass-panel-interactive border-accent/40 ring-1 ring-accent/30 xl:-translate-y-1"
                   : "glass-panel-interactive",
               )}
             >
               {tier.highlighted && (
-                <span className="absolute -top-3 left-6 inline-flex items-center gap-1 rounded-full bg-accent px-2.5 py-0.5 text-[11px] font-semibold text-cta-foreground shadow-[var(--shadow-sm)]">
-                  <span className="h-1 w-1 rounded-full bg-cta-foreground/80" aria-hidden="true" />
+                <span className="absolute -top-3 left-4 inline-flex max-w-[calc(100%-2rem)] items-center gap-1 rounded-full bg-accent px-2.5 py-0.5 text-[11px] font-semibold text-cta-foreground shadow-[var(--shadow-sm)] sm:left-6">
+                  <span className="h-1 w-1 shrink-0 rounded-full bg-cta-foreground/80" aria-hidden="true" />
                   Most popular
                 </span>
               )}
@@ -104,7 +104,7 @@ export function PricingSection({ showHeading = true, id }: PricingSectionProps) 
               </p>
               <ul className="mt-5 flex-1 space-y-2.5 border-t border-border-subtle pt-5">
                 {tier.includes.map((item) => (
-                  <li key={item} className="flex items-start gap-2 text-[13px] leading-snug text-charcoal">
+                  <li key={item} className="flex items-start gap-2 text-sm leading-snug text-charcoal">
                     <svg
                       className="mt-0.5 h-3.5 w-3.5 shrink-0 text-accent"
                       fill="none"

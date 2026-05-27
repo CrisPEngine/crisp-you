@@ -11,7 +11,7 @@ export function DifferentiationTable() {
       />
 
       <div className="grid overflow-hidden rounded-2xl border border-border bg-surface shadow-[var(--shadow-md)] lg:grid-cols-2">
-        <div className="relative border-b border-border bg-surface-muted p-8 lg:border-b-0 lg:border-r lg:p-10">
+        <div className="relative border-b border-border bg-surface-muted p-6 sm:p-8 lg:border-b-0 lg:border-r lg:p-10">
           <div className="flex items-center justify-between">
             <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-muted">
               {differentiation.typical.label}
@@ -40,7 +40,7 @@ export function DifferentiationTable() {
           </ul>
         </div>
 
-        <div className="cce-panel-highlight relative overflow-hidden p-8 lg:p-10">
+        <div className="cce-panel-highlight relative overflow-hidden p-6 sm:p-8 lg:p-10">
           <div
             className="grid-bg-fine pointer-events-none absolute inset-0 opacity-40"
             aria-hidden="true"

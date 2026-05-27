@@ -118,12 +118,18 @@ body {
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 9rem;
+  scroll-padding-top: 4.5rem;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 640px) {
   html {
-    scroll-padding-top: 10.5rem;
+    scroll-padding-top: 5rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  html {
+    scroll-padding-top: 7rem;
   }
 }
 

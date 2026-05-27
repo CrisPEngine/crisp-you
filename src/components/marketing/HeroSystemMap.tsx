@@ -42,12 +42,12 @@ function ChannelDot({ name }: { name: "LinkedIn" | "X" | "Meta" | "Blog" }) {
 export function HeroSystemMap() {
   return (
     <div
-      className="relative"
+      className="relative max-w-full overflow-hidden"
       aria-label="CRISP visibility system map showing brand profile flowing through strategy, queue, review and channel outputs"
       role="img"
     >
       <div
-        className="pointer-events-none absolute -inset-6 rounded-[2rem] opacity-80 blur-2xl"
+        className="pointer-events-none absolute -inset-3 rounded-[2rem] opacity-60 blur-xl sm:-inset-6 sm:opacity-80 sm:blur-2xl"
         aria-hidden="true"
         style={{
           backgroundImage:

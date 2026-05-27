@@ -1,3 +1,4 @@
+import { ResponsiveDataTable } from "@/components/marketing/ResponsiveDataTable";
 import Link from "next/link";
 import { createMetadata } from "@/lib/metadata";
 import { useCasesPage } from "@/content/pages";
@@ -49,24 +50,12 @@ export default function UseCasesPage() {
               <p className="mt-4 max-w-3xl text-base leading-relaxed text-muted-foreground">
                 {useCase.copy}
               </p>
-              <div className="mt-6 overflow-x-auto">
-                <table className="w-full min-w-[640px] text-left text-sm">
-                  <thead>
-                    <tr className="border-b border-border-subtle">
-                      <th className="px-3 py-2 font-semibold text-navy">Need</th>
-                      <th className="px-3 py-2 font-semibold text-navy">CRISP workflow</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {useCase.workflow.map((row) => (
-                      <tr key={row.need} className="border-b border-border-subtle last:border-0">
-                        <td className="px-3 py-3 font-medium text-charcoal">{row.need}</td>
-                        <td className="px-3 py-3 text-muted-foreground">{row.workflow}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
+              <ResponsiveDataTable
+                className="mt-6"
+                headers={["Need", "CRISP workflow"]}
+                rows={useCase.workflow.map((row) => [row.need, row.workflow])}
+                minWidth="480px"
+              />
               <div className="mt-6 flex flex-wrap gap-3">
                 <Button href={site.startUrl} event="cce_start_free_click">
                   {useCase.cta}
