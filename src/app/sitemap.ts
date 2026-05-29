@@ -7,7 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return buildSitemapPaths().map((path) => {
     const meta = getRouteMeta(path);
     return {
-      url: `${site.domain}${path}`,
+      url: `${site.url}${path}`,
       lastModified,
       changeFrequency: meta.changeFrequency ?? "monthly",
       priority: meta.priority ?? 0.7,

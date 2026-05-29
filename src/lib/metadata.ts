@@ -15,10 +15,10 @@ export function createMetadata({
   path = "",
   ogImage = brand.ogImage,
 }: PageMeta): Metadata {
-  const url = `${siteConfig.domain}${path}`;
+  const url = `${siteConfig.url}${path}`;
   const imageUrl = ogImage.startsWith("http")
     ? ogImage
-    : `${siteConfig.domain}${ogImage}`;
+    : `${siteConfig.url}${ogImage}`;
 
   return {
     title,

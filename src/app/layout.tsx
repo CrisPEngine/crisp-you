@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
 const googleVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
 
 export const metadata: Metadata = {
-  metadataBase: new URL(site.domain),
+  metadataBase: new URL(site.url),
   title: {
     default: "CRISP Content Engine",
     template: "%s",

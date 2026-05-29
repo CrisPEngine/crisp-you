@@ -2,7 +2,7 @@ import { site } from "@/config/site";
 
 export const siteConfig = {
   name: site.name,
-  domain: site.domain,
+  url: site.url,
   tagline:
     "A structured content system for founders, consultants, agencies and lean teams.",
   urls: {

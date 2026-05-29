@@ -1,4 +1,4 @@
-import { site, socialLinks } from "@/config/site";
+import { site, brand, socialLinks } from "@/config/site";
 import { faq } from "@/content/marketing";
 import { pricingContent } from "@/config/pricing";
 import type { BlogPost } from "@/content/blog";
@@ -9,7 +9,7 @@ export function organizationSchema() {
     "@type": "Organization",
     name: site.name,
     legalName: site.legalName,
-    url: site.domain,
+    url: site.url,
     email: site.contactEmail,
     parentOrganization: {
       "@type": "Organization",
@@ -24,7 +24,7 @@ export function websiteSchema() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: site.name,
-    url: site.domain,
+    url: site.url,
     description:
       "A content operating system for founders, consultants and lean teams.",
     publisher: {
@@ -137,10 +137,10 @@ export function articleSchema(post: BlogPost) {
     publisher: {
       "@type": "Organization",
       name: site.name,
-      url: site.domain,
+      url: site.url,
     },
-    mainEntityOfPage: `${site.domain}/blog/${post.slug}`,
-    image: `${site.domain}/opengraph-image`,
+    mainEntityOfPage: `${site.url}/blog/${post.slug}`,
+    image: `${site.url}${brand.ogImage}`,
   };
 }
 
@@ -152,7 +152,7 @@ export function breadcrumbSchema(items: { name: string; path: string }[]) {
       "@type": "ListItem",
       position: index + 1,
       name: item.name,
-      item: `${site.domain}${item.path}`,
+      item: `${site.url}${item.path}`,
     })),
   };
 }
@@ -162,7 +162,7 @@ export function blogSchema() {
     "@context": "https://schema.org",
     "@type": "Blog",
     name: "Content Systems Blog",
-    url: `${site.domain}/blog`,
+    url: `${site.url}/blog`,
     publisher: {
       "@type": "Organization",
       name: site.name,

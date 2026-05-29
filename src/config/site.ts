@@ -1,14 +1,16 @@
 /**
  * Site URLs and domain configuration.
  * Update these once final signup routes and Stripe checkout URLs are confirmed.
+ *
+ * The canonical production domain for the public CCE marketing site is https://crisp.you.
+ * Vercel preview URLs should never be used in canonical metadata, sitemap, llms files or structured data.
  */
 export const site = {
   name: "CRISP Content Engine",
   legalName: "ABL International FZE",
   creator: "CrisP Digital",
   contactEmail: "enquiries@crispdigital.io",
-  domain:
-    process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ?? "https://crisp.you",
+  url: "https://crisp.you",
   // App and billing URLs, confirm against production routing
   startUrl: "https://app.crispdigital.io",
   loginUrl: "https://app.crispdigital.io",
