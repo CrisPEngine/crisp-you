@@ -83,5 +83,6 @@ enquiries@crispdigital.io
 https://crisp.you/contact
 
 Legal:
-https://crisp.you/privacy
-https://crisp.you/terms
+Privacy Policy: https://crisp.you/privacy
+Cookies Policy: https://crisp.you/cookies
+Terms of Service: https://crisp.you/terms

@@ -25,6 +25,15 @@ Pre-deploy verification for the CRISP Content Engine marketing site.
 5. Spot-check feature pages: `/features/brand-profile`, `/features/content-queue`, `/features/linkedin-content-system`, `/features/ai-image-prompts`
 6. Spot-check comparison pages: `/compare/chatgpt-vs-crisp-content-engine`, `/compare/content-calendar-vs-content-engine`
 7. Open `/free-ai-content-planner`
+8. Open legal pages: `/privacy`, `/cookies`, `/terms`
+
+## App legal links
+
+This repo does not control the app footer at app.crispdigital.io. Before launch, update app footer legal links to:
+
+- https://crisp.you/privacy
+- https://crisp.you/cookies
+- https://crisp.you/terms
 
 ## If production shows old content
 
@@ -38,6 +47,7 @@ Pre-deploy verification for the CRISP Content Engine marketing site.
 - Landing pages: `src/content/landing-pages/`
 - Route registry: `src/content/routes.ts`
 - Sitemap: `src/app/sitemap.ts` (uses route registry)
+- Legal pages: `src/content/legal-pages.ts`
 - LLMs files: `public/llms.txt`, `public/llms-full.txt`
 
 Legacy files under `src/content/` (for example `compare.ts`, `features-extra.ts`) are not used by current routes. Do not delete without confirming imports.

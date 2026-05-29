@@ -1,4 +1,9 @@
 import { site } from "@/config/site";
+import {
+  cookiesPolicyPage,
+  privacyPolicyPage,
+  termsOfServicePage,
+} from "@/content/legal-pages";
 
 export const siteConfig = {
   name: site.name,
@@ -461,12 +466,16 @@ export const pricingPage = {
 
 export const legalPages = {
   privacy: {
-    title: "Privacy Policy",
-    description: "Privacy policy for CRISP Content Engine.",
+    title: privacyPolicyPage.title,
+    description: privacyPolicyPage.description,
+  },
+  cookies: {
+    title: cookiesPolicyPage.title,
+    description: cookiesPolicyPage.description,
   },
   terms: {
-    title: "Terms of Service",
-    description: "Terms of service for CRISP Content Engine.",
+    title: termsOfServicePage.title,
+    description: termsOfServicePage.description,
   },
   contact: {
     title: "Contact",

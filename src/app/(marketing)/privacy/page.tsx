@@ -1,13 +1,14 @@
 import { createMetadata } from "@/lib/metadata";
-import { privacyPage } from "@/content/pages";
+import { privacyPolicyPage } from "@/content/legal-pages";
 import { breadcrumbSchema } from "@/lib/schema";
 import { StructuredData } from "@/components/marketing/StructuredData";
 import { Section } from "@/components/marketing/Section";
+import { LegalPageRenderer } from "@/components/marketing/LegalPageRenderer";
 
 export const metadata = createMetadata({
-  title: "Privacy Policy | CRISP Content Engine",
-  description: privacyPage.description,
-  path: "/privacy",
+  title: privacyPolicyPage.seoTitle,
+  description: privacyPolicyPage.description,
+  path: privacyPolicyPage.path,
 });
 
 export default function PrivacyPage() {
@@ -16,22 +17,16 @@ export default function PrivacyPage() {
       <StructuredData
         data={breadcrumbSchema([
           { name: "Home", path: "/" },
-          { name: "Privacy", path: "/privacy" },
+          { name: "Privacy Policy", path: "/privacy" },
         ])}
       />
       <Section className="pt-12 sm:pt-16">
         <h1 className="text-3xl font-semibold tracking-tight text-navy sm:text-4xl">
-          {privacyPage.title}
+          {privacyPolicyPage.title}
         </h1>
-        <div className="mt-10 max-w-3xl space-y-8">
-          {privacyPage.sections.map((section) => (
-            <section key={section.heading}>
-              <h2 className="text-xl font-semibold text-navy">{section.heading}</h2>
-              <p className="mt-3 text-base leading-relaxed text-muted-foreground">
-                {section.body}
-              </p>
-            </section>
-          ))}
+        <p className="mt-3 text-sm text-muted">{privacyPolicyPage.updated}</p>
+        <div className="mt-10">
+          <LegalPageRenderer page={privacyPolicyPage} />
         </div>
       </Section>
     </>

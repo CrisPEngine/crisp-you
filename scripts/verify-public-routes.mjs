@@ -24,6 +24,7 @@ const REQUIRED_PATHS = [
   "/blog",
   "/contact",
   "/privacy",
+  "/cookies",
   "/terms",
   "/use-cases/founders",
   "/use-cases/consultants",

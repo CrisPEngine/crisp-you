@@ -84,6 +84,8 @@ https://crisp.you/blog/multi-brand-content-management-for-agencies
 
 ## Legal
 
-Privacy: https://crisp.you/privacy
-Terms: https://crisp.you/terms
-Contact: enquiries@crispdigital.io
+Privacy Policy: https://crisp.you/privacy
+Cookies Policy: https://crisp.you/cookies
+Terms of Service: https://crisp.you/terms
+Contact: https://crisp.you/contact
+Product enquiries: enquiries@crispdigital.io

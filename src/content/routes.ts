@@ -165,7 +165,16 @@ export const utilityRoutes: PublicRoute[] = [
 export const legalRoutes: PublicRoute[] = [
   defineRoute({
     path: "/privacy",
-    label: "Privacy",
+    label: "Privacy Policy",
+    type: "legal",
+    includeInSitemap: true,
+    includeInLlms: true,
+    changeFrequency: "monthly",
+    priority: 0.5,
+  }),
+  defineRoute({
+    path: "/cookies",
+    label: "Cookies Policy",
     type: "legal",
     includeInSitemap: true,
     includeInLlms: true,
@@ -174,7 +183,7 @@ export const legalRoutes: PublicRoute[] = [
   }),
   defineRoute({
     path: "/terms",
-    label: "Terms",
+    label: "Terms of Service",
     type: "legal",
     includeInSitemap: true,
     includeInLlms: true,

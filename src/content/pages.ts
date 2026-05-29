@@ -1,4 +1,5 @@
 import { site, cta } from "@/config/site";
+import { privacyPolicyPage, termsOfServicePage } from "@/content/legal-pages";
 
 export const pricingPage = {
   headline: "Pricing built around a practical content rhythm",
@@ -314,88 +315,16 @@ export const contactPage = {
   ],
 } as const;
 
+/** @deprecated Use privacyPolicyPage from @/content/legal-pages */
 export const privacyPage = {
-  title: "Privacy Policy",
-  description: "Privacy policy for CRISP Content Engine.",
-  sections: [
-    {
-      heading: "Who operates this product",
-      body: "CRISP Content Engine is created and developed by CrisP Digital trading as ABL International FZE. For privacy enquiries, contact enquiries@crispdigital.io.",
-    },
-    {
-      heading: "Information you provide",
-      body: "When you create an account, contact us or use CRISP Content Engine, we may collect information such as your name, email address, account details, brand profile content, content drafts and support messages.",
-    },
-    {
-      heading: "Product usage information",
-      body: "We may collect information about how the product is used, including feature activity, workflow actions, device and browser data, log data and error reports. This helps us operate, secure and improve the service.",
-    },
-    {
-      heading: "Payments",
-      body: "Paid plans are processed by Stripe. Payment details are handled by Stripe according to its own privacy policy. The merchant name on statements is ABL International.",
-    },
-    {
-      heading: "Analytics and cookies",
-      body: "We may use analytics, cookies and similar technologies to understand site and product usage, improve performance and measure marketing effectiveness.",
-    },
-    {
-      heading: "Third-party services",
-      body: "We may use third-party services for hosting, analytics, payments, email delivery and publishing integrations. Those providers process data according to their own terms and policies.",
-    },
-    {
-      heading: "Contact",
-      body: "You can contact us at enquiries@crispdigital.io about privacy questions, access requests or account-related concerns.",
-    },
-    {
-      heading: "Legal review",
-      body: "This page is a launch placeholder and should be reviewed legally before final production use.",
-    },
-  ],
+  title: privacyPolicyPage.title,
+  description: privacyPolicyPage.description,
+  sections: [] as const,
 } as const;
 
+/** @deprecated Use termsOfServicePage from @/content/legal-pages */
 export const termsPage = {
-  title: "Terms of Service",
-  description: "Terms of service for CRISP Content Engine.",
-  sections: [
-    {
-      heading: "Product use",
-      body: "CRISP Content Engine is provided as a software service for planning, generating, reviewing and publishing content workflows. By using the product, you agree to use it lawfully and in line with these terms.",
-    },
-    {
-      heading: "Accounts",
-      body: "You are responsible for maintaining the security of your account and for activity that occurs under it.",
-    },
-    {
-      heading: "Plans and billing",
-      body: "Paid plans are billed according to the plan selected at checkout. Taxes may apply. Upgrade or cancel anytime unless otherwise stated at billing.",
-    },
-    {
-      heading: "Free plan",
-      body: "Starter is offered as a free forever plan with defined monthly limits. We may adjust free plan limits over time to keep the service sustainable.",
-    },
-    {
-      heading: "Acceptable use",
-      body: "You may not misuse the service, attempt to disrupt it, reverse engineer it unlawfully or use it to generate unlawful, infringing or harmful content.",
-    },
-    {
-      heading: "AI-assisted content and user responsibility",
-      body: "CRISP uses AI-assisted workflows to help create drafts and variations. You remain responsible for reviewing, approving and publishing content and for ensuring it is accurate, lawful and appropriate for your audience.",
-    },
-    {
-      heading: "Publishing integrations",
-      body: "Export and auto-publish features depend on connected accounts, platform permissions and plan limits. Availability may change as platforms and integrations evolve.",
-    },
-    {
-      heading: "Service changes",
-      body: "We may update features, pricing, limits or these terms over time. Material changes should be communicated through reasonable channels.",
-    },
-    {
-      heading: "Contact",
-      body: "For questions about these terms, contact enquiries@crispdigital.io.",
-    },
-    {
-      heading: "Legal review",
-      body: "This page is a launch placeholder and should be reviewed legally before final production use.",
-    },
-  ],
+  title: termsOfServicePage.title,
+  description: termsOfServicePage.description,
+  sections: [] as const,
 } as const;

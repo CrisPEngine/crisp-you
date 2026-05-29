@@ -56,11 +56,11 @@ export const footerColumns = [
     title: "Product",
     links: [
       { label: "How it works", href: "/how-it-works" },
-      { label: "Use cases", href: "/use-cases" },
+      { label: "Pricing", href: "/pricing" },
       { label: "Brand profile", href: "/features/brand-profile" },
       { label: "Content queue", href: "/features/content-queue" },
       { label: "LinkedIn system", href: "/features/linkedin-content-system" },
-      { label: "Pricing", href: "/pricing" },
+      { label: "AI image prompts", href: "/features/ai-image-prompts" },
     ],
   },
   {
@@ -73,22 +73,23 @@ export const footerColumns = [
     ],
   },
   {
-    title: "Company",
-    links: [
-      { label: "Contact", href: "/contact" },
-      { label: "Privacy", href: "/privacy" },
-      { label: "Terms", href: "/terms" },
-    ],
-  },
-  {
     title: "Resources",
     links: [
+      { label: "Blog", href: "/blog" },
       { label: "Free content planner", href: "/free-ai-content-planner" },
       { label: "ChatGPT vs CRISP", href: "/compare/chatgpt-vs-crisp-content-engine" },
       { label: "Calendar vs engine", href: "/compare/content-calendar-vs-content-engine" },
       { label: "Build a content system", href: "/blog/how-to-build-a-content-system-for-your-business" },
       { label: "Content system for founders", href: "/blog/content-system-for-founders" },
-      { label: "All articles", href: "/blog" },
+    ],
+  },
+  {
+    title: "Company",
+    links: [
+      { label: "Contact", href: "/contact" },
+      { label: "Privacy", href: "/privacy" },
+      { label: "Cookies", href: "/cookies" },
+      { label: "Terms", href: "/terms" },
     ],
   },
 ] as const;
